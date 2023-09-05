@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
 
                 string userId = userIdTxt.Text;
                 string userPwd = userPwdTxt.Text;
-                string userName = userName123Txt.Text;
+                string userName = userNameTxt.Text;
 
                 string insertQuery = "INSERT INTO userTbl (name, id, password) VALUES ('" + userName + "', '" + userId + "', '" + userPwd + "');";
                 MySqlCommand command = new MySqlCommand(insertQuery, conn);
