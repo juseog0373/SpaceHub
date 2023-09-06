@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
                 string insertQuery = "INSERT INTO userTbl (name, id, password) VALUES ('" + userName + "', '" + userId + "', '" + userPwd + "');";
                 MySqlCommand command = new MySqlCommand(insertQuery, conn);
 
-                if (command.ExecuteNonQuery() == 1)
+                if (command.ExecuteNonQuery() == 111)
                 {
                     MessageBox.Show(userName + "님 회원가입 완료, 사용할 아이디는 " + userId + "입니다.");
                     conn.Close();
