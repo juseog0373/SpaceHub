@@ -41,6 +41,7 @@
             // 
             // userAccountLabel
             // 
+            this.userAccountLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userAccountLabel.AutoSize = true;
             this.userAccountLabel.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userAccountLabel.Location = new System.Drawing.Point(223, 65);
@@ -52,6 +53,7 @@
             // 
             // userIdTxt
             // 
+            this.userIdTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userIdTxt.Location = new System.Drawing.Point(292, 152);
             this.userIdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -61,6 +63,7 @@
             // 
             // userIdLabel
             // 
+            this.userIdLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdLabel.AutoSize = true;
             this.userIdLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userIdLabel.Location = new System.Drawing.Point(158, 157);
@@ -72,6 +75,7 @@
             // 
             // userNameLabel
             // 
+            this.userNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userNameLabel.Location = new System.Drawing.Point(158, 291);
@@ -83,6 +87,7 @@
             // 
             // userPwdLabel
             // 
+            this.userPwdLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userPwdLabel.AutoSize = true;
             this.userPwdLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userPwdLabel.Location = new System.Drawing.Point(146, 220);
@@ -94,6 +99,7 @@
             // 
             // userPwdTxt
             // 
+            this.userPwdTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userPwdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userPwdTxt.Location = new System.Drawing.Point(293, 217);
             this.userPwdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -103,6 +109,7 @@
             // 
             // userNameTxt
             // 
+            this.userNameTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userNameTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userNameTxt.Location = new System.Drawing.Point(292, 288);
             this.userNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -112,13 +119,15 @@
             // 
             // accountActionBtn
             // 
+            this.accountActionBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.accountActionBtn.BackColor = System.Drawing.SystemColors.Control;
             this.accountActionBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.accountActionBtn.Location = new System.Drawing.Point(242, 370);
             this.accountActionBtn.Name = "accountActionBtn";
             this.accountActionBtn.Size = new System.Drawing.Size(84, 40);
             this.accountActionBtn.TabIndex = 7;
             this.accountActionBtn.Text = "회원가입";
-            this.accountActionBtn.UseVisualStyleBackColor = true;
+            this.accountActionBtn.UseVisualStyleBackColor = false;
             this.accountActionBtn.Click += new System.EventHandler(this.accountActionBtn_Click);
             // 
             // userAccountForm
@@ -138,6 +147,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "userAccountForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SpaceHub";
             this.Load += new System.EventHandler(this.userAccountForm_Load);
             this.ResumeLayout(false);
