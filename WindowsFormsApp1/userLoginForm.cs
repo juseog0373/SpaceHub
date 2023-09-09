@@ -43,30 +43,30 @@ namespace WindowsFormsApp1
                 int loginStatus = 0;
 
                 string userId = userIdTxt.Text;
-                string userPwd = userPwdTxt.Text;
+                string userPw = userPwTxt.Text;
 
-                string selectQuery = "SELECT * FROM userTbl WHERE userId = \'" + userId + "\' ";
+                string sql = string.Format("SELECT * FROM userTbl WHERE userId = '{0}' AND userPw = '{1}'", userId, userPw);
 
-                MySqlCommand Selectcommand = new MySqlCommand(selectQuery, conn);
-                MySqlDataReader userAccount = Selectcommand.ExecuteReader();
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader data = command.ExecuteReader();
 
-                while (userAccount.Read())
+                while (data.Read())
                 {
-                    if (userId == (string)userAccount["userId"] && userPwd == (string)userAccount["userPwd"])
+                    if (userId == (string)data["userId"] && userPw == (string)data["userPw"])
                     {
-                        loginStatus = 11;
+                        loginStatus = 1;
                     }
                 }
-                conn.Close();
-
                 if (loginStatus == 1)
                 {
-                    MessageBox.Show("로그인 완료");
+                    MessageBox.Show(data.GetString("userName")+"님 환영합니다.");
                 }
                 else
                 {
-                    MessageBox.Show("회원 정보를 확인해 주세요.");
+                    MessageBox.Show("아이디 또는 비밀번호를 확인해 주세요.");
                 }
+
+                conn.Close();
             }
             catch (Exception ex)
             {
