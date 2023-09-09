@@ -33,21 +33,22 @@ namespace WindowsFormsApp1
                 conn.Open();
 
                 string userId = userIdTxt.Text;
-                string userPwd = userPwdTxt.Text;
+                string userPw = userPwTxt.Text;
                 string userName = userNameTxt.Text;
 
-                string insertQuery = "INSERT INTO userTbl (name, id, password) VALUES ('" + userName + "', '" + userId + "', '" + userPwd + "');";
-                MySqlCommand command = new MySqlCommand(insertQuery, conn);
+                string sql = string.Format("INSERT INTO userTbl (userId, userPw, userName) VALUES ('{0}', '{1}', '{2}');", userId, userPw, userName);
+
+                MySqlCommand command = new MySqlCommand(sql, conn);
 
                 if (command.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show(userName + "님 회원가입 완료, 사용할 아이디는 " + userId + "입니다.");
+                    MessageBox.Show(userName + "님 회원가입이 완료되었습니다.");
                     conn.Close();
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("비정상 입력 정보, 재확인 요망");
+                    MessageBox.Show("입력하신 정보를 확인해주세요.");
                 }
             }
             catch (Exception ex)

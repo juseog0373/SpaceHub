@@ -29,7 +29,7 @@
             this.userIdTxt = new System.Windows.Forms.TextBox();
             this.loginBtn = new System.Windows.Forms.Button();
             this.userPwdLabel = new System.Windows.Forms.Label();
-            this.userPwdTxt = new System.Windows.Forms.TextBox();
+            this.userPwTxt = new System.Windows.Forms.TextBox();
             this.accountBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,15 +79,15 @@
             this.userPwdLabel.TabIndex = 3;
             this.userPwdLabel.Text = "비밀번호";
             // 
-            // userPwdTxt
+            // userPwTxt
             // 
-            this.userPwdTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.userPwdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userPwdTxt.Location = new System.Drawing.Point(527, 426);
-            this.userPwdTxt.Name = "userPwdTxt";
-            this.userPwdTxt.PasswordChar = '*';
-            this.userPwdTxt.Size = new System.Drawing.Size(159, 29);
-            this.userPwdTxt.TabIndex = 4;
+            this.userPwTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.userPwTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.userPwTxt.Location = new System.Drawing.Point(527, 426);
+            this.userPwTxt.Name = "userPwTxt";
+            this.userPwTxt.PasswordChar = '*';
+            this.userPwTxt.Size = new System.Drawing.Size(159, 29);
+            this.userPwTxt.TabIndex = 4;
             // 
             // accountBtn
             // 
@@ -119,7 +119,7 @@
             this.ClientSize = new System.Drawing.Size(1151, 686);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.accountBtn);
-            this.Controls.Add(this.userPwdTxt);
+            this.Controls.Add(this.userPwTxt);
             this.Controls.Add(this.userPwdLabel);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.userIdTxt);
@@ -141,7 +141,7 @@
         private System.Windows.Forms.TextBox userIdTxt;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label userPwdLabel;
-        private System.Windows.Forms.TextBox userPwdTxt;
+        private System.Windows.Forms.TextBox userPwTxt;
         private System.Windows.Forms.Button accountBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
