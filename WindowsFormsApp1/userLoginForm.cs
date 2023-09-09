@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dbConnectSpace;
 using MySql.Data.MySqlClient; // SQL 연동을 위한 using
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static dbConnectSpace.dbConnection; //dbConnection 임포트
 
 
@@ -43,29 +44,33 @@ namespace WindowsFormsApp1
                 int loginStatus = 0;
 
                 string userId = userIdTxt.Text;
-                string userPwd = userPwdTxt.Text;
+                string userPw = userPwTxt.Text;
+                string userName = "";
 
-                string selectQuery = "SELECT * FROM userTbl WHERE userId = \'" + userId + "\' ";
+                string sql = string.Format("SELECT * FROM userTbl WHERE userId = '{0}' AND userPw = '{1}'", userId, userPw);
 
-                MySqlCommand Selectcommand = new MySqlCommand(selectQuery, conn);
+                MySqlCommand Selectcommand = new MySqlCommand(sql, conn);
+
                 MySqlDataReader userAccount = Selectcommand.ExecuteReader();
 
                 while (userAccount.Read())
                 {
-                    if (userId == (string)userAccount["userId"] && userPwd == (string)userAccount["userPwd"])
+                    userName = (string)userAccount["userName"];
+
+                    if (userId == (string)userAccount["userId"] && userPw == (string)userAccount["userPw"])
                     {
-                        loginStatus = 11;
+                        loginStatus = 1;
                     }
                 }
                 conn.Close();
 
                 if (loginStatus == 1)
                 {
-                    MessageBox.Show("로그인 완료");
+                    MessageBox.Show(userName + "님 환영합니다.");
                 }
                 else
                 {
-                    MessageBox.Show("회원 정보를 확인해 주세요.");
+                    MessageBox.Show("입력한 아이디 또는 비밀번호를 확인해 주세요.");
                 }
             }
             catch (Exception ex)
