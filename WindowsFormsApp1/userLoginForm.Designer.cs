@@ -37,6 +37,7 @@
             // 
             // userIdLabel
             // 
+            this.userIdLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdLabel.AutoSize = true;
             this.userIdLabel.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userIdLabel.Location = new System.Drawing.Point(410, 363);
@@ -47,6 +48,7 @@
             // 
             // userIdTxt
             // 
+            this.userIdTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userIdTxt.ForeColor = System.Drawing.SystemColors.WindowText;
             this.userIdTxt.Location = new System.Drawing.Point(527, 371);
@@ -56,6 +58,7 @@
             // 
             // loginBtn
             // 
+            this.loginBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.loginBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.loginBtn.Location = new System.Drawing.Point(710, 367);
             this.loginBtn.Name = "loginBtn";
@@ -67,6 +70,7 @@
             // 
             // userPwdLabel
             // 
+            this.userPwdLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userPwdLabel.AutoSize = true;
             this.userPwdLabel.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userPwdLabel.Location = new System.Drawing.Point(386, 418);
@@ -77,6 +81,7 @@
             // 
             // userPwdTxt
             // 
+            this.userPwdTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userPwdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userPwdTxt.Location = new System.Drawing.Point(527, 426);
             this.userPwdTxt.Name = "userPwdTxt";
@@ -86,6 +91,7 @@
             // 
             // accountBtn
             // 
+            this.accountBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.accountBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.accountBtn.Location = new System.Drawing.Point(553, 501);
             this.accountBtn.Name = "accountBtn";
@@ -97,6 +103,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(193, 50);
@@ -119,6 +126,7 @@
             this.Controls.Add(this.userIdLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "userLoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SpaceHub";
             this.Load += new System.EventHandler(this.userLoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
