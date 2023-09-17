@@ -60,6 +60,11 @@ namespace WindowsFormsApp1
                 if (loginStatus == 1)
                 {
                     MessageBox.Show(data.GetString("userName")+"님 환영합니다.");
+                    mainForm main = new mainForm();
+                    main.Tag = this;
+                    main.Show();
+                    this.Hide();
+
                 }
                 else
                 {
@@ -70,6 +75,7 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
+                
                 MessageBox.Show(ex.Message);
             }
         }
