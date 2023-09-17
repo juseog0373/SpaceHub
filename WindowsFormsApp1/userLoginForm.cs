@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
                 if (loginStatus == 1)
                 {
                     MessageBox.Show(data.GetString("userName")+"님 환영합니다.");
-                    mainForm main = new mainForm();
+                    selectClassForm main = new selectClassForm();
                     main.Tag = this;
                     main.Show();
                     this.Hide();

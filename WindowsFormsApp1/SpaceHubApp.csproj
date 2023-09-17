@@ -99,11 +99,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbConnection.cs" />
-    <Compile Include="mainForm.cs">
+    <Compile Include="selectClassForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainForm.Designer.cs">
-      <DependentUpon>mainForm.cs</DependentUpon>
+    <Compile Include="selectClassForm.Designer.cs">
+      <DependentUpon>selectClassForm.cs</DependentUpon>
     </Compile>
     <Compile Include="userLoginForm.cs">
       <SubType>Form</SubType>
@@ -119,8 +119,8 @@
     <Compile Include="userAccountForm.Designer.cs">
       <DependentUpon>userAccountForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="mainForm.resx">
-      <DependentUpon>mainForm.cs</DependentUpon>
+    <EmbeddedResource Include="selectClassForm.resx">
+      <DependentUpon>selectClassForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userLoginForm.resx">
       <DependentUpon>userLoginForm.cs</DependentUpon>

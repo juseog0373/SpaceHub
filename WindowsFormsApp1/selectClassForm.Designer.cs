@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class mainForm
+    partial class selectClassForm
     {
         /// <summary>
         /// Required designer variable.
@@ -63,22 +63,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.floor5 = new System.Windows.Forms.TabPage();
-            this.floor4 = new System.Windows.Forms.TabPage();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
-            this.button32 = new System.Windows.Forms.Button();
-            this.button33 = new System.Windows.Forms.Button();
-            this.button34 = new System.Windows.Forms.Button();
-            this.button35 = new System.Windows.Forms.Button();
-            this.button36 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button37 = new System.Windows.Forms.Button();
             this.button38 = new System.Windows.Forms.Button();
             this.button39 = new System.Windows.Forms.Button();
@@ -94,22 +78,38 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button32 = new System.Windows.Forms.Button();
+            this.button33 = new System.Windows.Forms.Button();
+            this.button34 = new System.Windows.Forms.Button();
+            this.button35 = new System.Windows.Forms.Button();
+            this.button36 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.floor4 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.floor5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 25F);
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(645, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 34);
+            this.label1.Size = new System.Drawing.Size(230, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "전산관 강의실";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -117,7 +117,8 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTimePicker1.Location = new System.Drawing.Point(691, 104);
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(681, 101);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(230, 21);
             this.dateTimePicker1.TabIndex = 2;
@@ -126,20 +127,20 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 15F);
-            this.label2.Location = new System.Drawing.Point(567, 105);
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(566, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.Size = new System.Drawing.Size(99, 28);
             this.label2.TabIndex = 3;
             this.label2.Text = "날짜 선택";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("굴림", 15F);
+            this.label3.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(237, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(212, 20);
+            this.label3.Size = new System.Drawing.Size(213, 28);
             this.label3.TabIndex = 4;
             this.label3.Text = "5층 - 프로젝트 실습실";
             // 
@@ -148,7 +149,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(495, 108);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 12);
+            this.label4.Size = new System.Drawing.Size(0, 15);
             this.label4.TabIndex = 5;
             // 
             // button1
@@ -372,16 +373,16 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(495, 438);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 12);
+            this.label5.Size = new System.Drawing.Size(0, 15);
             this.label5.TabIndex = 20;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("굴림", 15F);
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.Location = new System.Drawing.Point(237, 431);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(245, 20);
+            this.label6.Size = new System.Drawing.Size(246, 28);
             this.label6.TabIndex = 19;
             this.label6.Text = "5층 - 디지털미디어실습실";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -412,6 +413,7 @@
             this.tabControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tabControl1.Controls.Add(this.floor5);
             this.tabControl1.Controls.Add(this.floor4);
+            this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tabControl1.Location = new System.Drawing.Point(115, 157);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -480,161 +482,15 @@
             this.floor5.Controls.Add(this.label6);
             this.floor5.Controls.Add(this.button12);
             this.floor5.Controls.Add(this.pictureBox2);
-            this.floor5.Location = new System.Drawing.Point(4, 22);
+            this.floor5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.floor5.Location = new System.Drawing.Point(4, 24);
             this.floor5.Name = "floor5";
             this.floor5.Padding = new System.Windows.Forms.Padding(3);
-            this.floor5.Size = new System.Drawing.Size(1192, 707);
+            this.floor5.Size = new System.Drawing.Size(1192, 705);
             this.floor5.TabIndex = 0;
             this.floor5.Text = "5층";
             this.floor5.UseVisualStyleBackColor = true;
             this.floor5.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // floor4
-            // 
-            this.floor4.Location = new System.Drawing.Point(4, 22);
-            this.floor4.Name = "floor4";
-            this.floor4.Padding = new System.Windows.Forms.Padding(3);
-            this.floor4.Size = new System.Drawing.Size(1192, 474);
-            this.floor4.TabIndex = 1;
-            this.floor4.Text = "4층";
-            this.floor4.UseVisualStyleBackColor = true;
-            // 
-            // button25
-            // 
-            this.button25.Location = new System.Drawing.Point(1088, 238);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(75, 23);
-            this.button25.TabIndex = 47;
-            this.button25.Text = "21 : 00";
-            this.button25.UseVisualStyleBackColor = true;
-            // 
-            // button26
-            // 
-            this.button26.Location = new System.Drawing.Point(1007, 238);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(75, 23);
-            this.button26.TabIndex = 46;
-            this.button26.Text = "20 : 00";
-            this.button26.UseVisualStyleBackColor = true;
-            // 
-            // button27
-            // 
-            this.button27.Location = new System.Drawing.Point(926, 238);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(75, 23);
-            this.button27.TabIndex = 45;
-            this.button27.Text = "19 : 00";
-            this.button27.UseVisualStyleBackColor = true;
-            // 
-            // button28
-            // 
-            this.button28.Location = new System.Drawing.Point(845, 238);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(75, 23);
-            this.button28.TabIndex = 44;
-            this.button28.Text = "18 : 00";
-            this.button28.UseVisualStyleBackColor = true;
-            // 
-            // button29
-            // 
-            this.button29.Location = new System.Drawing.Point(1088, 188);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(75, 23);
-            this.button29.TabIndex = 43;
-            this.button29.Text = "17 : 00";
-            this.button29.UseVisualStyleBackColor = true;
-            // 
-            // button30
-            // 
-            this.button30.Location = new System.Drawing.Point(1007, 188);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(75, 23);
-            this.button30.TabIndex = 42;
-            this.button30.Text = "16 : 00";
-            this.button30.UseVisualStyleBackColor = true;
-            // 
-            // button31
-            // 
-            this.button31.Location = new System.Drawing.Point(926, 188);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(75, 23);
-            this.button31.TabIndex = 41;
-            this.button31.Text = "15 : 00";
-            this.button31.UseVisualStyleBackColor = true;
-            // 
-            // button32
-            // 
-            this.button32.Location = new System.Drawing.Point(845, 188);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(75, 23);
-            this.button32.TabIndex = 40;
-            this.button32.Text = "14  : 00";
-            this.button32.UseVisualStyleBackColor = true;
-            // 
-            // button33
-            // 
-            this.button33.Location = new System.Drawing.Point(1088, 138);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(75, 23);
-            this.button33.TabIndex = 39;
-            this.button33.Text = "13 : 00";
-            this.button33.UseVisualStyleBackColor = true;
-            // 
-            // button34
-            // 
-            this.button34.Location = new System.Drawing.Point(1007, 138);
-            this.button34.Name = "button34";
-            this.button34.Size = new System.Drawing.Size(75, 23);
-            this.button34.TabIndex = 38;
-            this.button34.Text = "12 : 00";
-            this.button34.UseVisualStyleBackColor = true;
-            // 
-            // button35
-            // 
-            this.button35.Location = new System.Drawing.Point(926, 138);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(75, 23);
-            this.button35.TabIndex = 37;
-            this.button35.Text = "11 : 00";
-            this.button35.UseVisualStyleBackColor = true;
-            // 
-            // button36
-            // 
-            this.button36.Location = new System.Drawing.Point(845, 138);
-            this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(75, 23);
-            this.button36.TabIndex = 36;
-            this.button36.Text = "10 : 00";
-            this.button36.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1099, 108);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 12);
-            this.label7.TabIndex = 35;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 15F);
-            this.label8.Location = new System.Drawing.Point(841, 101);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(203, 20);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "5층 - 모바일 실습실1";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::WindowsFormsApp1.Properties.Resources.b_lecture1;
-            this.pictureBox3.Location = new System.Drawing.Point(632, 101);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(182, 160);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 33;
-            this.pictureBox3.TabStop = false;
             // 
             // button37
             // 
@@ -749,16 +605,16 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(1099, 438);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 12);
+            this.label9.Size = new System.Drawing.Size(0, 15);
             this.label9.TabIndex = 50;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("굴림", 15F);
+            this.label10.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label10.Location = new System.Drawing.Point(841, 431);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(203, 20);
+            this.label10.Size = new System.Drawing.Size(205, 28);
             this.label10.TabIndex = 49;
             this.label10.Text = "5층 - 모바일 실습실2";
             // 
@@ -771,6 +627,153 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 48;
             this.pictureBox4.TabStop = false;
+            // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(1088, 238);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(75, 23);
+            this.button25.TabIndex = 47;
+            this.button25.Text = "21 : 00";
+            this.button25.UseVisualStyleBackColor = true;
+            // 
+            // button26
+            // 
+            this.button26.Location = new System.Drawing.Point(1007, 238);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(75, 23);
+            this.button26.TabIndex = 46;
+            this.button26.Text = "20 : 00";
+            this.button26.UseVisualStyleBackColor = true;
+            // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(926, 238);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(75, 23);
+            this.button27.TabIndex = 45;
+            this.button27.Text = "19 : 00";
+            this.button27.UseVisualStyleBackColor = true;
+            // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(845, 238);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(75, 23);
+            this.button28.TabIndex = 44;
+            this.button28.Text = "18 : 00";
+            this.button28.UseVisualStyleBackColor = true;
+            // 
+            // button29
+            // 
+            this.button29.Location = new System.Drawing.Point(1088, 188);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(75, 23);
+            this.button29.TabIndex = 43;
+            this.button29.Text = "17 : 00";
+            this.button29.UseVisualStyleBackColor = true;
+            // 
+            // button30
+            // 
+            this.button30.Location = new System.Drawing.Point(1007, 188);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(75, 23);
+            this.button30.TabIndex = 42;
+            this.button30.Text = "16 : 00";
+            this.button30.UseVisualStyleBackColor = true;
+            // 
+            // button31
+            // 
+            this.button31.Location = new System.Drawing.Point(926, 188);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(75, 23);
+            this.button31.TabIndex = 41;
+            this.button31.Text = "15 : 00";
+            this.button31.UseVisualStyleBackColor = true;
+            // 
+            // button32
+            // 
+            this.button32.Location = new System.Drawing.Point(845, 188);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(75, 23);
+            this.button32.TabIndex = 40;
+            this.button32.Text = "14  : 00";
+            this.button32.UseVisualStyleBackColor = true;
+            // 
+            // button33
+            // 
+            this.button33.Location = new System.Drawing.Point(1088, 138);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(75, 23);
+            this.button33.TabIndex = 39;
+            this.button33.Text = "13 : 00";
+            this.button33.UseVisualStyleBackColor = true;
+            // 
+            // button34
+            // 
+            this.button34.Location = new System.Drawing.Point(1007, 138);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(75, 23);
+            this.button34.TabIndex = 38;
+            this.button34.Text = "12 : 00";
+            this.button34.UseVisualStyleBackColor = true;
+            // 
+            // button35
+            // 
+            this.button35.Location = new System.Drawing.Point(926, 138);
+            this.button35.Name = "button35";
+            this.button35.Size = new System.Drawing.Size(75, 23);
+            this.button35.TabIndex = 37;
+            this.button35.Text = "11 : 00";
+            this.button35.UseVisualStyleBackColor = true;
+            // 
+            // button36
+            // 
+            this.button36.Location = new System.Drawing.Point(845, 138);
+            this.button36.Name = "button36";
+            this.button36.Size = new System.Drawing.Size(75, 23);
+            this.button36.TabIndex = 36;
+            this.button36.Text = "10 : 00";
+            this.button36.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1099, 108);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 15);
+            this.label7.TabIndex = 35;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(841, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(205, 28);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "5층 - 모바일 실습실1";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::WindowsFormsApp1.Properties.Resources.b_lecture1;
+            this.pictureBox3.Location = new System.Drawing.Point(632, 101);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(182, 160);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 33;
+            this.pictureBox3.TabStop = false;
+            // 
+            // floor4
+            // 
+            this.floor4.Location = new System.Drawing.Point(4, 24);
+            this.floor4.Name = "floor4";
+            this.floor4.Padding = new System.Windows.Forms.Padding(3);
+            this.floor4.Size = new System.Drawing.Size(1192, 705);
+            this.floor4.TabIndex = 1;
+            this.floor4.Text = "4층";
+            this.floor4.UseVisualStyleBackColor = true;
             // 
             // mainForm
             // 
@@ -790,8 +793,8 @@
             this.tabControl1.ResumeLayout(false);
             this.floor5.ResumeLayout(false);
             this.floor5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
