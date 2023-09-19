@@ -36,20 +36,44 @@ namespace WindowsFormsApp1
                 string userPw = userPwTxt.Text;
                 string userName = userNameTxt.Text;
 
-                string sql = string.Format("INSERT INTO userTbl (userId, userPw, userName) VALUES ('{0}', '{1}', '{2}');", userId, userPw, userName);
+                string idCheckSql = string.Format("SELECT COUNT(userId) FROM userTbl WHERE userId = '{0}'", userId);
 
-                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlCommand command = new MySqlCommand(idCheckSql, conn);
+                MySqlDataReader data = command.ExecuteReader();
 
-                if (command.ExecuteNonQuery() == 1)
+                if (data.Read())
                 {
-                    MessageBox.Show(userName + "님 회원가입이 완료되었습니다.");
-                    conn.Close();
-                    Close();
+                    int idCheck = Convert.ToInt32(data.GetString(0));
+
+                    if (idCheck > 0)
+                    {
+                        MessageBox.Show("중복된 아이디입니다.\n다른 아이디를 사용해주세요.");
+                    }
+                    else
+                    {
+                        data.Close();
+
+                        string accountSql = string.Format("INSERT INTO userTbl (userId, userPw, userName) VALUES ('{0}', '{1}', '{2}');", userId, userPw, userName);
+
+                        MySqlCommand command1 = new MySqlCommand(accountSql, conn);
+
+                        if (command1.ExecuteNonQuery() == 1)
+                        {
+                            MessageBox.Show(userName + "님 회원가입이 완료되었습니다.");
+                            conn.Close();
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("입력하신 정보를 확인해주세요.");
+                        }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("입력하신 정보를 확인해주세요.");
+                    MessageBox.Show("데이터를 읽을 수 없습니다.");
                 }
+                           
             }
             catch (Exception ex)
             {
