@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
 
         private void selectClassForm_Load(object sender, EventArgs e)
         {
-            // 화면이 로드 될때 sql에서 강의실 정보 가져오기  
+            // 화면이 로드 될때 sql에서 강의실 정보 가져오기
         }
 
         private void button2_Click(object sender, EventArgs e)

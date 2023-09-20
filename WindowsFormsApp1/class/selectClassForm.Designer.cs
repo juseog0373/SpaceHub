@@ -33,7 +33,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.selectDateTimeLabel = new System.Windows.Forms.Label();
             this.classNameLabel1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.classLabel3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -95,27 +94,18 @@
             // 
             this.classNameLabel1.AutoSize = true;
             this.classNameLabel1.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classNameLabel1.Location = new System.Drawing.Point(339, 152);
+            this.classNameLabel1.Location = new System.Drawing.Point(442, 152);
             this.classNameLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.classNameLabel1.Name = "classNameLabel1";
             this.classNameLabel1.Size = new System.Drawing.Size(320, 41);
             this.classNameLabel1.TabIndex = 4;
             this.classNameLabel1.Text = "5층 - 프로젝트 실습실";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(707, 162);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 25);
-            this.label4.TabIndex = 5;
-            // 
             // classLabel3
             // 
             this.classLabel3.AutoSize = true;
             this.classLabel3.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classLabel3.Location = new System.Drawing.Point(339, 646);
+            this.classLabel3.Location = new System.Drawing.Point(442, 646);
             this.classLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.classLabel3.Name = "classLabel3";
             this.classLabel3.Size = new System.Drawing.Size(369, 41);
@@ -125,7 +115,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::WindowsFormsApp1.Properties.Resources.b_lecture1;
-            this.pictureBox2.Location = new System.Drawing.Point(40, 646);
+            this.pictureBox2.Location = new System.Drawing.Point(143, 646);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(260, 240);
@@ -136,7 +126,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.b_lecture1;
-            this.pictureBox1.Location = new System.Drawing.Point(40, 152);
+            this.pictureBox1.Location = new System.Drawing.Point(143, 152);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(260, 240);
@@ -167,7 +157,6 @@
             this.floor5.Controls.Add(this.pictureBox3);
             this.floor5.Controls.Add(this.pictureBox1);
             this.floor5.Controls.Add(this.classNameLabel1);
-            this.floor5.Controls.Add(this.label4);
             this.floor5.Controls.Add(this.label5);
             this.floor5.Controls.Add(this.classLabel3);
             this.floor5.Controls.Add(this.pictureBox2);
@@ -194,7 +183,7 @@
             // 
             this.classLabel4.AutoSize = true;
             this.classLabel4.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classLabel4.Location = new System.Drawing.Point(1201, 646);
+            this.classLabel4.Location = new System.Drawing.Point(1304, 646);
             this.classLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.classLabel4.Name = "classLabel4";
             this.classLabel4.Size = new System.Drawing.Size(307, 41);
@@ -204,7 +193,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::WindowsFormsApp1.Properties.Resources.b_lecture1;
-            this.pictureBox4.Location = new System.Drawing.Point(903, 646);
+            this.pictureBox4.Location = new System.Drawing.Point(1006, 646);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(260, 240);
@@ -225,7 +214,7 @@
             // 
             this.classNameLabel2.AutoSize = true;
             this.classNameLabel2.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classNameLabel2.Location = new System.Drawing.Point(1201, 152);
+            this.classNameLabel2.Location = new System.Drawing.Point(1304, 152);
             this.classNameLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.classNameLabel2.Name = "classNameLabel2";
             this.classNameLabel2.Size = new System.Drawing.Size(307, 41);
@@ -235,7 +224,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::WindowsFormsApp1.Properties.Resources.b_lecture1;
-            this.pictureBox3.Location = new System.Drawing.Point(903, 152);
+            this.pictureBox3.Location = new System.Drawing.Point(1006, 152);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(260, 240);
@@ -246,7 +235,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(707, 657);
+            this.label5.Location = new System.Drawing.Point(810, 657);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 25);
@@ -309,7 +298,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label selectDateTimeLabel;
         private System.Windows.Forms.Label classNameLabel1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label classLabel3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;

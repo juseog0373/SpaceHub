@@ -50,6 +50,7 @@ namespace WindowsFormsApp1
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 MySqlDataReader mdr = command.ExecuteReader();
 
+
                 while (mdr.Read())
                 {
                     if (userId == (string)mdr["userId"] && userPw == (string)mdr["userPw"])

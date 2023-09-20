@@ -47,8 +47,9 @@ namespace WindowsFormsApp1
 
                     if (idCheck > 0)
                     {
-                        MessageBox.Show("중복된 아이디입니다.\n다른 아이디를 사용해주세요.");
+                        MessageBox.Show("이미 등록된 학번입니다.");
                     }
+
                     else
                     {
                         mdr.Close();
