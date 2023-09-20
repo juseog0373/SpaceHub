@@ -39,11 +39,11 @@ namespace WindowsFormsApp1
                 string idCheckSql = string.Format("SELECT COUNT(userId) FROM userTbl WHERE userId = '{0}'", userId);
 
                 MySqlCommand command = new MySqlCommand(idCheckSql, conn);
-                MySqlDataReader data = command.ExecuteReader();
+                MySqlDataReader mdr = command.ExecuteReader();
 
-                if (data.Read())
+                if (mdr.Read())
                 {
-                    int idCheck = Convert.ToInt32(data.GetString(0));
+                    int idCheck = Convert.ToInt32(mdr.GetString(0));
 
                     if (idCheck > 0)
                     {
@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        data.Close();
+                        mdr.Close();
 
                         string accountSql = string.Format("INSERT INTO userTbl (userId, userPw, userName) VALUES ('{0}', '{1}', '{2}');", userId, userPw, userName);
 

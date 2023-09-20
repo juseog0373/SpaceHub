@@ -17,32 +17,17 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void selectClassForm_Load(object sender, EventArgs e)
+        {
+            // 화면이 로드 될때 sql에서 강의실 정보 가져오기  
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
+        private void selectClassLabel_Click(object sender, EventArgs e)
         {
 
         }
