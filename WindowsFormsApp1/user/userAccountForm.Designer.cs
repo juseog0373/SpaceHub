@@ -34,101 +34,111 @@
             this.userIdLabel = new System.Windows.Forms.Label();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.userPwdLabel = new System.Windows.Forms.Label();
-            this.userPwdTxt = new System.Windows.Forms.TextBox();
+            this.userPwTxt = new System.Windows.Forms.TextBox();
             this.userNameTxt = new System.Windows.Forms.TextBox();
             this.accountActionBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userAccountLabel
             // 
+            this.userAccountLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userAccountLabel.AutoSize = true;
             this.userAccountLabel.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userAccountLabel.Location = new System.Drawing.Point(223, 65);
             this.userAccountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userAccountLabel.Name = "userAccountLabel";
-            this.userAccountLabel.Size = new System.Drawing.Size(148, 45);
+            this.userAccountLabel.Size = new System.Drawing.Size(220, 65);
             this.userAccountLabel.TabIndex = 0;
             this.userAccountLabel.Text = "회원가입";
             // 
             // userIdTxt
             // 
+            this.userIdTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userIdTxt.Location = new System.Drawing.Point(292, 152);
+            this.userIdTxt.Location = new System.Drawing.Point(326, 216);
             this.userIdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.userIdTxt.Name = "userIdTxt";
-            this.userIdTxt.Size = new System.Drawing.Size(128, 29);
+            this.userIdTxt.Size = new System.Drawing.Size(128, 39);
             this.userIdTxt.TabIndex = 1;
             // 
             // userIdLabel
             // 
+            this.userIdLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdLabel.AutoSize = true;
             this.userIdLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userIdLabel.Location = new System.Drawing.Point(158, 157);
+            this.userIdLabel.Location = new System.Drawing.Point(192, 221);
             this.userIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userIdLabel.Name = "userIdLabel";
-            this.userIdLabel.Size = new System.Drawing.Size(42, 21);
+            this.userIdLabel.Size = new System.Drawing.Size(62, 32);
             this.userIdLabel.TabIndex = 2;
             this.userIdLabel.Text = "학번";
             // 
             // userNameLabel
             // 
+            this.userNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userNameLabel.Location = new System.Drawing.Point(158, 291);
+            this.userNameLabel.Location = new System.Drawing.Point(192, 355);
             this.userNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(42, 21);
+            this.userNameLabel.Size = new System.Drawing.Size(62, 32);
             this.userNameLabel.TabIndex = 3;
             this.userNameLabel.Text = "이름";
             // 
             // userPwdLabel
             // 
+            this.userPwdLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userPwdLabel.AutoSize = true;
             this.userPwdLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userPwdLabel.Location = new System.Drawing.Point(146, 220);
+            this.userPwdLabel.Location = new System.Drawing.Point(180, 284);
             this.userPwdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userPwdLabel.Name = "userPwdLabel";
-            this.userPwdLabel.Size = new System.Drawing.Size(74, 21);
+            this.userPwdLabel.Size = new System.Drawing.Size(110, 32);
             this.userPwdLabel.TabIndex = 4;
             this.userPwdLabel.Text = "비밀번호";
             // 
-            // userPwdTxt
+            // userPwTxt
             // 
-            this.userPwdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userPwdTxt.Location = new System.Drawing.Point(293, 217);
-            this.userPwdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.userPwdTxt.Name = "userPwdTxt";
-            this.userPwdTxt.Size = new System.Drawing.Size(128, 29);
-            this.userPwdTxt.TabIndex = 5;
+            this.userPwTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.userPwTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.userPwTxt.Location = new System.Drawing.Point(327, 281);
+            this.userPwTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.userPwTxt.Name = "userPwTxt";
+            this.userPwTxt.PasswordChar = '*';
+            this.userPwTxt.Size = new System.Drawing.Size(128, 39);
+            this.userPwTxt.TabIndex = 5;
             // 
             // userNameTxt
             // 
+            this.userNameTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userNameTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userNameTxt.Location = new System.Drawing.Point(292, 288);
+            this.userNameTxt.Location = new System.Drawing.Point(326, 352);
             this.userNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.userNameTxt.Name = "userNameTxt";
-            this.userNameTxt.Size = new System.Drawing.Size(128, 29);
+            this.userNameTxt.Size = new System.Drawing.Size(128, 39);
             this.userNameTxt.TabIndex = 6;
             // 
             // accountActionBtn
             // 
+            this.accountActionBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.accountActionBtn.BackColor = System.Drawing.SystemColors.Control;
             this.accountActionBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.accountActionBtn.Location = new System.Drawing.Point(242, 370);
+            this.accountActionBtn.Location = new System.Drawing.Point(244, 432);
             this.accountActionBtn.Name = "accountActionBtn";
-            this.accountActionBtn.Size = new System.Drawing.Size(84, 40);
+            this.accountActionBtn.Size = new System.Drawing.Size(167, 53);
             this.accountActionBtn.TabIndex = 7;
             this.accountActionBtn.Text = "회원가입";
-            this.accountActionBtn.UseVisualStyleBackColor = true;
+            this.accountActionBtn.UseVisualStyleBackColor = false;
             this.accountActionBtn.Click += new System.EventHandler(this.accountActionBtn_Click);
             // 
             // userAccountForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 805);
             this.Controls.Add(this.accountActionBtn);
             this.Controls.Add(this.userNameTxt);
-            this.Controls.Add(this.userPwdTxt);
+            this.Controls.Add(this.userPwTxt);
             this.Controls.Add(this.userPwdLabel);
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.userIdLabel);
@@ -138,6 +148,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "userAccountForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SpaceHub";
             this.Load += new System.EventHandler(this.userAccountForm_Load);
             this.ResumeLayout(false);
@@ -152,7 +163,7 @@
         private System.Windows.Forms.Label userIdLabel;
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.Label userPwdLabel;
-        private System.Windows.Forms.TextBox userPwdTxt;
+        private System.Windows.Forms.TextBox userPwTxt;
         private System.Windows.Forms.TextBox userNameTxt;
         private System.Windows.Forms.Button accountActionBtn;
     }
