@@ -96,7 +96,7 @@
     <Reference Include="ZstdSharp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.7.1\lib\net461\ZstdSharp.dll</HintPath>
     </Reference>
-  </ItemGroup>
+ </ItemGroup>
   <ItemGroup>
     <Compile Include="dbConnection.cs" />
     <Compile Include="class\selectClassForm.cs">
@@ -104,12 +104,6 @@
     </Compile>
     <Compile Include="class\selectClassForm.Designer.cs">
       <DependentUpon>selectClassForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="user\userLoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="user\userLoginForm.Designer.cs">
-      <DependentUpon>userLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SpaceHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,11 +113,14 @@
     <Compile Include="user\userAccountForm.Designer.cs">
       <DependentUpon>userAccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="user\userLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="user\userLoginForm.Designer.cs">
+      <DependentUpon>userLoginForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="class\selectClassForm.resx">
       <DependentUpon>selectClassForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="user\userLoginForm.resx">
-      <DependentUpon>userLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -137,6 +134,9 @@
     </Compile>
     <EmbeddedResource Include="user\userAccountForm.resx">
       <DependentUpon>userAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user\userLoginForm.resx">
+      <DependentUpon>userLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

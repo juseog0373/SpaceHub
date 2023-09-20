@@ -48,23 +48,24 @@ namespace WindowsFormsApp1
                 string sql = string.Format("SELECT * FROM userTbl WHERE userId = '{0}' AND userPw = '{1}'", userId, userPw);
 
                 MySqlCommand command = new MySqlCommand(sql, conn);
-                MySqlDataReader data = command.ExecuteReader();
+                MySqlDataReader mdr = command.ExecuteReader();
 
-                while (data.Read())
+
+                while (mdr.Read())
                 {
-                    if (userId == (string)data["userId"] && userPw == (string)data["userPw"])
+                    if (userId == (string)mdr["userId"] && userPw == (string)mdr["userPw"])
                     {
                         loginStatus = 1;
                     }
                 }
                 if (loginStatus == 1)
                 {
-                    MessageBox.Show(data.GetString("userName")+"님 환영합니다.");
-                    selectClassForm main = new selectClassForm();
-                    main.Tag = this;
-                    main.Show();
-                    this.Hide();
+                    MessageBox.Show(mdr.GetString("userName")+"님 환영합니다.");
 
+                    selectClassForm selectClassForm = new selectClassForm();
+                    selectClassForm.Tag = this;
+                    selectClassForm.Show();
+                    this.Hide();
                 }
                 else
                 {
