@@ -69,7 +69,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("아이디 또는 비밀번호를 확인해 주세요.");
+                    MessageBox.Show("학번 또는 비밀번호를 확인해 주세요.");
                 }
 
                 conn.Close();

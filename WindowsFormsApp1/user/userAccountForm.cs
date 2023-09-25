@@ -59,15 +59,15 @@ namespace WindowsFormsApp1
                         MySqlCommand command1 = new MySqlCommand(accountSql, conn);
 
                         if (command1.ExecuteNonQuery() == 1)
-                        {
-                            MessageBox.Show(userName + "님 회원가입이 완료되었습니다.");
-                            conn.Close();
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("입력하신 정보를 확인해주세요.");
-                        }
+                {
+                    MessageBox.Show(userName + "님 회원가입이 완료되었습니다.");
+                    conn.Close();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("입력하신 정보를 확인해주세요.");
+                }
                     }
                 }
                 else
