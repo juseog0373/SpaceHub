@@ -36,11 +36,29 @@ namespace WindowsFormsApp1
                 string userPw = userPwTxt.Text;
                 string userName = userNameTxt.Text;
 
-                string sql = string.Format("INSERT INTO userTbl (userId, userPw, userName) VALUES ('{0}', '{1}', '{2}');", userId, userPw, userName);
+                string idCheckSql = string.Format("SELECT COUNT(userId) FROM userTbl WHERE userId = '{0}'", userId);
 
-                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlCommand command = new MySqlCommand(idCheckSql, conn);
+                MySqlDataReader mdr = command.ExecuteReader();
 
-                if (command.ExecuteNonQuery() == 1)
+                if (mdr.Read())
+                {
+                    int idCheck = Convert.ToInt32(mdr.GetString(0));
+
+                    if (idCheck > 0)
+                    {
+                        MessageBox.Show("이미 등록된 학번입니다.");
+                    }
+
+                    else
+                    {
+                        mdr.Close();
+
+                        string accountSql = string.Format("INSERT INTO userTbl (userId, userPw, userName) VALUES ('{0}', '{1}', '{2}');", userId, userPw, userName);
+
+                        MySqlCommand command1 = new MySqlCommand(accountSql, conn);
+
+                        if (command1.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show(userName + "님 회원가입이 완료되었습니다.");
                     conn.Close();
@@ -50,6 +68,13 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("입력하신 정보를 확인해주세요.");
                 }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("데이터를 읽을 수 없습니다.");
+                }
+                           
             }
             catch (Exception ex)
             {
