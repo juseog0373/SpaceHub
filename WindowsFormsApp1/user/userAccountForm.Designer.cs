@@ -44,7 +44,7 @@
             this.userAccountLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userAccountLabel.AutoSize = true;
             this.userAccountLabel.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userAccountLabel.Location = new System.Drawing.Point(223, 65);
+            this.userAccountLabel.Location = new System.Drawing.Point(225, 30);
             this.userAccountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userAccountLabel.Name = "userAccountLabel";
             this.userAccountLabel.Size = new System.Drawing.Size(148, 45);
