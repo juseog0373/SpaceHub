@@ -28,234 +28,316 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(selectClassForm));
-            this.selectClassLabel = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.selectDateTimeLabel = new System.Windows.Forms.Label();
-            this.classNameLabel1 = new System.Windows.Forms.Label();
-            this.classLabel3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.floor5 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.floor4 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.classNameLabel2 = new System.Windows.Forms.Label();
+            this.selectClassDataGrid = new System.Windows.Forms.DataGridView();
+            this.reservationBtn = new System.Windows.Forms.Button();
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
+            this.classNameDropDown = new System.Windows.Forms.ComboBox();
+            this.classNameLabel = new System.Windows.Forms.Label();
+            this.selectClassBtn = new System.Windows.Forms.Button();
+            this.startHoursDropDown = new System.Windows.Forms.ComboBox();
+            this.rsrvHoursUseLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.endHoursDropDown = new System.Windows.Forms.ComboBox();
+            this.rsrvPrsnlLabel = new System.Windows.Forms.Label();
+            this.rsrvGoal = new System.Windows.Forms.TextBox();
+            this.rsrvGoalLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.floor5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.selectClassDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // selectClassLabel
+            // selectClassDataGrid
             // 
-            this.selectClassLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.selectClassLabel.AutoSize = true;
-            this.selectClassLabel.Font = new System.Drawing.Font("맑은 고딕", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.selectClassLabel.Location = new System.Drawing.Point(644, 36);
-            this.selectClassLabel.Name = "selectClassLabel";
-            this.selectClassLabel.Size = new System.Drawing.Size(197, 45);
-            this.selectClassLabel.TabIndex = 0;
-            this.selectClassLabel.Text = "강의실 조회";
-            this.selectClassLabel.Click += new System.EventHandler(this.selectClassLabel_Click);
+            this.selectClassDataGrid.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.selectClassDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.selectClassDataGrid.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectClassDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.selectClassDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selectClassDataGrid.Location = new System.Drawing.Point(32, 52);
+            this.selectClassDataGrid.Name = "selectClassDataGrid";
+            this.selectClassDataGrid.RowTemplate.Height = 23;
+            this.selectClassDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.selectClassDataGrid.Size = new System.Drawing.Size(825, 571);
+            this.selectClassDataGrid.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // reservationBtn
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(654, 105);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(194, 21);
-            this.dateTimePicker1.TabIndex = 2;
+            this.reservationBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.reservationBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.reservationBtn.Location = new System.Drawing.Point(888, 484);
+            this.reservationBtn.Name = "reservationBtn";
+            this.reservationBtn.Size = new System.Drawing.Size(276, 139);
+            this.reservationBtn.TabIndex = 2;
+            this.reservationBtn.Text = "예약";
+            this.reservationBtn.UseVisualStyleBackColor = true;
+            this.reservationBtn.Click += new System.EventHandler(this.reservationBtn_Click);
             // 
-            // selectDateTimeLabel
+            // datePicker
             // 
-            this.selectDateTimeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.selectDateTimeLabel.AutoSize = true;
-            this.selectDateTimeLabel.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.selectDateTimeLabel.Location = new System.Drawing.Point(545, 99);
-            this.selectDateTimeLabel.Name = "selectDateTimeLabel";
-            this.selectDateTimeLabel.Size = new System.Drawing.Size(99, 28);
-            this.selectDateTimeLabel.TabIndex = 3;
-            this.selectDateTimeLabel.Text = "날짜 선택";
+            this.datePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.datePicker.Location = new System.Drawing.Point(888, 265);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(276, 21);
+            this.datePicker.TabIndex = 3;
             // 
-            // classNameLabel1
+            // classNameDropDown
             // 
-            this.classNameLabel1.AutoSize = true;
-            this.classNameLabel1.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classNameLabel1.Location = new System.Drawing.Point(309, 101);
-            this.classNameLabel1.Name = "classNameLabel1";
-            this.classNameLabel1.Size = new System.Drawing.Size(213, 28);
-            this.classNameLabel1.TabIndex = 4;
-            this.classNameLabel1.Text = "5층 - 프로젝트 실습실";
+            this.classNameDropDown.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.classNameDropDown.FormattingEnabled = true;
+            this.classNameDropDown.Items.AddRange(new object[] {
+            "전산관 5층",
+            "전산관 4층",
+            "전산관 3층",
+            "전산관 2층",
+            "임곡관 2층",
+            "임곡관 1층"});
+            this.classNameDropDown.Location = new System.Drawing.Point(1008, 52);
+            this.classNameDropDown.Name = "classNameDropDown";
+            this.classNameDropDown.Size = new System.Drawing.Size(156, 20);
+            this.classNameDropDown.TabIndex = 4;
             // 
-            // classLabel3
+            // classNameLabel
             // 
-            this.classLabel3.AutoSize = true;
-            this.classLabel3.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classLabel3.Location = new System.Drawing.Point(309, 431);
-            this.classLabel3.Name = "classLabel3";
-            this.classLabel3.Size = new System.Drawing.Size(246, 28);
-            this.classLabel3.TabIndex = 19;
-            this.classLabel3.Text = "5층 - 디지털미디어실습실";
+            this.classNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.classNameLabel.AutoSize = true;
+            this.classNameLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.classNameLabel.Location = new System.Drawing.Point(884, 51);
+            this.classNameLabel.Name = "classNameLabel";
+            this.classNameLabel.Size = new System.Drawing.Size(118, 21);
+            this.classNameLabel.TabIndex = 5;
+            this.classNameLabel.Text = "강의실 층 선택";
             // 
-            // pictureBox2
+            // selectClassBtn
             // 
-            this.pictureBox2.Image = global::WindowsFormsApp1.Properties.Resources.b_lecture1;
-            this.pictureBox2.Location = new System.Drawing.Point(100, 431);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(182, 160);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 18;
-            this.pictureBox2.TabStop = false;
+            this.selectClassBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.selectClassBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.selectClassBtn.Location = new System.Drawing.Point(888, 89);
+            this.selectClassBtn.Name = "selectClassBtn";
+            this.selectClassBtn.Size = new System.Drawing.Size(276, 84);
+            this.selectClassBtn.TabIndex = 6;
+            this.selectClassBtn.Text = "조회";
+            this.selectClassBtn.UseVisualStyleBackColor = true;
+            this.selectClassBtn.Click += new System.EventHandler(this.selectClassBtn_Click);
             // 
-            // pictureBox1
+            // startHoursDropDown
             // 
-            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.b_lecture1;
-            this.pictureBox1.Location = new System.Drawing.Point(100, 101);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 160);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.startHoursDropDown.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.startHoursDropDown.FormattingEnabled = true;
+            this.startHoursDropDown.Items.AddRange(new object[] {
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00"});
+            this.startHoursDropDown.Location = new System.Drawing.Point(964, 318);
+            this.startHoursDropDown.Name = "startHoursDropDown";
+            this.startHoursDropDown.Size = new System.Drawing.Size(81, 20);
+            this.startHoursDropDown.TabIndex = 10;
             // 
-            // tabControl1
+            // rsrvHoursUseLabel
             // 
-            this.tabControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tabControl1.Controls.Add(this.floor5);
-            this.tabControl1.Controls.Add(this.floor4);
-            this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tabControl1.Location = new System.Drawing.Point(115, 157);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1200, 733);
-            this.tabControl1.TabIndex = 33;
+            this.rsrvHoursUseLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rsrvHoursUseLabel.AutoSize = true;
+            this.rsrvHoursUseLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rsrvHoursUseLabel.Location = new System.Drawing.Point(884, 317);
+            this.rsrvHoursUseLabel.Name = "rsrvHoursUseLabel";
+            this.rsrvHoursUseLabel.Size = new System.Drawing.Size(74, 21);
+            this.rsrvHoursUseLabel.TabIndex = 8;
+            this.rsrvHoursUseLabel.Text = "이용시간";
             // 
-            // floor5
+            // label3
             // 
-            this.floor5.Controls.Add(this.label7);
-            this.floor5.Controls.Add(this.classNameLabel2);
-            this.floor5.Controls.Add(this.pictureBox3);
-            this.floor5.Controls.Add(this.pictureBox1);
-            this.floor5.Controls.Add(this.classNameLabel1);
-            this.floor5.Controls.Add(this.label5);
-            this.floor5.Controls.Add(this.classLabel3);
-            this.floor5.Controls.Add(this.pictureBox2);
-            this.floor5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.floor5.Location = new System.Drawing.Point(4, 24);
-            this.floor5.Name = "floor5";
-            this.floor5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.floor5.Size = new System.Drawing.Size(1192, 705);
-            this.floor5.TabIndex = 0;
-            this.floor5.Text = "5층";
-            this.floor5.UseVisualStyleBackColor = true;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(1057, 318);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 21);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "~";
             // 
-            // label5
+            // endHoursDropDown
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(567, 438);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 15);
-            this.label5.TabIndex = 20;
+            this.endHoursDropDown.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.endHoursDropDown.FormattingEnabled = true;
+            this.endHoursDropDown.Items.AddRange(new object[] {
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00"});
+            this.endHoursDropDown.Location = new System.Drawing.Point(1083, 318);
+            this.endHoursDropDown.Name = "endHoursDropDown";
+            this.endHoursDropDown.Size = new System.Drawing.Size(81, 20);
+            this.endHoursDropDown.TabIndex = 10;
             // 
-            // floor4
+            // rsrvPrsnlLabel
             // 
-            this.floor4.Location = new System.Drawing.Point(4, 24);
-            this.floor4.Name = "floor4";
-            this.floor4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.floor4.Size = new System.Drawing.Size(1192, 705);
-            this.floor4.TabIndex = 1;
-            this.floor4.Text = "4층";
-            this.floor4.UseVisualStyleBackColor = true;
+            this.rsrvPrsnlLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rsrvPrsnlLabel.AutoSize = true;
+            this.rsrvPrsnlLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rsrvPrsnlLabel.Location = new System.Drawing.Point(884, 369);
+            this.rsrvPrsnlLabel.Name = "rsrvPrsnlLabel";
+            this.rsrvPrsnlLabel.Size = new System.Drawing.Size(74, 21);
+            this.rsrvPrsnlLabel.TabIndex = 11;
+            this.rsrvPrsnlLabel.Text = "예약인원";
             // 
-            // button2
+            // rsrvGoal
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(857, 99);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 29);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "조회";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.rsrvGoal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rsrvGoal.Location = new System.Drawing.Point(964, 421);
+            this.rsrvGoal.Name = "rsrvGoal";
+            this.rsrvGoal.Size = new System.Drawing.Size(200, 21);
+            this.rsrvGoal.TabIndex = 14;
             // 
-            // pictureBox3
+            // rsrvGoalLabel
             // 
-            this.pictureBox3.Image = global::WindowsFormsApp1.Properties.Resources.b_lecture1;
-            this.pictureBox3.Location = new System.Drawing.Point(704, 101);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(182, 160);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 33;
-            this.pictureBox3.TabStop = false;
-            // 
-            // classNameLabel2
-            // 
-            this.classNameLabel2.AutoSize = true;
-            this.classNameLabel2.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classNameLabel2.Location = new System.Drawing.Point(913, 101);
-            this.classNameLabel2.Name = "classNameLabel2";
-            this.classNameLabel2.Size = new System.Drawing.Size(205, 28);
-            this.classNameLabel2.TabIndex = 34;
-            this.classNameLabel2.Text = "5층 - 모바일 실습실1";
+            this.rsrvGoalLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rsrvGoalLabel.AutoSize = true;
+            this.rsrvGoalLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rsrvGoalLabel.Location = new System.Drawing.Point(884, 421);
+            this.rsrvGoalLabel.Name = "rsrvGoalLabel";
+            this.rsrvGoalLabel.Size = new System.Drawing.Size(74, 21);
+            this.rsrvGoalLabel.TabIndex = 13;
+            this.rsrvGoalLabel.Text = "예약목적";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1099, 108);
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label7.Location = new System.Drawing.Point(888, 234);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 15);
-            this.label7.TabIndex = 35;
+            this.label7.Size = new System.Drawing.Size(276, 2);
+            this.label7.TabIndex = 16;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45"});
+            this.comboBox1.Location = new System.Drawing.Point(964, 370);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(200, 20);
+            this.comboBox1.TabIndex = 17;
             // 
             // selectClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1347, 707);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.selectDateTimeLabel);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.selectClassLabel);
+            this.ClientSize = new System.Drawing.Size(1235, 655);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.rsrvGoal);
+            this.Controls.Add(this.rsrvGoalLabel);
+            this.Controls.Add(this.rsrvPrsnlLabel);
+            this.Controls.Add(this.endHoursDropDown);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.rsrvHoursUseLabel);
+            this.Controls.Add(this.startHoursDropDown);
+            this.Controls.Add(this.selectClassBtn);
+            this.Controls.Add(this.classNameLabel);
+            this.Controls.Add(this.classNameDropDown);
+            this.Controls.Add(this.datePicker);
+            this.Controls.Add(this.reservationBtn);
+            this.Controls.Add(this.selectClassDataGrid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "selectClassForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "SpaceHub";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.selectClassForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.floor5.ResumeLayout(false);
-            this.floor5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectClassDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label selectClassLabel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label selectDateTimeLabel;
-        private System.Windows.Forms.Label classNameLabel1;
-        private System.Windows.Forms.Label classLabel3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage floor5;
-        private System.Windows.Forms.TabPage floor4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView selectClassDataGrid;
+        private System.Windows.Forms.Button reservationBtn;
+        private System.Windows.Forms.DateTimePicker datePicker;
+        private System.Windows.Forms.ComboBox classNameDropDown;
+        private System.Windows.Forms.Label classNameLabel;
+        private System.Windows.Forms.Button selectClassBtn;
+        private System.Windows.Forms.ComboBox startHoursDropDown;
+        private System.Windows.Forms.Label rsrvHoursUseLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox endHoursDropDown;
+        private System.Windows.Forms.Label rsrvPrsnlLabel;
+        private System.Windows.Forms.TextBox rsrvGoal;
+        private System.Windows.Forms.Label rsrvGoalLabel;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label classNameLabel2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
