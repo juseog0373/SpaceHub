@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static dbConnectSpace.dbConnection; //dbConnection 임포트
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using UserDAO;
 
 namespace WindowsFormsApp1
 {
@@ -36,11 +37,10 @@ namespace WindowsFormsApp1
                 string sql = "";
 
                 string classSearch = classNameDropDown.Text;
-                Console.WriteLine("classSearch:" + classSearch);
 
                 if (classSearch.Equals("전체"))
                 {
-                    sql = string.Format("SELECT classCode as '강의실 코드', className as '강의실 이름', classFloor as '강의실 층수', classLoca '강의실 위치', classMax '강의실 수용 인원' FROM classTbl ORDER BY classFloor DESC ");
+                    sql = string.Format("SELECT classCode '강의실 코드', className '강의실 이름', classFloor '강의실 층수', classLoca '강의실 위치', classMax '강의실 수용 인원', classInfo '강의실 정보' FROM classTbl ORDER BY classFloor DESC ");
                 }
                 else
                 {
@@ -49,10 +49,7 @@ namespace WindowsFormsApp1
                     string classLoca = classSearchs[0].Trim();
                     string classFloor = classSearchs[1].Substring(0, 1);
 
-                    Console.WriteLine($"classLoca : {classLoca}");
-                    Console.WriteLine($"classFloor : {classFloor}");
-
-                    sql = string.Format("SELECT classCode as '강의실 코드', className as '강의실 이름', classFloor as '강의실 층수', classLoca '강의실 위치', classMax '강의실 수용 인원' FROM classTbl WHERE classLoca = '{0}' AND classFloor = '{1}'", classLoca, classFloor);
+                    sql = string.Format("SELECT classCode '강의실 코드', className '강의실 이름', classFloor '강의실 층수', classLoca '강의실 위치', classMax '강의실 수용 인원', classInfo '강의실 정보' FROM classTbl WHERE classLoca = '{0}' AND classFloor = '{1}'", classLoca, classFloor);
                 }
 
                 cmd = new MySqlCommand(sql, conn);
@@ -73,6 +70,8 @@ namespace WindowsFormsApp1
 
         private void reservationBtn_Click(object sender, EventArgs e)
         {
+            string userId = User.UserId;
+
             string rsrvDate = dateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
             string rsrvPrsnl = rsrvPrsnlDropDown.Text;
             string rsrvGoal = rsrvGoalTxt.Text;
@@ -102,12 +101,6 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            else if (int.Parse(endHours) < int.Parse(endHours))
-            {
-                MessageBox.Show("예약 시간을 다시 확인해주세요");
-                return;
-            }
-
             if (selectedClassRow != null)
             {
                 conn = mysqlConnect();
@@ -116,10 +109,10 @@ namespace WindowsFormsApp1
                 string classCode = selectedClassRow.Cells["강의실 코드"].Value.ToString();
                 string className = selectedClassRow.Cells["강의실 이름"].Value.ToString();
 
-                rsrvHoursUse = startHours+":00"+" ~ " +endHours+":00";
+                rsrvHoursUse = startHours+":00"+"~" +endHours+":00";
 
                 string insertSql = string.Format("INSERT INTO reservationtbl(userId, classCode, rsrvDate, rsrvGoal, rsrvPrsnl, rsrvHoursUse, rsrvYN)"+
-                    "VALUES('20', '{0}', '{1}', '{2}', '{3}', '{4}', 'N');", classCode, rsrvDate, rsrvGoal, rsrvPrsnl, rsrvHoursUse);
+                    "VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', 'N');", userId, classCode, rsrvDate, rsrvGoal, rsrvPrsnl, rsrvHoursUse);
                
                 cmd = new MySqlCommand(insertSql, conn);
 
@@ -141,15 +134,10 @@ namespace WindowsFormsApp1
 
         private void dataGridViewCell_Click(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // 유효한 행을 클릭한 경우
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 selectedClassRow = selectClassDataGrid.Rows[e.RowIndex];
             }
-        }
-
-        private void selectClassForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void startHoursDropDown_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,6 +162,11 @@ namespace WindowsFormsApp1
                     endHoursDropDown.Items.Add(timeOption);
                 }
             }
+        }
+
+        private void selectClassForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

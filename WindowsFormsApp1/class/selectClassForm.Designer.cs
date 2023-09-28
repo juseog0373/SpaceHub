@@ -33,7 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(selectClassForm));
             this.selectClassDataGrid = new System.Windows.Forms.DataGridView();
             this.reservationBtn = new System.Windows.Forms.Button();
-            this.datePicker = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.classNameDropDown = new System.Windows.Forms.ComboBox();
             this.classNameLabel = new System.Windows.Forms.Label();
             this.selectClassBtn = new System.Windows.Forms.Button();
@@ -42,10 +42,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.endHoursDropDown = new System.Windows.Forms.ComboBox();
             this.rsrvPrsnlLabel = new System.Windows.Forms.Label();
-            this.rsrvGoal = new System.Windows.Forms.TextBox();
+            this.rsrvGoalTxt = new System.Windows.Forms.TextBox();
             this.rsrvGoalLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rsrvPrsnlDropDown = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.selectClassDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +55,8 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.selectClassDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.selectClassDataGrid.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.selectClassDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.selectClassDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -66,10 +68,12 @@
             this.selectClassDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.selectClassDataGrid.Location = new System.Drawing.Point(32, 52);
             this.selectClassDataGrid.Name = "selectClassDataGrid";
+            this.selectClassDataGrid.ReadOnly = true;
             this.selectClassDataGrid.RowTemplate.Height = 23;
             this.selectClassDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.selectClassDataGrid.Size = new System.Drawing.Size(825, 571);
             this.selectClassDataGrid.TabIndex = 0;
+            this.selectClassDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCell_Click);
             // 
             // reservationBtn
             // 
@@ -83,19 +87,20 @@
             this.reservationBtn.UseVisualStyleBackColor = true;
             this.reservationBtn.Click += new System.EventHandler(this.reservationBtn_Click);
             // 
-            // datePicker
+            // dateTimePicker
             // 
-            this.datePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.datePicker.Location = new System.Drawing.Point(888, 265);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(276, 21);
-            this.datePicker.TabIndex = 3;
+            this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dateTimePicker.Location = new System.Drawing.Point(888, 265);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(276, 21);
+            this.dateTimePicker.TabIndex = 3;
             // 
             // classNameDropDown
             // 
             this.classNameDropDown.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.classNameDropDown.FormattingEnabled = true;
             this.classNameDropDown.Items.AddRange(new object[] {
+            "전체",
             "전산관 5층",
             "전산관 4층",
             "전산관 3층",
@@ -152,6 +157,7 @@
             this.startHoursDropDown.Name = "startHoursDropDown";
             this.startHoursDropDown.Size = new System.Drawing.Size(81, 20);
             this.startHoursDropDown.TabIndex = 10;
+            this.startHoursDropDown.SelectedIndexChanged += new System.EventHandler(this.startHoursDropDown_SelectedIndexChanged);
             // 
             // rsrvHoursUseLabel
             // 
@@ -209,13 +215,13 @@
             this.rsrvPrsnlLabel.TabIndex = 11;
             this.rsrvPrsnlLabel.Text = "예약인원";
             // 
-            // rsrvGoal
+            // rsrvGoalTxt
             // 
-            this.rsrvGoal.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.rsrvGoal.Location = new System.Drawing.Point(964, 421);
-            this.rsrvGoal.Name = "rsrvGoal";
-            this.rsrvGoal.Size = new System.Drawing.Size(200, 21);
-            this.rsrvGoal.TabIndex = 14;
+            this.rsrvGoalTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rsrvGoalTxt.Location = new System.Drawing.Point(964, 421);
+            this.rsrvGoalTxt.Name = "rsrvGoalTxt";
+            this.rsrvGoalTxt.Size = new System.Drawing.Size(200, 21);
+            this.rsrvGoalTxt.TabIndex = 14;
             // 
             // rsrvGoalLabel
             // 
@@ -237,11 +243,11 @@
             this.label7.Size = new System.Drawing.Size(276, 2);
             this.label7.TabIndex = 16;
             // 
-            // comboBox1
+            // rsrvPrsnlDropDown
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.rsrvPrsnlDropDown.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rsrvPrsnlDropDown.FormattingEnabled = true;
+            this.rsrvPrsnlDropDown.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -287,19 +293,19 @@
             "43",
             "44",
             "45"});
-            this.comboBox1.Location = new System.Drawing.Point(964, 370);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 20);
-            this.comboBox1.TabIndex = 17;
+            this.rsrvPrsnlDropDown.Location = new System.Drawing.Point(964, 370);
+            this.rsrvPrsnlDropDown.Name = "rsrvPrsnlDropDown";
+            this.rsrvPrsnlDropDown.Size = new System.Drawing.Size(200, 20);
+            this.rsrvPrsnlDropDown.TabIndex = 17;
             // 
             // selectClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1235, 655);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.rsrvPrsnlDropDown);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.rsrvGoal);
+            this.Controls.Add(this.rsrvGoalTxt);
             this.Controls.Add(this.rsrvGoalLabel);
             this.Controls.Add(this.rsrvPrsnlLabel);
             this.Controls.Add(this.endHoursDropDown);
@@ -309,7 +315,7 @@
             this.Controls.Add(this.selectClassBtn);
             this.Controls.Add(this.classNameLabel);
             this.Controls.Add(this.classNameDropDown);
-            this.Controls.Add(this.datePicker);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.reservationBtn);
             this.Controls.Add(this.selectClassDataGrid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -326,7 +332,7 @@
         #endregion
         private System.Windows.Forms.DataGridView selectClassDataGrid;
         private System.Windows.Forms.Button reservationBtn;
-        private System.Windows.Forms.DateTimePicker datePicker;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ComboBox classNameDropDown;
         private System.Windows.Forms.Label classNameLabel;
         private System.Windows.Forms.Button selectClassBtn;
@@ -335,9 +341,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox endHoursDropDown;
         private System.Windows.Forms.Label rsrvPrsnlLabel;
-        private System.Windows.Forms.TextBox rsrvGoal;
+        private System.Windows.Forms.TextBox rsrvGoalTxt;
         private System.Windows.Forms.Label rsrvGoalLabel;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox rsrvPrsnlDropDown;
     }
 }
