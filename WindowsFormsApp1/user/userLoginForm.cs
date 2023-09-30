@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using dbConnectSpace;
 using MySql.Data.MySqlClient; // SQL 연동을 위한 using
 using static dbConnectSpace.dbConnection; //dbConnection 임포트
-
+using UserDAO;
 
 namespace WindowsFormsApp1
 {
@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
 
         private void userLoginForm_Load(object sender, EventArgs e)
         {
-
+            userIdTxt.Text = Properties.Settings.Default.loginIdSave;
         }
 
         private void accountBtn_Click(object sender, EventArgs e)
@@ -60,23 +60,40 @@ namespace WindowsFormsApp1
                 }
                 if (loginStatus == 1)
                 {
-                    MessageBox.Show(mdr.GetString("userName")+"님 환영합니다.");
+                    if(userIdSave.Checked)
+                    {
+                        Properties.Settings.Default.loginIdSave = userId;
+                        Properties.Settings.Default.Save();
+                    }
+
+                    User.UserId = userId;
+                    MessageBox.Show(User.UserId + "님 환영합니다.");
 
                     selectClassForm selectClassForm = new selectClassForm();
                     selectClassForm.Tag = this;
                     selectClassForm.Show();
                     this.Hide();
                 }
+                else if(userId == "")
+                {
+                    MessageBox.Show("학번을 입력해주세요");
+                    this.userIdTxt.Focus();
+                }
+                else if (userPw == "")
+                {
+                    MessageBox.Show("비밀번호를 입력해주세요");
+                    this.userPwTxt.Focus();
+                }
                 else
                 {
-                    MessageBox.Show("학번 또는 비밀번호를 확인해 주세요.");
+                    MessageBox.Show("학번 또는 비밀번호가 맞지 않습니다.");
                 }
 
                 conn.Close();
             }
             catch (Exception ex)
             {
-                
+
                 MessageBox.Show(ex.Message);
             }
         }

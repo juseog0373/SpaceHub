@@ -32,6 +32,7 @@
             this.userPwTxt = new System.Windows.Forms.TextBox();
             this.accountBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.userIdSave = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,10 +41,9 @@
             this.userIdLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdLabel.AutoSize = true;
             this.userIdLabel.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userIdLabel.Location = new System.Drawing.Point(586, 544);
-            this.userIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.userIdLabel.Location = new System.Drawing.Point(410, 363);
             this.userIdLabel.Name = "userIdLabel";
-            this.userIdLabel.Size = new System.Drawing.Size(106, 55);
+            this.userIdLabel.Size = new System.Drawing.Size(71, 37);
             this.userIdLabel.TabIndex = 0;
             this.userIdLabel.Text = "학번";
             // 
@@ -52,20 +52,18 @@
             this.userIdTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userIdTxt.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.userIdTxt.Location = new System.Drawing.Point(753, 556);
-            this.userIdTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.userIdTxt.Location = new System.Drawing.Point(527, 371);
             this.userIdTxt.Name = "userIdTxt";
-            this.userIdTxt.Size = new System.Drawing.Size(225, 39);
+            this.userIdTxt.Size = new System.Drawing.Size(159, 29);
             this.userIdTxt.TabIndex = 1;
             // 
             // loginBtn
             // 
             this.loginBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.loginBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.loginBtn.Location = new System.Drawing.Point(1014, 550);
-            this.loginBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.loginBtn.Location = new System.Drawing.Point(710, 367);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(151, 136);
+            this.loginBtn.Size = new System.Drawing.Size(106, 91);
             this.loginBtn.TabIndex = 2;
             this.loginBtn.Text = "로그인";
             this.loginBtn.UseVisualStyleBackColor = true;
@@ -76,10 +74,9 @@
             this.userPwdLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userPwdLabel.AutoSize = true;
             this.userPwdLabel.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userPwdLabel.Location = new System.Drawing.Point(551, 627);
-            this.userPwdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.userPwdLabel.Location = new System.Drawing.Point(386, 422);
             this.userPwdLabel.Name = "userPwdLabel";
-            this.userPwdLabel.Size = new System.Drawing.Size(188, 55);
+            this.userPwdLabel.Size = new System.Drawing.Size(125, 37);
             this.userPwdLabel.TabIndex = 3;
             this.userPwdLabel.Text = "비밀번호";
             // 
@@ -87,21 +84,19 @@
             // 
             this.userPwTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userPwTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userPwTxt.Location = new System.Drawing.Point(753, 639);
-            this.userPwTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.userPwTxt.Location = new System.Drawing.Point(527, 430);
             this.userPwTxt.Name = "userPwTxt";
             this.userPwTxt.PasswordChar = '*';
-            this.userPwTxt.Size = new System.Drawing.Size(225, 39);
+            this.userPwTxt.Size = new System.Drawing.Size(159, 29);
             this.userPwTxt.TabIndex = 4;
             // 
             // accountBtn
             // 
             this.accountBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.accountBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.accountBtn.Location = new System.Drawing.Point(790, 752);
-            this.accountBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.accountBtn.Location = new System.Drawing.Point(553, 501);
             this.accountBtn.Name = "accountBtn";
-            this.accountBtn.Size = new System.Drawing.Size(151, 51);
+            this.accountBtn.Size = new System.Drawing.Size(106, 34);
             this.accountBtn.TabIndex = 5;
             this.accountBtn.Text = "회원가입";
             this.accountBtn.UseVisualStyleBackColor = true;
@@ -112,18 +107,30 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(283, 71);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(203, 47);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1121, 453);
+            this.pictureBox1.Size = new System.Drawing.Size(785, 302);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // userIdSave
+            // 
+            this.userIdSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.userIdSave.AutoSize = true;
+            this.userIdSave.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.userIdSave.Location = new System.Drawing.Point(719, 464);
+            this.userIdSave.Name = "userIdSave";
+            this.userIdSave.Size = new System.Drawing.Size(93, 24);
+            this.userIdSave.TabIndex = 7;
+            this.userIdSave.Text = "학번 저장";
+            this.userIdSave.UseVisualStyleBackColor = true;
+            // 
             // userLoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1644, 1029);
+            this.ClientSize = new System.Drawing.Size(1151, 686);
+            this.Controls.Add(this.userIdSave);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.accountBtn);
             this.Controls.Add(this.userPwTxt);
@@ -132,7 +139,6 @@
             this.Controls.Add(this.userIdTxt);
             this.Controls.Add(this.userIdLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "userLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SpaceHub";
@@ -153,6 +159,7 @@
         private System.Windows.Forms.TextBox userPwTxt;
         private System.Windows.Forms.Button accountBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox userIdSave;
     }
 }
 
