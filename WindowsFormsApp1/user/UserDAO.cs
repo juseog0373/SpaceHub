@@ -8,6 +8,6 @@ namespace UserDAO
 {
     public static class User
     {
-        public static string UserId {  get; set; }
+        public static string UserId { get; set; }
     }
 }
