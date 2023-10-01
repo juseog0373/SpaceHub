@@ -46,6 +46,7 @@
             this.rsrvGoalLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.rsrvPrsnlDropDown = new System.Windows.Forms.ComboBox();
+            this.logoutBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.selectClassDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -298,11 +299,23 @@
             this.rsrvPrsnlDropDown.Size = new System.Drawing.Size(200, 20);
             this.rsrvPrsnlDropDown.TabIndex = 17;
             // 
+            // logoutBtn
+            // 
+            this.logoutBtn.AllowDrop = true;
+            this.logoutBtn.Location = new System.Drawing.Point(1089, 14);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(75, 23);
+            this.logoutBtn.TabIndex = 18;
+            this.logoutBtn.Text = "로그아웃";
+            this.logoutBtn.UseVisualStyleBackColor = true;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
             // selectClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1235, 655);
+            this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.rsrvPrsnlDropDown);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.rsrvGoalTxt);
@@ -345,5 +358,6 @@
         private System.Windows.Forms.Label rsrvGoalLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox rsrvPrsnlDropDown;
+        private System.Windows.Forms.Button logoutBtn;
     }
 }
