@@ -168,5 +168,17 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            User.UserId = "";
+
+            this.Close();
+            MessageBox.Show("로그아웃 되었습니다.");
+
+
+            userLoginForm loginForm = new userLoginForm();
+            loginForm.Show();
+        }
     }
 }
