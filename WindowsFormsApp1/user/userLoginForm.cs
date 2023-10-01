@@ -67,7 +67,7 @@ namespace WindowsFormsApp1
                     }
 
                     User.UserId = userId;
-                    MessageBox.Show(User.UserId + "님 환영합니다.");
+                    MessageBox.Show((string)mdr["userName"] + "님 환영합니다.");
 
                     selectClassForm selectClassForm = new selectClassForm();
                     selectClassForm.Tag = this;
