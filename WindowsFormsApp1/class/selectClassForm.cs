@@ -197,5 +197,47 @@ namespace WindowsFormsApp1
         {
             classNameDropDown.SelectedIndex = 0;
         }
+
+     
+        private void classBtn_Click(object sender, EventArgs e)
+        {
+           
+            bool classPage = classSelectPageBox.Visible;
+            bool myPage = myPageBox.Visible;
+
+
+            // 강의실 예약 그룹박스에 Visible 값을 확인해 그룹박스 on/off
+            if (classPage == false)
+            {
+                myPageBox.Visible = false;
+                classSelectPageBox.Visible = true;
+            }
+            else
+            {
+                classSelectPageBox.Visible = false;
+
+            }
+
+         
+        }
+
+        private void myPageBtn_Click(object sender, EventArgs e)
+        {
+            bool classPage = classSelectPageBox.Visible;
+            bool myPage = myPageBox.Visible;
+
+            // 마이페이지 그룹박스에 Visible 값을 확인해 그룹박스 on/off
+            if (myPage == false)
+            {
+                classSelectPageBox.Visible = false;
+                myPageBox.Visible = true;
+            }
+            else
+            {
+              
+                myPageBox.Visible = false;
+            }
+
+        }
     }
 }
