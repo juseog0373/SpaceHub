@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FC775C69-0E89-4CEF-8A49-0221FCB4A358}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>WindowsFormsApp1</RootNamespace>
     <AssemblyName>WindowsFormsApp1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -96,7 +99,7 @@
     <Reference Include="ZstdSharp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.7.1\lib\net461\ZstdSharp.dll</HintPath>
     </Reference>
- </ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="dbConnection.cs" />
     <Compile Include="class\selectClassForm.cs">
@@ -107,16 +110,18 @@
     </Compile>
     <Compile Include="SpaceHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user\Session.cs" />
     <Compile Include="user\userAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="user\userAccountForm.Designer.cs">
       <DependentUpon>userAccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="user\UserDAO.cs" />
     <Compile Include="user\userLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="user\userLoginForm.Designer.cs">
+    <Compile Include="user\userLoginForm.designer.cs">
       <DependentUpon>userLoginForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="class\selectClassForm.resx">

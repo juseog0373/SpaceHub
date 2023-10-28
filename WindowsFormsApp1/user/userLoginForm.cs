@@ -60,14 +60,7 @@ namespace WindowsFormsApp1
                 }
                 if (loginStatus == 1)
                 {
-                    if(userIdSave.Checked)
-                    {
-                        Properties.Settings.Default.loginIdSave = userId;
-                        Properties.Settings.Default.Save();
-                    }
-
-                    User.UserId = userId;
-                    MessageBox.Show(User.UserId + "님 환영합니다.");
+                    MessageBox.Show(mdr.GetString("userName")+"님 환영합니다.");
 
                     selectClassForm selectClassForm = new selectClassForm();
                     selectClassForm.Tag = this;
