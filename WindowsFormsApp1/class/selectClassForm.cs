@@ -157,33 +157,13 @@ namespace WindowsFormsApp1
             }
             
             string availPrsnl = selectedClassRow.Cells["예약 가능 인원"].Value.ToString();
-            MessageBox.Show(availPrsnl);
-            // 문채현이 할 일
-        }
+            rsrvPrsnlDropDown.Items.Clear(); // 예약 가능한 인원을 나타내는 콤보박스를 초기화
+            int availPrsnlNum=int.Parse(availPrsnl);
 
-        private void startHoursDropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedTime = startHoursDropDown.SelectedItem.ToString();
-
-            // time2 콤보 박스를 초기화하여 선택된 시간 이후의 값을 추가합니다.
-            endHoursDropDown.Items.Clear();
-
-            // 시간 형식을 TimeSpan으로 파싱하여 선택된 시간 이후의 시간을 계산합니다.
-
-            TimeSpan selectedTimeSpan = TimeSpan.Parse(selectedTime);
-            // 1시간을 나타내는 TimeSpan을 생성합니다.
-
-            TimeSpan oneHour = TimeSpan.FromHours(1);
-
-            // 선택된 시간 이후 1시간 이상인 시간 옵션을 추가합니다.
-            foreach (string timeOption in startHoursDropDown.Items)
-            {
-                TimeSpan timeOptionTimeSpan = TimeSpan.Parse(timeOption);
-                if (timeOptionTimeSpan >= selectedTimeSpan + oneHour)
+                for (int i = 1; i <= availPrsnlNum; i++)  // 1부터 availPrsnlNum 까지의 숫자를 콤보박스에 추가
                 {
-                    endHoursDropDown.Items.Add(timeOption);
+                    rsrvPrsnlDropDown.Items.Add(i);
                 }
-            }
         }
 
         private void logoutBtn_Click(object sender, EventArgs e)
@@ -208,6 +188,31 @@ namespace WindowsFormsApp1
         private void myPageBtn_Click(object sender, EventArgs e)
         {
             // 윤병현이 할 일
+        }
+
+        private void startHoursDropDown_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string selectedTime = startHoursDropDown.SelectedItem.ToString();
+
+            // time2 콤보 박스를 초기화하여 선택된 시간 이후의 값을 추가합니다.
+            endHoursDropDown.Items.Clear();
+
+            // 시간 형식을 TimeSpan으로 파싱하여 선택된 시간 이후의 시간을 계산합니다.
+
+            TimeSpan selectedTimeSpan = TimeSpan.Parse(selectedTime);
+            // 1시간을 나타내는 TimeSpan을 생성합니다.
+
+            TimeSpan oneHour = TimeSpan.FromHours(1);
+
+            // 선택된 시간 이후 1시간 이상인 시간 옵션을 추가합니다.
+            foreach (string timeOption in startHoursDropDown.Items)
+            {
+                TimeSpan timeOptionTimeSpan = TimeSpan.Parse(timeOption);
+                if (timeOptionTimeSpan >= selectedTimeSpan + oneHour)
+                {
+                    endHoursDropDown.Items.Add(timeOption);
+                }
+            }
         }
     }
 }

@@ -22,11 +22,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void userLoginForm_Load(object sender, EventArgs e)
-        {
-            userIdTxt.Text = Properties.Settings.Default.loginIdSave;
-        }
-
         private void accountBtn_Click(object sender, EventArgs e)
         {
             userAccountForm userAccountForm = new userAccountForm();
