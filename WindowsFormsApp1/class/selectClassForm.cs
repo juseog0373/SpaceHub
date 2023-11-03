@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static dbConnectSpace.dbConnection; //dbConnection 임포트
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using UserDAO;
+using UserDTO;
 
 namespace WindowsFormsApp1
 {
@@ -149,15 +149,48 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void dataGridViewCell_Click(object sender, DataGridViewCellEventArgs e)
+        private void selectDataGridViewCell_Click(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 selectedClassRow = selectClassDataGrid.Rows[e.RowIndex];
             }
+            
+            string availPrsnl = selectedClassRow.Cells["예약 가능 인원"].Value.ToString();
+            rsrvPrsnlDropDown.Items.Clear(); // 예약 가능한 인원을 나타내는 콤보박스를 초기화
+            int availPrsnlNum=int.Parse(availPrsnl);
+
+                for (int i = 1; i <= availPrsnlNum; i++)  // 1부터 availPrsnlNum 까지의 숫자를 콤보박스에 추가
+                {
+                    rsrvPrsnlDropDown.Items.Add(i);
+                }
         }
 
-        private void startHoursDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            User.UserId = "";
+
+            MessageBox.Show("로그아웃 되었습니다.");
+            this.Close();
+
+            userLoginForm loginForm = new userLoginForm();
+            loginForm.Show();
+        }
+
+        private void selectClassForm_Load(object sender, EventArgs e)
+        {
+            classNameDropDown.SelectedIndex = 0;
+
+            userNameLabel.Text = User.UserName+"님 환영합니다";
+        }
+
+
+        private void myPageBtn_Click(object sender, EventArgs e)
+        {
+            // 윤병현이 할 일
+        }
+
+        private void startHoursDropDown_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string selectedTime = startHoursDropDown.SelectedItem.ToString();
 
@@ -180,64 +213,6 @@ namespace WindowsFormsApp1
                     endHoursDropDown.Items.Add(timeOption);
                 }
             }
-        }
-
-        private void logoutBtn_Click(object sender, EventArgs e)
-        {
-            User.UserId = "";
-
-            MessageBox.Show("로그아웃 되었습니다.");
-            this.Close();
-
-            userLoginForm loginForm = new userLoginForm();
-            loginForm.Show();
-        }
-
-        private void selectClassForm_Load(object sender, EventArgs e)
-        {
-            classNameDropDown.SelectedIndex = 0;
-        }
-
-     
-        private void classBtn_Click(object sender, EventArgs e)
-        {
-           
-            bool classPage = classSelectPageBox.Visible;
-            bool myPage = myPageBox.Visible;
-
-
-            // 강의실 예약 그룹박스에 Visible 값을 확인해 그룹박스 on/off
-            if (classPage == false)
-            {
-                myPageBox.Visible = false;
-                classSelectPageBox.Visible = true;
-            }
-            else
-            {
-                classSelectPageBox.Visible = false;
-
-            }
-
-         
-        }
-
-        private void myPageBtn_Click(object sender, EventArgs e)
-        {
-            bool classPage = classSelectPageBox.Visible;
-            bool myPage = myPageBox.Visible;
-
-            // 마이페이지 그룹박스에 Visible 값을 확인해 그룹박스 on/off
-            if (myPage == false)
-            {
-                classSelectPageBox.Visible = false;
-                myPageBox.Visible = true;
-            }
-            else
-            {
-              
-                myPageBox.Visible = false;
-            }
-
         }
     }
 }

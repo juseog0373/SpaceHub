@@ -33,6 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(selectClassForm));
             this.logoutBtn = new System.Windows.Forms.Button();
             this.classSelectPageBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.rsrvPrsnlDropDown = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.rsrvGoalTxt = new System.Windows.Forms.TextBox();
@@ -48,9 +49,9 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.reservationBtn = new System.Windows.Forms.Button();
             this.selectClassDataGrid = new System.Windows.Forms.DataGridView();
-            this.classBtn = new System.Windows.Forms.Button();
+            this.userNameLabel = new System.Windows.Forms.Label();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.myPageBtn = new System.Windows.Forms.Button();
-            this.myPageBox = new System.Windows.Forms.GroupBox();
             this.classSelectPageBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectClassDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // classSelectPageBox
             // 
+            this.classSelectPageBox.Controls.Add(this.button1);
             this.classSelectPageBox.Controls.Add(this.rsrvPrsnlDropDown);
             this.classSelectPageBox.Controls.Add(this.label7);
             this.classSelectPageBox.Controls.Add(this.rsrvGoalTxt);
@@ -91,7 +93,17 @@
             this.classSelectPageBox.TabIndex = 19;
             this.classSelectPageBox.TabStop = false;
             this.classSelectPageBox.Text = "강의실 예약";
-       
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button1.Location = new System.Drawing.Point(155, -42);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "예약 조회";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // rsrvPrsnlDropDown
             // 
@@ -254,17 +266,22 @@
             this.startHoursDropDown.Name = "startHoursDropDown";
             this.startHoursDropDown.Size = new System.Drawing.Size(81, 20);
             this.startHoursDropDown.TabIndex = 42;
+            this.startHoursDropDown.SelectedIndexChanged += new System.EventHandler(this.startHoursDropDown_SelectedIndexChanged_1);
             // 
             // selectClassBtn
             // 
             this.selectClassBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.selectClassBtn.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.selectClassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.selectClassBtn.FlatAppearance.BorderSize = 0;
+            this.selectClassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.selectClassBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.selectClassBtn.Location = new System.Drawing.Point(1381, 87);
             this.selectClassBtn.Name = "selectClassBtn";
             this.selectClassBtn.Size = new System.Drawing.Size(276, 84);
             this.selectClassBtn.TabIndex = 38;
             this.selectClassBtn.Text = "조회";
-            this.selectClassBtn.UseVisualStyleBackColor = true;
+            this.selectClassBtn.UseVisualStyleBackColor = false;
             this.selectClassBtn.Click += new System.EventHandler(this.selectClassBtn_Click);
             // 
             // classNameLabel
@@ -306,13 +323,17 @@
             // reservationBtn
             // 
             this.reservationBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.reservationBtn.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.reservationBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reservationBtn.FlatAppearance.BorderSize = 0;
+            this.reservationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reservationBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.reservationBtn.Location = new System.Drawing.Point(1381, 704);
             this.reservationBtn.Name = "reservationBtn";
             this.reservationBtn.Size = new System.Drawing.Size(276, 139);
             this.reservationBtn.TabIndex = 34;
             this.reservationBtn.Text = "예약";
-            this.reservationBtn.UseVisualStyleBackColor = true;
+            this.reservationBtn.UseVisualStyleBackColor = false;
             this.reservationBtn.Click += new System.EventHandler(this.reservationBtn_Click);
             // 
             // selectClassDataGrid
@@ -321,8 +342,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.selectClassDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.selectClassDataGrid.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.selectClassDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.selectClassDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.selectClassDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -339,51 +359,52 @@
             this.selectClassDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.selectClassDataGrid.Size = new System.Drawing.Size(1161, 808);
             this.selectClassDataGrid.TabIndex = 33;
-            this.selectClassDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCell_Click);
+            this.selectClassDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectDataGridViewCell_Click);
             // 
-            // classBtn
+            // userNameLabel
             // 
-            this.classBtn.Location = new System.Drawing.Point(77, 22);
-            this.classBtn.Name = "classBtn";
-            this.classBtn.Size = new System.Drawing.Size(148, 25);
-            this.classBtn.TabIndex = 20;
-            this.classBtn.Text = "강의실 예약";
-            this.classBtn.UseVisualStyleBackColor = true;
-            this.classBtn.Click += new System.EventHandler(this.classBtn_Click);
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.userNameLabel.Location = new System.Drawing.Point(1581, 35);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(128, 20);
+            this.userNameLabel.TabIndex = 23;
+            this.userNameLabel.Text = "test님 환영합니다";
+            // 
+            // mySqlCommand1
+            // 
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
             // 
             // myPageBtn
             // 
-            this.myPageBtn.Location = new System.Drawing.Point(274, 24);
+            this.myPageBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.myPageBtn.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.myPageBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myPageBtn.FlatAppearance.BorderSize = 0;
+            this.myPageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myPageBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.myPageBtn.Location = new System.Drawing.Point(28, 22);
             this.myPageBtn.Name = "myPageBtn";
-            this.myPageBtn.Size = new System.Drawing.Size(149, 23);
-            this.myPageBtn.TabIndex = 21;
-            this.myPageBtn.Text = "마이페이지";
-            this.myPageBtn.UseVisualStyleBackColor = true;
-            this.myPageBtn.Click += new System.EventHandler(this.myPageBtn_Click);
-            // 
-            // myPageBox
-            // 
-            this.myPageBox.Location = new System.Drawing.Point(31, 64);
-            this.myPageBox.Name = "myPageBox";
-            this.myPageBox.Size = new System.Drawing.Size(1814, 863);
-            this.myPageBox.TabIndex = 22;
-            this.myPageBox.TabStop = false;
-            this.myPageBox.Text = "마이페이지";
-            this.myPageBox.Visible = false;
+            this.myPageBtn.Size = new System.Drawing.Size(128, 23);
+            this.myPageBtn.TabIndex = 49;
+            this.myPageBtn.Text = "예약 조회";
+            this.myPageBtn.UseVisualStyleBackColor = false;
             // 
             // selectClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1857, 939);
-            this.Controls.Add(this.myPageBox);
             this.Controls.Add(this.myPageBtn);
-            this.Controls.Add(this.classBtn);
+            this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.classSelectPageBox);
             this.Controls.Add(this.logoutBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "selectClassForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SpaceHub";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.selectClassForm_Load);
@@ -391,6 +412,7 @@
             this.classSelectPageBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectClassDataGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -412,8 +434,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button reservationBtn;
         private System.Windows.Forms.DataGridView selectClassDataGrid;
-        private System.Windows.Forms.Button classBtn;
+        private System.Windows.Forms.Label userNameLabel;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button myPageBtn;
-        private System.Windows.Forms.GroupBox myPageBox;
     }
 }
