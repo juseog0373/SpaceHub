@@ -187,10 +187,13 @@ namespace WindowsFormsApp1
 
         private void myPageBtn_Click(object sender, EventArgs e)
         {
-            // 윤병현이 할 일
+            // 버튼 클릭시 예약내역 폼 화면 출력
+            selectMyRsrvForm selectMyRsrvForm = new selectMyRsrvForm();
+            selectMyRsrvForm.Tag = this;
+            selectMyRsrvForm.Show();
         }
 
-        private void startHoursDropDown_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void startHoursDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedTime = startHoursDropDown.SelectedItem.ToString();
 
@@ -214,5 +217,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+
     }
 }

@@ -75,7 +75,7 @@
             this.loginBtn.Location = new System.Drawing.Point(441, 570);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(108, 39);
-            this.loginBtn.TabIndex = 2;
+            this.loginBtn.TabIndex = 3;
             this.loginBtn.Text = "로그인";
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
@@ -102,7 +102,7 @@
             this.userPwTxt.Name = "userPwTxt";
             this.userPwTxt.PasswordChar = '*';
             this.userPwTxt.Size = new System.Drawing.Size(194, 22);
-            this.userPwTxt.TabIndex = 4;
+            this.userPwTxt.TabIndex = 2;
             // 
             // accountBtn
             // 
@@ -115,7 +115,7 @@
             this.accountBtn.Location = new System.Drawing.Point(567, 570);
             this.accountBtn.Name = "accountBtn";
             this.accountBtn.Size = new System.Drawing.Size(108, 40);
-            this.accountBtn.TabIndex = 5;
+            this.accountBtn.TabIndex = 4;
             this.accountBtn.Text = "회원가입";
             this.accountBtn.UseVisualStyleBackColor = false;
             this.accountBtn.Click += new System.EventHandler(this.accountBtn_Click);
@@ -181,6 +181,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SpaceHub";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.userLoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
