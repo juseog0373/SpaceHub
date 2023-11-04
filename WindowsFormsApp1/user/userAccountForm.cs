@@ -19,11 +19,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void userAccountForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void accountActionBtn_Click(object sender, EventArgs e)
         {
             try
