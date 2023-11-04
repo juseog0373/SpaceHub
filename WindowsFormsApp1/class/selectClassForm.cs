@@ -62,7 +62,7 @@ namespace WindowsFormsApp1
                         " WHERE c.classLoca = '{0}'" +
                         " AND c.classFloor = '{1}'" +
                         " GROUP BY c.classCode" +
-                        " HAVING c.classMax - IFNULL(SUM(r.rsrvPrsnl), 0) > 0"+
+                        " HAVING c.classMax - IFNULL(SUM(r.rsrvPrsnl), 0) > 0" +
                         " ORDER BY c.classFloor DESC", classLoca, classFloor);
                 }
 
@@ -99,38 +99,46 @@ namespace WindowsFormsApp1
 
                 if (startHours.Equals("") || endHours.Equals("") || startHours == null || endHours == null)
                 {
+                    //예약 시작이나 끝 시간에 값이 없을 경우 메세지 박스 출력후 리턴
                     MessageBox.Show("예약 시간을 다시 확인해주세요");
                     return;
                 }
 
                 else if (rsrvPrsnl.Equals("") || rsrvPrsnl == null)
                 {
+                    //예약 인원의 값이 없을 경우
                     MessageBox.Show("예약 인원을 선택해주세요");
                     return;
                 }
 
                 else if (rsrvGoal.Equals("") || rsrvGoal == null)
                 {
+                    //예약 목적의 값이 없을 경우
                     MessageBox.Show("예약 목적을 작성해주세요");
                     return;
                 }
 
+                // 만약 선택한 강의실이 있는 경우
                 if (selectedClassRow != null)
                 {
                     conn = mysqlConnect();
                     conn.Open();
 
-                    classCode = selectedClassRow.Cells["강의실 코드"].Value.ToString();
-                    className = selectedClassRow.Cells["강의실 이름"].Value.ToString();
+                    // 선택한 강의실의 코드 및 이름 가져오기
+                    classCode = selectedClassRow.Cells["강의실 코드"].Value.ToString(); // 사용자가 선택한 강의실의 코드
+                    className = selectedClassRow.Cells["강의실 이름"].Value.ToString(); // 사용자가 선택한 강의실의 이름
 
+                    // 예약 정보를 reservationtbl 테이블에 넣는 INSERT문 순서대로 학번, 강의실명, 일자, 목적, 인원, 이용시간이 넣어진다.
                     sql = string.Format("INSERT INTO reservationtbl(userId, classCode, rsrvDate, rsrvGoal, rsrvPrsnl, rsrvHoursUse, rsrvYN)" +
                        "VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', 'N');", userId, classCode, rsrvDate, rsrvGoal, rsrvPrsnl, rsrvHoursUse);
 
                     cmd = new MySqlCommand(sql, conn);
 
+                    // 쿼리 실행 결과가 1인 경우, 예약 완료 메시지 표시하고 데이터베이스 연결 닫기
                     if (cmd.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show($"{className}({classCode}) {rsrvPrsnl}명 예약이 완료되었습니다.");
+                        // 사용자 입력값 가져와 완료 메세지 출력
+                        MessageBox.Show($"{className}({classCode}) {rsrvPrsnl}명 예약이 완료되었습니다."); 
                         conn.Close();
                     }
                     else
@@ -142,8 +150,8 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("강의실을 선택해주세요.");
                 }
-            } 
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -155,15 +163,15 @@ namespace WindowsFormsApp1
             {
                 selectedClassRow = selectClassDataGrid.Rows[e.RowIndex];
             }
-            
+
             string availPrsnl = selectedClassRow.Cells["예약 가능 인원"].Value.ToString();
             rsrvPrsnlDropDown.Items.Clear(); // 예약 가능한 인원을 나타내는 콤보박스를 초기화
-            int availPrsnlNum=int.Parse(availPrsnl);
+            int availPrsnlNum = int.Parse(availPrsnl);
 
-                for (int i = 1; i <= availPrsnlNum; i++)  // 1부터 availPrsnlNum 까지의 숫자를 콤보박스에 추가
-                {
-                    rsrvPrsnlDropDown.Items.Add(i);
-                }
+            for (int i = 1; i <= availPrsnlNum; i++)  // 1부터 availPrsnlNum 까지의 숫자를 콤보박스에 추가
+            {
+                rsrvPrsnlDropDown.Items.Add(i);
+            }
         }
 
         private void logoutBtn_Click(object sender, EventArgs e)
@@ -181,7 +189,7 @@ namespace WindowsFormsApp1
         {
             classNameDropDown.SelectedIndex = 0;
 
-            userNameLabel.Text = User.UserName+"님 환영합니다";
+            userNameLabel.Text = User.UserName + "님 환영합니다";
         }
 
 
@@ -217,7 +225,5 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
-
     }
 }
