@@ -157,8 +157,40 @@ namespace WindowsFormsApp1
             }
             
             string availPrsnl = selectedClassRow.Cells["예약 가능 인원"].Value.ToString();
-            MessageBox.Show(availPrsnl);
-            // 문채현이 할 일
+            rsrvPrsnlDropDown.Items.Clear(); // 예약 가능한 인원을 나타내는 콤보박스를 초기화
+            int availPrsnlNum=int.Parse(availPrsnl);
+
+                for (int i = 1; i <= availPrsnlNum; i++)  // 1부터 availPrsnlNum 까지의 숫자를 콤보박스에 추가
+                {
+                    rsrvPrsnlDropDown.Items.Add(i);
+                }
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            User.UserId = "";
+
+            MessageBox.Show("로그아웃 되었습니다.");
+            this.Close();
+
+            userLoginForm loginForm = new userLoginForm();
+            loginForm.Show();
+        }
+
+        private void selectClassForm_Load(object sender, EventArgs e)
+        {
+            classNameDropDown.SelectedIndex = 0;
+
+            userNameLabel.Text = User.UserName+"님 환영합니다";
+        }
+
+
+        private void myPageBtn_Click(object sender, EventArgs e)
+        {
+            // 버튼 클릭시 예약내역 폼 화면 출력
+            selectMyRsrvForm selectMyRsrvForm = new selectMyRsrvForm();
+            selectMyRsrvForm.Tag = this;
+            selectMyRsrvForm.Show();
         }
 
         private void startHoursDropDown_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,28 +218,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void logoutBtn_Click(object sender, EventArgs e)
-        {
-            User.UserId = "";
 
-            MessageBox.Show("로그아웃 되었습니다.");
-            this.Close();
-
-            userLoginForm loginForm = new userLoginForm();
-            loginForm.Show();
-        }
-
-        private void selectClassForm_Load(object sender, EventArgs e)
-        {
-            classNameDropDown.SelectedIndex = 0;
-
-            userNameLabel.Text = User.UserName+"님 환영합니다";
-        }
-
-
-        private void myPageBtn_Click(object sender, EventArgs e)
-        {
-            // 윤병현이 할 일
-        }
     }
 }
