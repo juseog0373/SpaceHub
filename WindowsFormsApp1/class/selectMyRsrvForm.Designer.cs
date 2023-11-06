@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.myRsrvDataGrid = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.myRsrvDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,22 +42,37 @@
             this.myRsrvDataGrid.Size = new System.Drawing.Size(609, 456);
             this.myRsrvDataGrid.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 15F);
+            this.label1.Location = new System.Drawing.Point(12, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "예약내역";
+            // 
             // selectMyRsrvForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(633, 589);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.myRsrvDataGrid);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "selectMyRsrvForm";
             this.Text = "spaceHub";
             this.Load += new System.EventHandler(this.selectMyRsrvForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.myRsrvDataGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView myRsrvDataGrid;
+        private System.Windows.Forms.Label label1;
     }
 }

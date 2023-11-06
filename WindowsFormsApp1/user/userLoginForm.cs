@@ -89,5 +89,10 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void userLoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
