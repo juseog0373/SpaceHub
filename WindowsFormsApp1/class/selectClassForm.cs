@@ -88,7 +88,7 @@ namespace WindowsFormsApp1
             {
                 string userId = User.UserId;
 
-                string rsrvDate = dateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");     // 예약 일자
+                string rsrvDate = dateTimePicker.Value.ToString("yyyy-MM-dd");              // 예약 일자
                 string rsrvPrsnl = rsrvPrsnlDropDown.Text;                                  // 예약 인원
                 string rsrvGoal = rsrvGoalTxt.Text;                                         // 예약 목적
                 string startHours = startHoursDropDown.Text;                                // 예약 시작 시간
@@ -217,7 +217,5 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
-
     }
 }
