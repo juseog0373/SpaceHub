@@ -97,6 +97,7 @@
             this.myPageBtn.TabIndex = 49;
             this.myPageBtn.Text = "예약 조회";
             this.myPageBtn.UseVisualStyleBackColor = false;
+            this.myPageBtn.Click += new System.EventHandler(this.myPageBtn_Click);
             // 
             // rsrvPrsnlDropDown
             // 
