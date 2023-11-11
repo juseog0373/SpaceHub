@@ -131,6 +131,7 @@
     </Compile>
     <EmbeddedResource Include="class\selectClassForm.resx">
       <DependentUpon>selectClassForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="class\selectMyRsrvForm.resx">
       <DependentUpon>selectMyRsrvForm.cs</DependentUpon>

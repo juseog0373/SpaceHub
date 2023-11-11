@@ -35,14 +35,17 @@ namespace WindowsFormsApp1
                 string sql = string.Format("SELECT" +
                 " r.rsrvSeq '예약번호'," +
                 " u.userName '예약자명'," +
-                " r.rsrvDate '예약시간'," +
+                " r.rsrvDate '예약일자'," +
                 " r.rsrvGoal '예약목적'," +
                 " r.rsrvPrsnl '예약인원'," +
                 " r.rsrvHoursUse '이용시간'," +
-                " r.rsrvYN '예약상태(승인, 대기, 거절)'" +
+                " CASE WHEN rsrvYN = 'Y' THEN '승인 완료'"+
+                " WHEN rsrvYN = 'N' THEN '승인 대기'"+
+                " END AS '예약 상태'" +
                 " FROM reservationTbl r, userTbl u" +
                 " WHERE r.userId = u.userId" +
-                " AND u.userId = 2020");
+                " AND u.userId = {0}"+
+                " ORDER BY rsrvSeq DESC", User.UserId);
 
                 cmd = new MySqlCommand(sql, conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);

@@ -22,6 +22,11 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
+        private void userLoginForm_Load(object sender, EventArgs e)
+        {
+            userIdTxt.Text = Properties.Settings.Default.loginIdSave;
+        }
+
         private void accountBtn_Click(object sender, EventArgs e)
         {
             userAccountForm userAccountForm = new userAccountForm();
@@ -55,7 +60,11 @@ namespace WindowsFormsApp1
                 }
                 if (loginStatus == 1)
                 {
-                    Properties.Settings.Default.loginIdSave = (string)mdr["userId"];
+                    if (userIdSave.Checked)
+                    {
+                        Properties.Settings.Default.loginIdSave = (string)mdr["userId"];
+                        Properties.Settings.Default.Save();
+                    }
 
                     User.UserName = mdr.GetString("userName");
                     User.UserId = (string)mdr["userId"];
@@ -88,11 +97,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void userLoginForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
