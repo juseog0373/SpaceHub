@@ -168,10 +168,10 @@ namespace WindowsFormsApp1
 
             if(selectedClassRow != null)
             {
-                string availPrsnl = selectedClassRow.Cells["예약 가능 인원"].Value.ToString();
+                string availPrsnl = selectedClassRow.Cells["예약 가능 인원"].Value.ToString(); //예약 가능 인원 셀에 있는 value 값을 가져와 문자열로 변환 후 변수에 저장
 
                 rsrvPrsnlDropDown.Items.Clear(); // 예약 가능한 인원을 나타내는 콤보박스를 초기화
-                int availPrsnlNum = int.Parse(availPrsnl);
+                int availPrsnlNum = int.Parse(availPrsnl); // 정수형으로 형 변환
 
                 for (int i = 1; i <= availPrsnlNum; i++)  // 1부터 availPrsnlNum 까지의 숫자를 콤보박스에 추가
                 {
@@ -201,10 +201,10 @@ namespace WindowsFormsApp1
 
         private void myPageBtn_Click(object sender, EventArgs e)
         {
-            // 버튼 클릭시 예약내역 폼 화면 출력
-            selectMyRsrvForm selectMyRsrvForm = new selectMyRsrvForm();
-            selectMyRsrvForm.Tag = this;
-            selectMyRsrvForm.Show();
+            // 예약 조회 버튼 클릭시 예약내역 폼 화면 출력
+
+            selectMyRsrvForm selectMyRsrvForm = new selectMyRsrvForm(); // selectMyRsrvForm의 인스턴스 생성
+            selectMyRsrvForm.Show(); // selectMyRsrvForm을 표시
         }
 
         private void startHoursDropDown_SelectedIndexChanged(object sender, EventArgs e)

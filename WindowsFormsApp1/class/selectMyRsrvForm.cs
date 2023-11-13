@@ -27,6 +27,7 @@ namespace WindowsFormsApp1
         
         private void selectMyRsrvForm_Load(object sender, EventArgs e)
         {
+            // 예약조회 폼 로드시 예약정보 조회 후 출력
             try
             {
                 conn = mysqlConnect();
@@ -60,7 +61,7 @@ namespace WindowsFormsApp1
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); //데이터 조회 실패시 오류 메세지 화면 출력
             }
         }
     }
