@@ -36,19 +36,19 @@
             // myRsrvDataGrid
             // 
             this.myRsrvDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.myRsrvDataGrid.Location = new System.Drawing.Point(12, 106);
+            this.myRsrvDataGrid.Location = new System.Drawing.Point(17, 107);
             this.myRsrvDataGrid.Name = "myRsrvDataGrid";
             this.myRsrvDataGrid.RowTemplate.Height = 23;
-            this.myRsrvDataGrid.Size = new System.Drawing.Size(609, 456);
+            this.myRsrvDataGrid.Size = new System.Drawing.Size(775, 456);
             this.myRsrvDataGrid.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 15F);
-            this.label1.Location = new System.Drawing.Point(12, 56);
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.Size = new System.Drawing.Size(97, 30);
             this.label1.TabIndex = 2;
             this.label1.Text = "예약내역";
             // 
@@ -57,7 +57,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(633, 589);
+            this.ClientSize = new System.Drawing.Size(819, 589);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.myRsrvDataGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

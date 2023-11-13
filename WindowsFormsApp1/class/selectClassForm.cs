@@ -37,16 +37,20 @@ namespace WindowsFormsApp1
                 conn.Open();
 
                 string classSearch = classNameDropDown.Text; // 검색어
+                DateTime dt = dateTimePicker.Value;
+                string searchDate = dt.ToString("yyyy-MM-dd");
+
 
                 if (classSearch.Equals("전체"))
                 {
                     sql = string.Format("SELECT c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원'," +
-                        " c.classMax - IFNULL(SUM(r.rsrvPrsnl), 0) '예약 가능 인원', c.classInfo '강의실 정보'" +
+                        " c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) '예약 가능 인원'," +
+                        " c.classInfo '강의실 정보'" +
                         " FROM classTbl c" +
                         " LEFT JOIN  reservationtbl r ON c.classCode = r.classCode" +
                         " GROUP BY c.classCode" +
-                        " HAVING c.classMax - IFNULL(SUM(r.rsrvPrsnl), 0) > 0" +
-                        " ORDER BY c.classFloor DESC");
+                        " HAVING c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) > 0 " +
+                        " ORDER BY c.classFloor DESC", searchDate);
                 }
                 else
                 {
@@ -56,14 +60,15 @@ namespace WindowsFormsApp1
                     string classFloor = classSearchs[1].Substring(0, 1);
 
                     sql = string.Format("SELECT c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원'," +
-                        " c.classMax - IFNULL(SUM(r.rsrvPrsnl), 0) '예약 가능 인원', c.classInfo '강의실 정보'" +
+                        "c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) '예약 가능 인원'," +
+                        " c.classInfo '강의실 정보'" +
                         " FROM classTbl c" +
                         " LEFT JOIN  reservationtbl r ON c.classCode = r.classCode" +
-                        " WHERE c.classLoca = '{0}'" +
-                        " AND c.classFloor = '{1}'" +
+                        " WHERE c.classLoca = '{1}'" +
+                        " AND c.classFloor = '{2}'" +
                         " GROUP BY c.classCode" +
-                        " HAVING c.classMax - IFNULL(SUM(r.rsrvPrsnl), 0) > 0" +
-                        " ORDER BY c.classFloor DESC", classLoca, classFloor);
+                        " HAVING c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) > 0 " +
+                        " ORDER BY c.classFloor DESC", searchDate, classLoca, classFloor);
                 }
 
                 cmd = new MySqlCommand(sql, conn);
@@ -73,6 +78,11 @@ namespace WindowsFormsApp1
                 adapter.Fill(table);
 
                 selectClassDataGrid.DataSource = table;
+
+                foreach (DataGridViewColumn item in selectClassDataGrid.Columns)
+                {
+                    item.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
 
                 conn.Close();
             }
@@ -88,7 +98,7 @@ namespace WindowsFormsApp1
             {
                 string userId = User.UserId;
 
-                string rsrvDate = dateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");     // 예약 일자
+                string rsrvDate = dateTimePicker.Value.ToString("yyyy-MM-dd");              // 예약 일자
                 string rsrvPrsnl = rsrvPrsnlDropDown.Text;                                  // 예약 인원
                 string rsrvGoal = rsrvGoalTxt.Text;                                         // 예약 목적
                 string startHours = startHoursDropDown.Text;                                // 예약 시작 시간
@@ -162,15 +172,19 @@ namespace WindowsFormsApp1
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 selectedClassRow = selectClassDataGrid.Rows[e.RowIndex];
-            }
+            }   
 
-            string availPrsnl = selectedClassRow.Cells["예약 가능 인원"].Value.ToString();
-            rsrvPrsnlDropDown.Items.Clear(); // 예약 가능한 인원을 나타내는 콤보박스를 초기화
-            int availPrsnlNum = int.Parse(availPrsnl);
-
-            for (int i = 1; i <= availPrsnlNum; i++)  // 1부터 availPrsnlNum 까지의 숫자를 콤보박스에 추가
+            if(selectedClassRow != null)
             {
-                rsrvPrsnlDropDown.Items.Add(i);
+                string availPrsnl = selectedClassRow.Cells["예약 가능 인원"].Value.ToString(); //예약 가능 인원 셀에 있는 value 값을 가져와 문자열로 변환 후 변수에 저장
+
+                rsrvPrsnlDropDown.Items.Clear(); // 예약 가능한 인원을 나타내는 콤보박스를 초기화
+                int availPrsnlNum = int.Parse(availPrsnl); // 정수형으로 형 변환
+
+                for (int i = 1; i <= availPrsnlNum; i++)  // 1부터 availPrsnlNum 까지의 숫자를 콤보박스에 추가
+                {
+                    rsrvPrsnlDropDown.Items.Add(i);
+                }
             }
         }
 
@@ -195,10 +209,10 @@ namespace WindowsFormsApp1
 
         private void myPageBtn_Click(object sender, EventArgs e)
         {
-            // 버튼 클릭시 예약내역 폼 화면 출력
-            selectMyRsrvForm selectMyRsrvForm = new selectMyRsrvForm();
-            selectMyRsrvForm.Tag = this;
-            selectMyRsrvForm.Show();
+            // 예약 조회 버튼 클릭시 예약내역 폼 화면 출력
+
+            selectMyRsrvForm selectMyRsrvForm = new selectMyRsrvForm(); // selectMyRsrvForm의 인스턴스 생성
+            selectMyRsrvForm.Show(); // selectMyRsrvForm을 표시
         }
 
         private void startHoursDropDown_SelectedIndexChanged(object sender, EventArgs e)
@@ -223,6 +237,14 @@ namespace WindowsFormsApp1
                 {
                     endHoursDropDown.Items.Add(timeOption);
                 }
+            }
+        }
+
+        private void selectClassDataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            foreach (DataGridViewColumn item in selectClassDataGrid.Columns)
+            {
+                item.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
         }
     }
