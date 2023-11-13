@@ -15,7 +15,7 @@ namespace dbConnectSpace
 
         public static MySqlConnection mysqlConnect()
         {
-            MySqlConnection conn = new MySqlConnection("Server=localhost;Database=spacehub;Uid=root;Pwd=0401;");
+            MySqlConnection conn = new MySqlConnection("Server=localhost;Port=3306;Database=spacehub;Uid=root;Pwd=0401;");
             return conn;
         }
     }
