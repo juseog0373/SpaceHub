@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(selectMyRsrvForm));
             this.myRsrvDataGrid = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.myRsrvDataGrid)).BeginInit();
@@ -38,6 +39,7 @@
             this.myRsrvDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.myRsrvDataGrid.Location = new System.Drawing.Point(17, 107);
             this.myRsrvDataGrid.Name = "myRsrvDataGrid";
+            this.myRsrvDataGrid.ReadOnly = true;
             this.myRsrvDataGrid.RowTemplate.Height = 23;
             this.myRsrvDataGrid.Size = new System.Drawing.Size(775, 456);
             this.myRsrvDataGrid.TabIndex = 1;
@@ -61,6 +63,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.myRsrvDataGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "selectMyRsrvForm";
             this.Text = "spaceHub";
             this.Load += new System.EventHandler(this.selectMyRsrvForm_Load);

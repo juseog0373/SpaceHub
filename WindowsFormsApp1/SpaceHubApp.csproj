@@ -172,5 +172,8 @@
   <ItemGroup>
     <Content Include="Resources\SpaceHub-Logo.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

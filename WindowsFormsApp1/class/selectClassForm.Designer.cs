@@ -332,6 +332,7 @@
             // 
             // selectClassDataGrid
             // 
+            this.selectClassDataGrid.AllowDrop = true;
             this.selectClassDataGrid.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.selectClassDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
