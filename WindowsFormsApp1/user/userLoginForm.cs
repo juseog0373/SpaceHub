@@ -94,13 +94,14 @@ namespace WindowsFormsApp1
 
                     MessageBox.Show(User.UserName + "님 환영합니다.");
 
+                    adminForm adminForm = new adminForm();
+                    adminForm.Tag = this;
+                    adminForm.Show();
+                    this.Hide();
+
                     // 윤병현 할 일(관리자 /admin/adminMainForm 폼생성)
                     // 예약내역 form icon 추가
-
-                    /*selectClassForm selectClassForm = new selectClassForm();
-                    selectClassForm.Tag = this;
-                    selectClassForm.Show();
-                    this.Hide();*/
+                 
                 }
                 else if(userId == "")
                 {
