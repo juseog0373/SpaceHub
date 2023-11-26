@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
     public partial class adminForm : Form
     {
         MySqlCommand cmd = new MySqlCommand();  // 클래스 레벨에서 선언
+        private bool isCheckboxReadOnly = false;  // 클래스 레벨에서 선언
 
         public adminForm()
         {
@@ -75,7 +76,7 @@ namespace WindowsFormsApp1
                             " END AS '예약 상태'" +
                         " FROM reservationtbl r, userTbl u" +
                         " WHERE" +
-                            " u.userId = r.userId"+
+                            " u.userId = r.userId" +
                         " ORDER BY r.rsrvDate DESC"
                     );
                 }
@@ -100,9 +101,9 @@ namespace WindowsFormsApp1
                             " END AS '예약 상태'" +
                         " FROM reservationtbl r, userTbl u" +
                         " WHERE" +
-                            " u.userId = r.userId"+
-                        " AND"+
-                            " r.rsrvYN = 'N'"+
+                            " u.userId = r.userId" +
+                        " AND" +
+                            " r.rsrvYN = 'N'" +
                         " ORDER BY r.rsrvDate DESC"
                     );
                 }
@@ -129,7 +130,7 @@ namespace WindowsFormsApp1
                         " WHERE" +
                             " u.userId = r.userId" +
                         " AND" +
-                            " r.rsrvYN = 'Y'"+
+                            " r.rsrvYN = 'Y'" +
                         " ORDER BY r.rsrvDate DESC"
                     );
                 }
@@ -156,7 +157,7 @@ namespace WindowsFormsApp1
                         " WHERE" +
                             " u.userId = r.userId" +
                         " AND" +
-                            " r.rsrvYN = 'R'"+
+                            " r.rsrvYN = 'R'" +
                         " ORDER BY r.rsrvDate DESC"
                     );
                 }
@@ -172,7 +173,7 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("조회 중 오류가 발생했습니다\n오류 메세지: " +ex.Message);
+                MessageBox.Show("조회 중 오류가 발생했습니다\n오류 메세지: " + ex.Message);
             }
             finally
             {
@@ -347,13 +348,7 @@ namespace WindowsFormsApp1
         }
         private void deleteClassToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-        }
 
-        private void updateClassToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            regClassForm regclassForm = new regClassForm();
-            regclassForm.ShowDialog(); // 다른 폼 창을 불러오는 (include)
         }
 
         private void regClassToolStripMenuItem_Click(object sender, EventArgs e)
@@ -362,10 +357,40 @@ namespace WindowsFormsApp1
             regclassForm.ShowDialog(); // 다른 폼 창을 불러오는 (include)
         }
 
+        private void adminDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == adminDataGrid.Columns["Chk"].Index && e.RowIndex >= 0)
+            {
+                foreach (DataGridViewRow row in adminDataGrid.Rows)
+                {
+                    DataGridViewCheckBoxCell chk = row.Cells["Chk"] as DataGridViewCheckBoxCell;
+                    chk.Value = false;
+                }
+
+                // 선택한 행의 체크박스에 따라 ReadOnly 설정
+                DataGridViewCheckBoxCell selectedChk = adminDataGrid.Rows[e.RowIndex].Cells["Chk"] as DataGridViewCheckBoxCell;
+                if (selectedChk.Value != null && (bool)selectedChk.Value)
+                {
+                    isCheckboxReadOnly = true;
+                }
+                else
+                {
+                    isCheckboxReadOnly = false;
+                }
+            }
+        }
+
         private void selectClassToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // DataGridView에 있는 기존 열들을 지움
             adminDataGrid.Columns.Clear();
+
+            DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
+            dgvCmb.ValueType = typeof(bool);
+            dgvCmb.Name = "Chk";
+            dgvCmb.HeaderText = "선택";
+            adminDataGrid.Columns.Add(dgvCmb);
+            adminDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             // MySQL 연결 설정
             conn = mysqlConnect();
@@ -404,6 +429,26 @@ namespace WindowsFormsApp1
             {
                 // 예외 발생 여부에 관계 없이 데이터베이스 연결을 닫기 위해 finally 블록에서 처리
                 conn.Close();
+            }
+        }
+
+        private void updateClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 선택된 강의실 코드 가져오기
+                DataGridViewRow selectedRow = adminDataGrid.SelectedRows[0];
+                string classSeq = selectedRow.Cells["강의실 일련번호"].Value.ToString();
+
+                MessageBox.Show(classSeq);
+
+                updateClassForm updateClassForm = new updateClassForm(classSeq);
+                updateClassForm.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(regClassForm));
             this.classCodeTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -276,7 +277,7 @@
             this.panel6.Size = new System.Drawing.Size(230, 1);
             this.panel6.TabIndex = 25;
             // 
-            // classForm
+            // regClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,8 +301,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.classCodeTxt);
-            this.Name = "classForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "regClassForm";
             this.Text = "classForm";
+            this.Load += new System.EventHandler(this.regClassForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
