@@ -58,9 +58,10 @@
             this.userIdTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userIdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userIdTxt.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.userIdTxt.Location = new System.Drawing.Point(445, 383);
+            this.userIdTxt.Location = new System.Drawing.Point(445, 367);
+            this.userIdTxt.Multiline = true;
             this.userIdTxt.Name = "userIdTxt";
-            this.userIdTxt.Size = new System.Drawing.Size(194, 22);
+            this.userIdTxt.Size = new System.Drawing.Size(194, 37);
             this.userIdTxt.TabIndex = 1;
             // 
             // loginBtn
@@ -98,10 +99,11 @@
             this.userPwTxt.BackColor = System.Drawing.SystemColors.Control;
             this.userPwTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userPwTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userPwTxt.Location = new System.Drawing.Point(445, 478);
+            this.userPwTxt.Location = new System.Drawing.Point(445, 457);
+            this.userPwTxt.Multiline = true;
             this.userPwTxt.Name = "userPwTxt";
             this.userPwTxt.PasswordChar = '*';
-            this.userPwTxt.Size = new System.Drawing.Size(194, 22);
+            this.userPwTxt.Size = new System.Drawing.Size(194, 42);
             this.userPwTxt.TabIndex = 2;
             // 
             // accountBtn

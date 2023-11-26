@@ -101,6 +101,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\regClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\regClassForm.Designer.cs">
+      <DependentUpon>regClassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="dbConnection.cs" />
     <Compile Include="class\selectClassForm.cs">
       <SubType>Form</SubType>
@@ -122,6 +128,12 @@
     </Compile>
     <Compile Include="SpaceHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="admin\updateClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\updateClassForm.Designer.cs">
+      <DependentUpon>updateClassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="user\userAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +149,9 @@
     </Compile>
     <EmbeddedResource Include="admin\adminForm.resx">
       <DependentUpon>adminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\regClassForm.resx">
+      <DependentUpon>regClassForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="class\selectClassForm.resx">
       <DependentUpon>selectClassForm.cs</DependentUpon>
