@@ -44,7 +44,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.classMaxTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.loginBtn = new System.Windows.Forms.Button();
+            this.regBtn = new System.Windows.Forms.Button();
             this.classInfoTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -225,22 +225,22 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "강의실 수용 인원";
             // 
-            // loginBtn
+            // regBtn
             // 
-            this.loginBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.loginBtn.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.loginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginBtn.FlatAppearance.BorderSize = 0;
-            this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.loginBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.loginBtn.Location = new System.Drawing.Point(93, 378);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(387, 131);
-            this.loginBtn.TabIndex = 25;
-            this.loginBtn.Text = "등록";
-            this.loginBtn.UseVisualStyleBackColor = false;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            this.regBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.regBtn.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.regBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.regBtn.FlatAppearance.BorderSize = 0;
+            this.regBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.regBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.regBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.regBtn.Location = new System.Drawing.Point(93, 378);
+            this.regBtn.Name = "regBtn";
+            this.regBtn.Size = new System.Drawing.Size(387, 131);
+            this.regBtn.TabIndex = 25;
+            this.regBtn.Text = "등록";
+            this.regBtn.UseVisualStyleBackColor = false;
+            this.regBtn.Click += new System.EventHandler(this.regBtn_Click);
             // 
             // classInfoTxt
             // 
@@ -285,7 +285,7 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.classInfoTxt);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.loginBtn);
+            this.Controls.Add(this.regBtn);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.classMaxTxt);
             this.Controls.Add(this.label5);
@@ -326,7 +326,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox classMaxTxt;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.Button regBtn;
         private System.Windows.Forms.TextBox classInfoTxt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;

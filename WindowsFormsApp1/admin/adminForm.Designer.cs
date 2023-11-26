@@ -54,7 +54,6 @@
             this.adminDataGrid.RowTemplate.Height = 23;
             this.adminDataGrid.Size = new System.Drawing.Size(1458, 747);
             this.adminDataGrid.TabIndex = 4;
-            this.adminDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminDataGrid_CellClick);
             // 
             // yesBtn
             // 
