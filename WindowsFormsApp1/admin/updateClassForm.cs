@@ -90,12 +90,12 @@ namespace WindowsFormsApp1
                 // 업데이트 성공 여부 확인
                 if (result > 0)
                 {
-                    MessageBox.Show("업데이트가 성공적으로 수행되었습니다.");
+                    MessageBox.Show("강의실 업데이트를 완료했습니다.");
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("업데이트에 실패했습니다.");
+                    MessageBox.Show("강의실 업데이트에 실패했습니다.");
                 }
             }
             catch (Exception ex)
