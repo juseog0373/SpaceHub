@@ -16,14 +16,17 @@ namespace WindowsFormsApp1
 {
     public partial class regClassForm : Form
     {
-        public regClassForm()
+        private adminForm adminForm;  // adminForm을 참조하기 위한 변수
+
+        public regClassForm(adminForm adminForm)
         {
             InitializeComponent();
+            this.adminForm = adminForm;
         }
 
         MySqlConnection conn = null;
 
-        private void loginBtn_Click(object sender, EventArgs e)
+        private void regBtn_Click(object sender, EventArgs e)
         {
             conn = mysqlConnect();
             conn.Open();
@@ -43,6 +46,9 @@ namespace WindowsFormsApp1
             if (command.ExecuteNonQuery() == 1)
             {
                 MessageBox.Show("등록 완료 되었습니다.");
+                // 등록 후 adminForm의 DataGridView 갱신
+                adminForm.RefreshDataGridView();
+
                 conn.Close();
                 Close();
             }

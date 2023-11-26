@@ -15,13 +15,14 @@ namespace WindowsFormsApp1
 {
     public partial class updateClassForm : Form
     {
-
+        private adminForm adminForm;  // adminForm을 참조하기 위한 변수
         private string classSeq;
 
-        public updateClassForm(string classSeq)
+        public updateClassForm(string classSeq, adminForm adminForm)
         {
             InitializeComponent();
             this.classSeq = classSeq;
+            this.adminForm = adminForm;
         }
 
         MySqlConnection conn = null;
@@ -90,12 +91,13 @@ namespace WindowsFormsApp1
                 // 업데이트 성공 여부 확인
                 if (result > 0)
                 {
-                    MessageBox.Show("업데이트가 성공적으로 수행되었습니다.");
+                    MessageBox.Show("강의실 업데이트를 완료했습니다.");
+                    adminForm.RefreshDataGridView();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("업데이트에 실패했습니다.");
+                    MessageBox.Show("강의실 업데이트에 실패했습니다.");
                 }
             }
             catch (Exception ex)

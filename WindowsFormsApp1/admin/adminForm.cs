@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
+using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,6 @@ namespace WindowsFormsApp1
     public partial class adminForm : Form
     {
         MySqlCommand cmd = new MySqlCommand();  // 클래스 레벨에서 선언
-        private bool isCheckboxReadOnly = false;  // 클래스 레벨에서 선언
 
         public adminForm()
         {
@@ -242,7 +242,10 @@ namespace WindowsFormsApp1
                 conn.Open();
 
                 // 선택된 예약번호들을 저장할 리스트
-                List<int> selectedReservationSeqList = new List<int>();
+                List<string> userSelectedSeqList = new List<string>(); 
+                List<string> userSelectedDateList = new List<string>();
+                List<string> userSelectedCodeList = new List<string>();
+                List<int> userSelectedPrsnlList = new List<int>();
 
                 foreach (DataGridViewRow row in adminDataGrid.Rows)
                 {
@@ -250,29 +253,34 @@ namespace WindowsFormsApp1
 
                     if (chk.Value != null && (bool)chk.Value)
                     {
-                        int reservationSeq = Convert.ToInt32(row.Cells["예약번호"].Value);
-                        selectedReservationSeqList.Add(reservationSeq);
+                        string rsrvSeq = row.Cells["예약번호"].Value.ToString(); 
+                        string rsrvDate = row.Cells["예약 날짜"].Value.ToString().Substring(0,10);
+                        string classCode = row.Cells["강의실 코드"].Value.ToString();
+                        int rsrvPrsnl = Convert.ToInt32(row.Cells["예약 인원"].Value);
+
+                        userSelectedSeqList.Add(rsrvSeq);
+                        userSelectedDateList.Add(rsrvDate);
+                        userSelectedCodeList.Add(classCode);
+                        userSelectedPrsnlList.Add(rsrvPrsnl);
                     }
                 }
 
-                // 선택된 예약번호들을 문자열로 변환
-                string selectedReservationSeqs = string.Join(", ", selectedReservationSeqList);
-
                 // 확인 메시지 띄우기
-                DialogResult result = MessageBox.Show($"예약번호 {selectedReservationSeqs} \n예약을 거절하시겠습니까?", "예약 거절", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show($"{userSelectedSeqList.Count}건의 예약을 거절하시겠습니까?", "예약 거절", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
                     // 예약 거절 처리하는 쿼리
-                    foreach (int reservationSeq in selectedReservationSeqList)
+                    for (int i=0; i< userSelectedSeqList.Count; i++)
                     {
-                        sql = $"UPDATE reservationtbl SET rsrvYN = 'R' WHERE rsrvSeq = {reservationSeq}";
+                        sql = $"UPDATE reservationtbl SET rsrvYN = 'R' WHERE rsrvSeq = {userSelectedSeqList[i]}";
 
                         cmd = new MySqlCommand(sql, conn);
                         cmd.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show(selectedReservationSeqList.Count + "건의 예약을 승인 거절하였습니다.");
+                    MessageBox.Show(userSelectedSeqList.Count + "건의 예약을 승인 거절하였습니다.");
+
                     // 예약 거절 후 다시 조회
                     selectRsrvToolStripMenuItem_Click(sender, e);
                 }
@@ -346,38 +354,42 @@ namespace WindowsFormsApp1
             rsrvLabel.Visible = false;
             rsrvCodeDropdown.Visible = false;
         }
+
         private void deleteClassToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            conn = mysqlConnect();
+            conn.Open();
 
+            if (adminDataGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("강의실을 선택해주세요.");
+                return;
+            }
+
+            DataGridViewRow selectedRow = adminDataGrid.SelectedRows[0];
+            string classSeq = selectedRow.Cells["강의실 일련번호"].Value.ToString();
+
+            try
+            {
+                sql = string.Format($"DELETE FROM classTbl WHERE classSeq = {classSeq}");
+
+                cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("삭제가 완료되었습니다.");
+                RefreshDataGridView();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"삭제 중 오류가 발생하였습니다.\n\n{ex.ToString()}");
+            }
         }
 
         private void regClassToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            regClassForm regclassForm = new regClassForm();
+            regClassForm regclassForm = new regClassForm(this);
             regclassForm.ShowDialog(); // 다른 폼 창을 불러오는 (include)
-        }
-
-        private void adminDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == adminDataGrid.Columns["Chk"].Index && e.RowIndex >= 0)
-            {
-                foreach (DataGridViewRow row in adminDataGrid.Rows)
-                {
-                    DataGridViewCheckBoxCell chk = row.Cells["Chk"] as DataGridViewCheckBoxCell;
-                    chk.Value = false;
-                }
-
-                // 선택한 행의 체크박스에 따라 ReadOnly 설정
-                DataGridViewCheckBoxCell selectedChk = adminDataGrid.Rows[e.RowIndex].Cells["Chk"] as DataGridViewCheckBoxCell;
-                if (selectedChk.Value != null && (bool)selectedChk.Value)
-                {
-                    isCheckboxReadOnly = true;
-                }
-                else
-                {
-                    isCheckboxReadOnly = false;
-                }
-            }
         }
 
         private void selectClassToolStripMenuItem_Click(object sender, EventArgs e)
@@ -436,19 +448,45 @@ namespace WindowsFormsApp1
         {
             try
             {
+                if (adminDataGrid.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("강의실을 선택해주세요.");
+                    return; // 강의실이 선택되지 않았으면 더 이상 진행하지 않음
+                }
+
                 // 선택된 강의실 코드 가져오기
                 DataGridViewRow selectedRow = adminDataGrid.SelectedRows[0];
                 string classSeq = selectedRow.Cells["강의실 일련번호"].Value.ToString();
 
-                MessageBox.Show(classSeq);
-
-                updateClassForm updateClassForm = new updateClassForm(classSeq);
+                updateClassForm updateClassForm = new updateClassForm(classSeq, this);
                 updateClassForm.ShowDialog();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void RefreshDataGridView()
+        {
+            // DataGridView 갱신에 필요한 코드 작성
+            string selectSql = "SELECT classSeq '강의실 일련번호', classCode '강의실 코드', className '강의실 이름', classFloor '강의실 층수', classLoca '강의실 위치', classMax '강의실 수용인원', classInfo '강의실 정보' FROM classTbl";
+            cmd = new MySqlCommand(selectSql, conn);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            // DataGridView에 데이터 설정
+            adminDataGrid.DataSource = table;
+
+            // 열 너비 자동 조정
+            adminDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            // 각 열에 최소 너비 설정
+            foreach (DataGridViewColumn column in adminDataGrid.Columns)
+            {
+                column.MinimumWidth = 50; // 원하는 최소 너비로 설정
             }
         }
     }

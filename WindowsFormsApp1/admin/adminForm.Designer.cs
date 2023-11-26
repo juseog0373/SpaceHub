@@ -54,7 +54,6 @@
             this.adminDataGrid.RowTemplate.Height = 23;
             this.adminDataGrid.Size = new System.Drawing.Size(1458, 747);
             this.adminDataGrid.TabIndex = 4;
-            this.adminDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminDataGrid_CellClick);
             // 
             // yesBtn
             // 
@@ -114,28 +113,28 @@
             // selectClassToolStripMenuItem
             // 
             this.selectClassToolStripMenuItem.Name = "selectClassToolStripMenuItem";
-            this.selectClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.selectClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.selectClassToolStripMenuItem.Text = "강의실 조회";
             this.selectClassToolStripMenuItem.Click += new System.EventHandler(this.selectClassToolStripMenuItem_Click);
             // 
             // regClassToolStripMenuItem
             // 
             this.regClassToolStripMenuItem.Name = "regClassToolStripMenuItem";
-            this.regClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.regClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.regClassToolStripMenuItem.Text = "강의실 추가";
             this.regClassToolStripMenuItem.Click += new System.EventHandler(this.regClassToolStripMenuItem_Click);
             // 
             // updateClassToolStripMenuItem
             // 
             this.updateClassToolStripMenuItem.Name = "updateClassToolStripMenuItem";
-            this.updateClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.updateClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateClassToolStripMenuItem.Text = "강의실 수정";
             this.updateClassToolStripMenuItem.Click += new System.EventHandler(this.updateClassToolStripMenuItem_Click);
             // 
             // deleteClassToolStripMenuItem
             // 
             this.deleteClassToolStripMenuItem.Name = "deleteClassToolStripMenuItem";
-            this.deleteClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.deleteClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteClassToolStripMenuItem.Text = "강의실 삭제";
             this.deleteClassToolStripMenuItem.Click += new System.EventHandler(this.deleteClassToolStripMenuItem_Click);
             // 
