@@ -303,6 +303,39 @@ namespace WindowsFormsApp1
             noBtn.Visible = false;
             rsrvLabel.Visible = false;
             rsrvCodeDropdown.Visible = false;
+
+            // DataGridView에 있는 기존 열들을 지움
+            adminDataGrid.Columns.Clear();
+
+            // MySQL 연결 설정
+            conn = mysqlConnect();
+            conn.Open();
+
+            try
+            {
+                sql = string.Format("SELECT u.userSeq '회원 번호', u.userId '학번', u.userPw '비밀번호', u.userName '이름'" +
+                " FROM userTbl u");
+
+                // SQL 쿼리 실행
+                cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+                // 쿼리 결과로 DataTable 채우기
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                // DataGridView의 DataSource를 DataTable로 설정
+                adminDataGrid.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("조회 중 오류가 발생했습니다\n오류 메세지: " + ex.Message);
+            }
+            finally
+            {
+                // 예외 발생 여부에 관계 없이 데이터베이스 연결을 닫기 위해 finally 블록에서 처리
+                conn.Close();
+            }
         }
 
         private void classToolStripMenuItem_Click(object sender, EventArgs e)
@@ -311,6 +344,67 @@ namespace WindowsFormsApp1
             noBtn.Visible = false;
             rsrvLabel.Visible = false;
             rsrvCodeDropdown.Visible = false;
+        }
+        private void deleteClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void updateClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            regClassForm regclassForm = new regClassForm();
+            regclassForm.ShowDialog(); // 다른 폼 창을 불러오는 (include)
+        }
+
+        private void regClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            regClassForm regclassForm = new regClassForm();
+            regclassForm.ShowDialog(); // 다른 폼 창을 불러오는 (include)
+        }
+
+        private void selectClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // DataGridView에 있는 기존 열들을 지움
+            adminDataGrid.Columns.Clear();
+
+            // MySQL 연결 설정
+            conn = mysqlConnect();
+            conn.Open();
+
+            try
+            {
+                sql = string.Format("SELECT c.classSeq '강의실 일련번호', c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원', c.classInfo '강의실 정보'" +
+                        " FROM classTbl c");
+
+                // SQL 쿼리 실행
+                cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+                // 쿼리 결과로 DataTable 채우기
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                // DataGridView의 DataSource를 DataTable로 설정
+                adminDataGrid.DataSource = table;
+
+                // 열 너비 자동 조정
+                adminDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+                // 각 열에 최소 너비 설정
+                foreach (DataGridViewColumn column in adminDataGrid.Columns)
+                {
+                    column.MinimumWidth = 50; // 원하는 최소 너비로 설정
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("조회 중 오류가 발생했습니다\n오류 메세지: " + ex.Message);
+            }
+            finally
+            {
+                // 예외 발생 여부에 관계 없이 데이터베이스 연결을 닫기 위해 finally 블록에서 처리
+                conn.Close();
+            }
         }
     }
 }

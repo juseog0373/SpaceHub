@@ -34,9 +34,13 @@
             this.rsrvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noBtn = new System.Windows.Forms.Button();
             this.rsrvLabel = new System.Windows.Forms.Label();
             this.rsrvCodeDropdown = new System.Windows.Forms.ComboBox();
+            this.selectClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.adminDataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -95,10 +99,36 @@
             // 
             this.classToolStripMenuItem.AutoSize = false;
             this.classToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.classToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.regClassToolStripMenuItem,
+            this.updateClassToolStripMenuItem,
+            this.deleteClassToolStripMenuItem,
+            this.selectClassToolStripMenuItem});
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
             this.classToolStripMenuItem.Size = new System.Drawing.Size(150, 100);
             this.classToolStripMenuItem.Text = "강의실 관리";
             this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
+            // 
+            // regClassToolStripMenuItem
+            // 
+            this.regClassToolStripMenuItem.Name = "regClassToolStripMenuItem";
+            this.regClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.regClassToolStripMenuItem.Text = "강의실 추가";
+            this.regClassToolStripMenuItem.Click += new System.EventHandler(this.regClassToolStripMenuItem_Click);
+            // 
+            // updateClassToolStripMenuItem
+            // 
+            this.updateClassToolStripMenuItem.Name = "updateClassToolStripMenuItem";
+            this.updateClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateClassToolStripMenuItem.Text = "강의실 수정";
+            this.updateClassToolStripMenuItem.Click += new System.EventHandler(this.updateClassToolStripMenuItem_Click);
+            // 
+            // deleteClassToolStripMenuItem
+            // 
+            this.deleteClassToolStripMenuItem.Name = "deleteClassToolStripMenuItem";
+            this.deleteClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteClassToolStripMenuItem.Text = "강의실 삭제";
+            this.deleteClassToolStripMenuItem.Click += new System.EventHandler(this.deleteClassToolStripMenuItem_Click);
             // 
             // noBtn
             // 
@@ -138,6 +168,13 @@
             this.rsrvCodeDropdown.TabIndex = 55;
             this.rsrvCodeDropdown.SelectedIndexChanged += new System.EventHandler(this.rsrvCodeDropdown_SelectedIndexChanged);
             // 
+            // selectClassToolStripMenuItem
+            // 
+            this.selectClassToolStripMenuItem.Name = "selectClassToolStripMenuItem";
+            this.selectClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectClassToolStripMenuItem.Text = "강의실 조회";
+            this.selectClassToolStripMenuItem.Click += new System.EventHandler(this.selectClassToolStripMenuItem_Click);
+            // 
             // adminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -171,5 +208,9 @@
         private System.Windows.Forms.Button noBtn;
         private System.Windows.Forms.Label rsrvLabel;
         private System.Windows.Forms.ComboBox rsrvCodeDropdown;
+        private System.Windows.Forms.ToolStripMenuItem regClassToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateClassToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteClassToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectClassToolStripMenuItem;
     }
 }
