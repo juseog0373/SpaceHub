@@ -100,10 +100,10 @@
             this.classToolStripMenuItem.AutoSize = false;
             this.classToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.classToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectClassToolStripMenuItem,
             this.regClassToolStripMenuItem,
             this.updateClassToolStripMenuItem,
-            this.deleteClassToolStripMenuItem,
-            this.selectClassToolStripMenuItem});
+            this.deleteClassToolStripMenuItem});
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
             this.classToolStripMenuItem.Size = new System.Drawing.Size(150, 100);
             this.classToolStripMenuItem.Text = "강의실 관리";
