@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class updateClassFoorm
+    partial class updateClassForm
     {
         /// <summary>
         /// Required designer variable.
