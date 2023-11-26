@@ -348,7 +348,11 @@ namespace WindowsFormsApp1
         }
         private void deleteClassToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (adminDataGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("강의실을 선택해주세요.");
+                return; // 강의실이 선택되지 않았으면 더 이상 진행하지 않음
+            }
         }
 
         private void regClassToolStripMenuItem_Click(object sender, EventArgs e)
@@ -436,20 +440,23 @@ namespace WindowsFormsApp1
         {
             try
             {
+                if (adminDataGrid.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("강의실을 선택해주세요.");
+                    return; // 강의실이 선택되지 않았으면 더 이상 진행하지 않음
+                }
+
                 // 선택된 강의실 코드 가져오기
                 DataGridViewRow selectedRow = adminDataGrid.SelectedRows[0];
                 string classSeq = selectedRow.Cells["강의실 일련번호"].Value.ToString();
 
-                MessageBox.Show(classSeq);
-
                 updateClassForm updateClassForm = new updateClassForm(classSeq);
                 updateClassForm.ShowDialog();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        } 
     }
 }

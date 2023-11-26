@@ -43,6 +43,9 @@ namespace WindowsFormsApp1
             if (command.ExecuteNonQuery() == 1)
             {
                 MessageBox.Show("등록 완료 되었습니다.");
+                adminForm adminForm = new adminForm();
+                adminForm.Show();
+
                 conn.Close();
                 Close();
             }
