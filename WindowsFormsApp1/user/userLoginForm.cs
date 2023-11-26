@@ -125,5 +125,10 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void userPwTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

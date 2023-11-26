@@ -153,6 +153,9 @@
     <EmbeddedResource Include="admin\regClassForm.resx">
       <DependentUpon>regClassForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="admin\updateClassForm.resx">
+      <DependentUpon>updateClassForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="class\selectClassForm.resx">
       <DependentUpon>selectClassForm.cs</DependentUpon>
       <SubType>Designer</SubType>
