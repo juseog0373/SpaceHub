@@ -40,8 +40,9 @@ namespace WindowsFormsApp1
                 " r.rsrvGoal '예약목적'," +
                 " r.rsrvPrsnl '예약인원'," +
                 " r.rsrvHoursUse '이용시간'," +
-                " CASE WHEN rsrvYN = 'Y' THEN '승인 완료'"+
-                " WHEN rsrvYN = 'N' THEN '승인 대기'"+
+                " CASE WHEN r.rsrvYN = 'Y' THEN '승인 완료'"+
+                " WHEN r.rsrvYN = 'N' THEN '승인 대기'"+
+                " WHEN r.rsrvYN = 'R' THEN '승인 거절'"+
                 " END AS '예약 상태'" +
                 " FROM reservationTbl r, userTbl u" +
                 " WHERE r.userId = u.userId" +
