@@ -27,6 +27,7 @@ namespace WindowsFormsApp1
         
         private void selectMyRsrvForm_Load(object sender, EventArgs e)
         {
+            // 예약조회 폼 로드시 예약정보 조회 후 출력
             try
             {
                 conn = mysqlConnect();
@@ -39,8 +40,9 @@ namespace WindowsFormsApp1
                 " r.rsrvGoal '예약목적'," +
                 " r.rsrvPrsnl '예약인원'," +
                 " r.rsrvHoursUse '이용시간'," +
-                " CASE WHEN rsrvYN = 'Y' THEN '승인 완료'"+
-                " WHEN rsrvYN = 'N' THEN '승인 대기'"+
+                " CASE WHEN r.rsrvYN = 'Y' THEN '승인 완료'"+
+                " WHEN r.rsrvYN = 'N' THEN '승인 대기'"+
+                " WHEN r.rsrvYN = 'R' THEN '승인 거절'"+
                 " END AS '예약 상태'" +
                 " FROM reservationTbl r, userTbl u" +
                 " WHERE r.userId = u.userId" +
@@ -60,7 +62,7 @@ namespace WindowsFormsApp1
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); //데이터 조회 실패시 오류 메세지 화면 출력
             }
         }
     }

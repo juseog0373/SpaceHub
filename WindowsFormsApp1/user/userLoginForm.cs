@@ -55,10 +55,15 @@ namespace WindowsFormsApp1
                 {
                     if (userId == (string)mdr["userId"] && userPw == (string)mdr["userPw"])
                     {
-                        loginStatus = 1;
+                        loginStatus = 1; // 일반 로그인
+
+                        if (userId.Equals("admin") && userPw.Equals("admin1234"))
+                        {
+                            loginStatus = 2; // 관리자 로그인
+                        }
                     }
                 }
-                if (loginStatus == 1)
+                if (loginStatus == 1) // 일반 유저 로그인 시
                 {
                     if (userIdSave.Checked)
                     {
@@ -75,6 +80,28 @@ namespace WindowsFormsApp1
                     selectClassForm.Tag = this;
                     selectClassForm.Show();
                     this.Hide();
+                }
+                else if (loginStatus == 2) // 관리자 로그인 시
+                {
+                    if (userIdSave.Checked)
+                    {
+                        Properties.Settings.Default.loginIdSave = (string)mdr["userId"];
+                        Properties.Settings.Default.Save();
+                    }
+
+                    User.UserName = mdr.GetString("userName");
+                    User.UserId = (string)mdr["userId"];
+
+                    MessageBox.Show(User.UserName + "님 환영합니다.");
+
+                    adminForm adminForm = new adminForm();
+                    adminForm.Tag = this;
+                    adminForm.Show();
+                    this.Hide();
+
+                    // 윤병현 할 일(관리자 /admin/adminMainForm 폼생성)
+                    // 예약내역 form icon 추가
+                 
                 }
                 else if(userId == "")
                 {

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static dbConnectSpace.dbConnection;
@@ -17,6 +18,23 @@ namespace WindowsFormsApp1
         public userAccountForm()
         {
             InitializeComponent();
+        }
+        private bool ValidateId(string userId)
+        {
+            string regId = "^[0-9]{1,9}$";
+            return Regex.IsMatch(userId, regId);
+        }
+
+        private bool ValidatePassword(string userPw)
+        {
+            string regPw = "^(?=.*[a-z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{8,}$";
+            return Regex.IsMatch(userPw, regPw);
+        }
+
+        private bool ValidateName(string userName)
+        {
+            string regName = "^[가-힣]+$";
+            return Regex.IsMatch(userName, regName);
         }
 
         private void accountActionBtn_Click(object sender, EventArgs e)
@@ -30,6 +48,29 @@ namespace WindowsFormsApp1
                 string userId = userIdTxt.Text;
                 string userPw = userPwTxt.Text;
                 string userName = userNameTxt.Text;
+
+
+
+                // 아이디 유효성 검사
+                if (!ValidateId(userId))
+                {
+                    MessageBox.Show("올바른 아이디 형식이 아닙니다.");
+                    return;
+                }
+
+                // 비밀번호 유효성 검사
+                if (!ValidatePassword(userPw))
+                {
+                    MessageBox.Show("올바른 비밀번호 형식이 아닙니다.");
+                    return;
+                }
+
+                // 이름 유효성 검사
+                if (!ValidateName(userName))
+                {
+                    MessageBox.Show("올바른 이름 형식이 아닙니다.");
+                    return;
+                }
 
                 string idCheckSql = string.Format("SELECT COUNT(userId) FROM userTbl WHERE userId = '{0}'", userId);
 
@@ -69,12 +110,14 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("데이터를 읽을 수 없습니다.");
                 }
-                           
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+     
     }
 }
