@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             this.adminDataGrid = new System.Windows.Forms.DataGridView();
             this.yesBtn = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.rsrvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noBtn = new System.Windows.Forms.Button();
             this.rsrvLabel = new System.Windows.Forms.Label();
             this.rsrvCodeDropdown = new System.Windows.Forms.ComboBox();
-            this.selectClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.adminDataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.adminDataGrid.RowTemplate.Height = 23;
             this.adminDataGrid.Size = new System.Drawing.Size(1458, 747);
             this.adminDataGrid.TabIndex = 4;
+            this.adminDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminDataGrid_CellClick);
             // 
             // yesBtn
             // 
@@ -109,24 +111,31 @@
             this.classToolStripMenuItem.Text = "강의실 관리";
             this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
             // 
+            // selectClassToolStripMenuItem
+            // 
+            this.selectClassToolStripMenuItem.Name = "selectClassToolStripMenuItem";
+            this.selectClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.selectClassToolStripMenuItem.Text = "강의실 조회";
+            this.selectClassToolStripMenuItem.Click += new System.EventHandler(this.selectClassToolStripMenuItem_Click);
+            // 
             // regClassToolStripMenuItem
             // 
             this.regClassToolStripMenuItem.Name = "regClassToolStripMenuItem";
-            this.regClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.regClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.regClassToolStripMenuItem.Text = "강의실 추가";
             this.regClassToolStripMenuItem.Click += new System.EventHandler(this.regClassToolStripMenuItem_Click);
             // 
             // updateClassToolStripMenuItem
             // 
             this.updateClassToolStripMenuItem.Name = "updateClassToolStripMenuItem";
-            this.updateClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.updateClassToolStripMenuItem.Text = "강의실 수정";
             this.updateClassToolStripMenuItem.Click += new System.EventHandler(this.updateClassToolStripMenuItem_Click);
             // 
             // deleteClassToolStripMenuItem
             // 
             this.deleteClassToolStripMenuItem.Name = "deleteClassToolStripMenuItem";
-            this.deleteClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.deleteClassToolStripMenuItem.Text = "강의실 삭제";
             this.deleteClassToolStripMenuItem.Click += new System.EventHandler(this.deleteClassToolStripMenuItem_Click);
             // 
@@ -168,13 +177,6 @@
             this.rsrvCodeDropdown.TabIndex = 55;
             this.rsrvCodeDropdown.SelectedIndexChanged += new System.EventHandler(this.rsrvCodeDropdown_SelectedIndexChanged);
             // 
-            // selectClassToolStripMenuItem
-            // 
-            this.selectClassToolStripMenuItem.Name = "selectClassToolStripMenuItem";
-            this.selectClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.selectClassToolStripMenuItem.Text = "강의실 조회";
-            this.selectClassToolStripMenuItem.Click += new System.EventHandler(this.selectClassToolStripMenuItem_Click);
-            // 
             // adminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -186,6 +188,7 @@
             this.Controls.Add(this.yesBtn);
             this.Controls.Add(this.adminDataGrid);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "adminForm";
             this.Text = "adminForm";

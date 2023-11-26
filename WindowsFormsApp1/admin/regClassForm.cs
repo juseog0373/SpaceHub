@@ -51,5 +51,10 @@ namespace WindowsFormsApp1
                 MessageBox.Show("입력하신 정보를 확인해주세요.");
             }
         }
+
+        private void regClassForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
