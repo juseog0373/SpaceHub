@@ -36,18 +36,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.classNameTxt = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.classFloorTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.classLocaTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.classMaxTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.regBtn = new System.Windows.Forms.Button();
-            this.classInfoTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.classFloorDropDown = new System.Windows.Forms.ComboBox();
+            this.classMaxDropDown = new System.Windows.Forms.ComboBox();
+            this.classInfoTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // classCodeTxt
@@ -129,19 +129,6 @@
             this.panel3.Size = new System.Drawing.Size(230, 1);
             this.panel3.TabIndex = 18;
             // 
-            // classFloorTxt
-            // 
-            this.classFloorTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.classFloorTxt.BackColor = System.Drawing.SystemColors.Control;
-            this.classFloorTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.classFloorTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classFloorTxt.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.classFloorTxt.Location = new System.Drawing.Point(39, 293);
-            this.classFloorTxt.Multiline = true;
-            this.classFloorTxt.Name = "classFloorTxt";
-            this.classFloorTxt.Size = new System.Drawing.Size(230, 37);
-            this.classFloorTxt.TabIndex = 16;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -199,19 +186,6 @@
             this.panel5.Size = new System.Drawing.Size(230, 1);
             this.panel5.TabIndex = 24;
             // 
-            // classMaxTxt
-            // 
-            this.classMaxTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.classMaxTxt.BackColor = System.Drawing.SystemColors.Control;
-            this.classMaxTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.classMaxTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classMaxTxt.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.classMaxTxt.Location = new System.Drawing.Point(306, 172);
-            this.classMaxTxt.Multiline = true;
-            this.classMaxTxt.Name = "classMaxTxt";
-            this.classMaxTxt.Size = new System.Drawing.Size(230, 37);
-            this.classMaxTxt.TabIndex = 22;
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -234,26 +208,13 @@
             this.regBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.regBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.regBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.regBtn.Location = new System.Drawing.Point(93, 378);
+            this.regBtn.Location = new System.Drawing.Point(39, 372);
             this.regBtn.Name = "regBtn";
-            this.regBtn.Size = new System.Drawing.Size(387, 131);
+            this.regBtn.Size = new System.Drawing.Size(497, 131);
             this.regBtn.TabIndex = 25;
             this.regBtn.Text = "등록";
             this.regBtn.UseVisualStyleBackColor = false;
             this.regBtn.Click += new System.EventHandler(this.regBtn_Click);
-            // 
-            // classInfoTxt
-            // 
-            this.classInfoTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.classInfoTxt.BackColor = System.Drawing.SystemColors.Control;
-            this.classInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.classInfoTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classInfoTxt.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.classInfoTxt.Location = new System.Drawing.Point(319, 293);
-            this.classInfoTxt.Multiline = true;
-            this.classInfoTxt.Name = "classInfoTxt";
-            this.classInfoTxt.Size = new System.Drawing.Size(230, 37);
-            this.classInfoTxt.TabIndex = 26;
             // 
             // label6
             // 
@@ -277,24 +238,113 @@
             this.panel6.Size = new System.Drawing.Size(230, 1);
             this.panel6.TabIndex = 25;
             // 
+            // classFloorDropDown
+            // 
+            this.classFloorDropDown.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.classFloorDropDown.FormattingEnabled = true;
+            this.classFloorDropDown.Items.AddRange(new object[] {
+            "5",
+            "4",
+            "3",
+            "2.5",
+            "2",
+            "1"});
+            this.classFloorDropDown.Location = new System.Drawing.Point(44, 310);
+            this.classFloorDropDown.Name = "classFloorDropDown";
+            this.classFloorDropDown.Size = new System.Drawing.Size(225, 20);
+            this.classFloorDropDown.TabIndex = 54;
+            // 
+            // classMaxDropDown
+            // 
+            this.classMaxDropDown.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.classMaxDropDown.FormattingEnabled = true;
+            this.classMaxDropDown.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50"});
+            this.classMaxDropDown.Location = new System.Drawing.Point(306, 189);
+            this.classMaxDropDown.Name = "classMaxDropDown";
+            this.classMaxDropDown.Size = new System.Drawing.Size(235, 20);
+            this.classMaxDropDown.TabIndex = 65;
+            // 
+            // classInfoTxt
+            // 
+            this.classInfoTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.classInfoTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.classInfoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.classInfoTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.classInfoTxt.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.classInfoTxt.Location = new System.Drawing.Point(306, 293);
+            this.classInfoTxt.Multiline = true;
+            this.classInfoTxt.Name = "classInfoTxt";
+            this.classInfoTxt.Size = new System.Drawing.Size(230, 37);
+            this.classInfoTxt.TabIndex = 66;
+            // 
             // regClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 553);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.classInfoTxt);
+            this.Controls.Add(this.classMaxDropDown);
+            this.Controls.Add(this.classFloorDropDown);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.regBtn);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.classMaxTxt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.classLocaTxt);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.classFloorTxt);
             this.Controls.Add(this.classNameTxt);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -303,8 +353,7 @@
             this.Controls.Add(this.classCodeTxt);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "regClassForm";
-            this.Text = "classForm";
-            this.Load += new System.EventHandler(this.regClassForm_Load);
+            this.Text = "regClassForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,17 +367,17 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox classNameTxt;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox classFloorTxt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox classLocaTxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox classMaxTxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button regBtn;
-        private System.Windows.Forms.TextBox classInfoTxt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox classFloorDropDown;
+        private System.Windows.Forms.ComboBox classMaxDropDown;
+        private System.Windows.Forms.TextBox classInfoTxt;
     }
 }

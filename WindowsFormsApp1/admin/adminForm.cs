@@ -34,21 +34,24 @@ namespace WindowsFormsApp1
 
         private void selectRsrvToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // 특정 UI 요소들의 표시 여부를 true로 설정
             rsrvLabel.Visible = true;
             rsrvCodeDropdown.Visible = true;
             yesBtn.Visible = true;
             noBtn.Visible = true;
 
+            // adminDataGrid의 모든 열을 지움
             adminDataGrid.Columns.Clear();
 
+            // 새로운 DataGridViewCheckBoxColumn을 생성
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
-            dgvCmb.ValueType = typeof(bool);
-            dgvCmb.Name = "Chk";
-            dgvCmb.HeaderText = "선택";
-            adminDataGrid.Columns.Add(dgvCmb);
-            adminDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCmb.ValueType = typeof(bool); // 체크박스 열의 값 타입을 불리언으로 설정
+            dgvCmb.Name = "Chk"; // 체크박스 열의 이름을 "Chk"로 설정
+            dgvCmb.HeaderText = "선택"; // 체크박스 열의 헤더 텍스트를 "선택"으로 설정
+            adminDataGrid.Columns.Add(dgvCmb); // 체크박스 열을 adminDataGrid에 추가
+            adminDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // adminDataGrid의 선택 모드를 전체 행 선택으로 설정
 
-            string rsrvSearch = rsrvCodeDropdown.Text;
+            string rsrvSearch = rsrvCodeDropdown.Text; // rsrvCodeDropdown에서 텍스트를 가져옴
 
             conn = mysqlConnect();
             conn.Open();
