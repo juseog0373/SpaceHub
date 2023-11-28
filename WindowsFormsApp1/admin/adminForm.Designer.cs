@@ -49,7 +49,7 @@
             // adminDataGrid
             // 
             this.adminDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.adminDataGrid.Location = new System.Drawing.Point(21, 144);
+            this.adminDataGrid.Location = new System.Drawing.Point(20, 167);
             this.adminDataGrid.Name = "adminDataGrid";
             this.adminDataGrid.RowTemplate.Height = 23;
             this.adminDataGrid.Size = new System.Drawing.Size(1458, 747);
@@ -58,7 +58,7 @@
             // yesBtn
             // 
             this.yesBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.yesBtn.Location = new System.Drawing.Point(1531, 562);
+            this.yesBtn.Location = new System.Drawing.Point(1533, 584);
             this.yesBtn.Name = "yesBtn";
             this.yesBtn.Size = new System.Drawing.Size(298, 153);
             this.yesBtn.TabIndex = 5;
@@ -72,9 +72,9 @@
             this.rsrvToolStripMenuItem,
             this.userToolStripMenuItem,
             this.classToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1863, 104);
+            this.menuStrip1.Size = new System.Drawing.Size(1823, 104);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -113,35 +113,35 @@
             // selectClassToolStripMenuItem
             // 
             this.selectClassToolStripMenuItem.Name = "selectClassToolStripMenuItem";
-            this.selectClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.selectClassToolStripMenuItem.Text = "강의실 조회";
             this.selectClassToolStripMenuItem.Click += new System.EventHandler(this.selectClassToolStripMenuItem_Click);
             // 
             // regClassToolStripMenuItem
             // 
             this.regClassToolStripMenuItem.Name = "regClassToolStripMenuItem";
-            this.regClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.regClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.regClassToolStripMenuItem.Text = "강의실 추가";
             this.regClassToolStripMenuItem.Click += new System.EventHandler(this.regClassToolStripMenuItem_Click);
             // 
             // updateClassToolStripMenuItem
             // 
             this.updateClassToolStripMenuItem.Name = "updateClassToolStripMenuItem";
-            this.updateClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.updateClassToolStripMenuItem.Text = "강의실 수정";
             this.updateClassToolStripMenuItem.Click += new System.EventHandler(this.updateClassToolStripMenuItem_Click);
             // 
             // deleteClassToolStripMenuItem
             // 
             this.deleteClassToolStripMenuItem.Name = "deleteClassToolStripMenuItem";
-            this.deleteClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteClassToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.deleteClassToolStripMenuItem.Text = "강의실 삭제";
             this.deleteClassToolStripMenuItem.Click += new System.EventHandler(this.deleteClassToolStripMenuItem_Click);
             // 
             // noBtn
             // 
             this.noBtn.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.noBtn.Location = new System.Drawing.Point(1531, 738);
+            this.noBtn.Location = new System.Drawing.Point(1533, 760);
             this.noBtn.Name = "noBtn";
             this.noBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.noBtn.Size = new System.Drawing.Size(298, 153);
@@ -155,7 +155,7 @@
             this.rsrvLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rsrvLabel.AutoSize = true;
             this.rsrvLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.rsrvLabel.Location = new System.Drawing.Point(1502, 143);
+            this.rsrvLabel.Location = new System.Drawing.Point(1500, 167);
             this.rsrvLabel.Name = "rsrvLabel";
             this.rsrvLabel.Size = new System.Drawing.Size(118, 21);
             this.rsrvLabel.TabIndex = 56;
@@ -168,9 +168,9 @@
             this.rsrvCodeDropdown.Items.AddRange(new object[] {
             "전체",
             "승인 대기",
-            "예약 승인",
-            "승인 거절"});
-            this.rsrvCodeDropdown.Location = new System.Drawing.Point(1640, 144);
+            "승인 거절",
+            "승인 완료"});
+            this.rsrvCodeDropdown.Location = new System.Drawing.Point(1643, 167);
             this.rsrvCodeDropdown.Name = "rsrvCodeDropdown";
             this.rsrvCodeDropdown.Size = new System.Drawing.Size(156, 20);
             this.rsrvCodeDropdown.TabIndex = 55;
@@ -190,7 +190,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "adminForm";
-            this.Text = "adminForm";
+            this.Text = "SpaceHub";
             this.Load += new System.EventHandler(this.adminForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.adminDataGrid)).EndInit();
             this.menuStrip1.ResumeLayout(false);

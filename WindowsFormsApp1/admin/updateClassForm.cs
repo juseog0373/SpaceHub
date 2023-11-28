@@ -13,7 +13,7 @@ using static dbConnectSpace.dbConnection; //dbConnection 임포트
 
 namespace WindowsFormsApp1
 {
-    public partial class updateClassForm : Form
+    public partial class updateClassForm : MetroFramework.Forms.MetroForm
     {
         private adminForm adminForm;  // adminForm을 참조하기 위한 변수
         private string classSeq;

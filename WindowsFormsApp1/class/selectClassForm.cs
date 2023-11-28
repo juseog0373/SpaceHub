@@ -16,7 +16,7 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace WindowsFormsApp1
 {
-    public partial class selectClassForm : Form
+    public partial class selectClassForm : MetroFramework.Forms.MetroForm
     {
         public selectClassForm()
         {

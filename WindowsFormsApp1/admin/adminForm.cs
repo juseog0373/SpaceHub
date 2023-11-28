@@ -11,10 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static dbConnectSpace.dbConnection;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
-    public partial class adminForm : Form
+    public partial class adminForm : MetroFramework.Forms.MetroForm
     {
         MySqlCommand cmd = new MySqlCommand();  // 클래스 레벨에서 선언
 
@@ -110,7 +111,7 @@ namespace WindowsFormsApp1
                         " ORDER BY r.rsrvDate DESC"
                     );
                 }
-                else if (rsrvSearch.Equals("예약 승인"))
+                else if (rsrvSearch.Equals("승인 완료"))
                 {
                     sql = string.Format("SELECT" +
                         " r.rsrvSeq '예약번호'," +

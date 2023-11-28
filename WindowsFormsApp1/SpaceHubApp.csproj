@@ -51,6 +51,15 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -114,17 +123,17 @@
     <Compile Include="class\selectClassForm.Designer.cs">
       <DependentUpon>selectClassForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="class\selectMyRsrvForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="class\selectMyRsrvForm.Designer.cs">
-      <DependentUpon>selectMyRsrvForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="admin\adminForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="admin\adminForm.Designer.cs">
       <DependentUpon>adminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="class\selectMyRsrvForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="class\selectMyRsrvForm.Designer.cs">
+      <DependentUpon>selectMyRsrvForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SpaceHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

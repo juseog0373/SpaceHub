@@ -14,7 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsApp1
 {
-    public partial class regClassForm : Form
+    public partial class regClassForm : MetroFramework.Forms.MetroForm
     {
         private adminForm adminForm;  // adminForm을 참조하기 위한 변수
 
