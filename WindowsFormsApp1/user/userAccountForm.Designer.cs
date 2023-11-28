@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.mySqlConnection1 = new MySql.Data.MySqlClient.MySqlConnection();
             this.SuspendLayout();
             // 
             // userAccountLabel
@@ -209,5 +210,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private MySql.Data.MySqlClient.MySqlConnection mySqlConnection1;
     }
 }

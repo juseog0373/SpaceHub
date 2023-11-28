@@ -48,6 +48,8 @@
             this.classCodeTxt = new System.Windows.Forms.TextBox();
             this.classMaxDropDown = new System.Windows.Forms.ComboBox();
             this.classFloorDropDown = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -326,11 +328,22 @@
             this.classFloorDropDown.Size = new System.Drawing.Size(230, 20);
             this.classFloorDropDown.TabIndex = 67;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-14, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(165, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 68;
+            this.pictureBox1.TabStop = false;
+            // 
             // updateClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 606);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.classFloorDropDown);
             this.Controls.Add(this.classMaxDropDown);
             this.Controls.Add(this.panel6);
@@ -354,6 +367,7 @@
             this.Name = "updateClassForm";
             this.Text = "SpaceHub";
             this.Load += new System.EventHandler(this.updateClassForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,5 +394,6 @@
         private System.Windows.Forms.TextBox classCodeTxt;
         private System.Windows.Forms.ComboBox classMaxDropDown;
         private System.Windows.Forms.ComboBox classFloorDropDown;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
