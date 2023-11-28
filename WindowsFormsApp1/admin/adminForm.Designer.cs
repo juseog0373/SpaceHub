@@ -42,14 +42,16 @@
             this.noBtn = new System.Windows.Forms.Button();
             this.rsrvLabel = new System.Windows.Forms.Label();
             this.rsrvCodeDropdown = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.adminDataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // adminDataGrid
             // 
             this.adminDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.adminDataGrid.Location = new System.Drawing.Point(20, 167);
+            this.adminDataGrid.Location = new System.Drawing.Point(20, 117);
             this.adminDataGrid.Name = "adminDataGrid";
             this.adminDataGrid.RowTemplate.Height = 23;
             this.adminDataGrid.Size = new System.Drawing.Size(1458, 747);
@@ -58,7 +60,7 @@
             // yesBtn
             // 
             this.yesBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.yesBtn.Location = new System.Drawing.Point(1533, 584);
+            this.yesBtn.Location = new System.Drawing.Point(1504, 535);
             this.yesBtn.Name = "yesBtn";
             this.yesBtn.Size = new System.Drawing.Size(298, 153);
             this.yesBtn.TabIndex = 5;
@@ -74,7 +76,7 @@
             this.classToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1823, 104);
+            this.menuStrip1.Size = new System.Drawing.Size(1823, 54);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -83,7 +85,7 @@
             this.rsrvToolStripMenuItem.AutoSize = false;
             this.rsrvToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.rsrvToolStripMenuItem.Name = "rsrvToolStripMenuItem";
-            this.rsrvToolStripMenuItem.Size = new System.Drawing.Size(150, 100);
+            this.rsrvToolStripMenuItem.Size = new System.Drawing.Size(150, 50);
             this.rsrvToolStripMenuItem.Text = "예약관리";
             this.rsrvToolStripMenuItem.Click += new System.EventHandler(this.selectRsrvToolStripMenuItem_Click);
             // 
@@ -92,7 +94,7 @@
             this.userToolStripMenuItem.AutoSize = false;
             this.userToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(150, 100);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(150, 50);
             this.userToolStripMenuItem.Text = "회원관리";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
@@ -106,7 +108,7 @@
             this.updateClassToolStripMenuItem,
             this.deleteClassToolStripMenuItem});
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
-            this.classToolStripMenuItem.Size = new System.Drawing.Size(150, 100);
+            this.classToolStripMenuItem.Size = new System.Drawing.Size(150, 50);
             this.classToolStripMenuItem.Text = "강의실 관리";
             this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
             // 
@@ -141,7 +143,7 @@
             // noBtn
             // 
             this.noBtn.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.noBtn.Location = new System.Drawing.Point(1533, 760);
+            this.noBtn.Location = new System.Drawing.Point(1504, 711);
             this.noBtn.Name = "noBtn";
             this.noBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.noBtn.Size = new System.Drawing.Size(298, 153);
@@ -176,11 +178,22 @@
             this.rsrvCodeDropdown.TabIndex = 55;
             this.rsrvCodeDropdown.SelectedIndexChanged += new System.EventHandler(this.rsrvCodeDropdown_SelectedIndexChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-8, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(165, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 66;
+            this.pictureBox1.TabStop = false;
+            // 
             // adminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1863, 903);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rsrvLabel);
             this.Controls.Add(this.rsrvCodeDropdown);
             this.Controls.Add(this.noBtn);
@@ -195,6 +208,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.adminDataGrid)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +228,6 @@
         private System.Windows.Forms.ToolStripMenuItem updateClassToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteClassToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectClassToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
