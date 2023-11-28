@@ -13,15 +13,16 @@ using static dbConnectSpace.dbConnection; //dbConnection 임포트
 
 namespace WindowsFormsApp1
 {
-    public partial class updateClassForm : Form
+    public partial class updateClassForm : MetroFramework.Forms.MetroForm
     {
-
+        private adminForm adminForm;  // adminForm을 참조하기 위한 변수
         private string classSeq;
 
-        public updateClassForm(string classSeq)
+        public updateClassForm(string classSeq, adminForm adminForm)
         {
             InitializeComponent();
             this.classSeq = classSeq;
+            this.adminForm = adminForm;
         }
 
         MySqlConnection conn = null;
@@ -46,9 +47,9 @@ namespace WindowsFormsApp1
                     // 각 컬럼의 인덱스를 가져와서 데이터를 읽어옴
                     classCodeTxt.Text = reader.GetString("classCode");
                     classNameTxt.Text = reader.GetString("className");
-                    classFloorTxt.Text = reader.GetString("classFloor");
+                    classFloorDropDown.Text = reader.GetString("classFloor");
                     classLocaTxt.Text = reader.GetString("classLoca");
-                    classMaxTxt.Text = reader.GetString("classMax");
+                    classMaxDropDown.Text = reader.GetString("classMax");
                     classInfoTxt.Text = reader.GetString("classInfo");
                 }
             }
@@ -79,8 +80,8 @@ namespace WindowsFormsApp1
                 // 매개변수 추가
                 cmd.Parameters.AddWithValue("@classCode", classCodeTxt.Text); 
                 cmd.Parameters.AddWithValue("@className", classNameTxt.Text);
-                cmd.Parameters.AddWithValue("@classMax", Convert.ToInt32(classMaxTxt.Text)); 
-                cmd.Parameters.AddWithValue("@classFloor", Convert.ToInt32(classFloorTxt.Text)); 
+                cmd.Parameters.AddWithValue("@classMax", Convert.ToInt32(classMaxDropDown.Text)); 
+                cmd.Parameters.AddWithValue("@classFloor", Convert.ToInt32(classFloorDropDown.Text)); 
                 cmd.Parameters.AddWithValue("@classInfo", classInfoTxt.Text); 
                 cmd.Parameters.AddWithValue("@classSeq", classSeq); 
 
@@ -91,6 +92,7 @@ namespace WindowsFormsApp1
                 if (result > 0)
                 {
                     MessageBox.Show("강의실 업데이트를 완료했습니다.");
+                    adminForm.RefreshDataGridView();
                     this.Close();
                 }
                 else

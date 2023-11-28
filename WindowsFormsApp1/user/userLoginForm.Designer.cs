@@ -42,10 +42,10 @@
             // 
             this.userIdLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdLabel.AutoSize = true;
-            this.userIdLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.userIdLabel.BackColor = System.Drawing.SystemColors.Window;
             this.userIdLabel.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userIdLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.userIdLabel.Location = new System.Drawing.Point(437, 334);
+            this.userIdLabel.Location = new System.Drawing.Point(431, 386);
             this.userIdLabel.Name = "userIdLabel";
             this.userIdLabel.Size = new System.Drawing.Size(55, 30);
             this.userIdLabel.TabIndex = 0;
@@ -58,10 +58,9 @@
             this.userIdTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userIdTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userIdTxt.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.userIdTxt.Location = new System.Drawing.Point(444, 367);
-            this.userIdTxt.Multiline = true;
+            this.userIdTxt.Location = new System.Drawing.Point(436, 419);
             this.userIdTxt.Name = "userIdTxt";
-            this.userIdTxt.Size = new System.Drawing.Size(194, 37);
+            this.userIdTxt.Size = new System.Drawing.Size(230, 22);
             this.userIdTxt.TabIndex = 1;
             // 
             // loginBtn
@@ -73,7 +72,7 @@
             this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.loginBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.loginBtn.Location = new System.Drawing.Point(440, 570);
+            this.loginBtn.Location = new System.Drawing.Point(436, 611);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(108, 39);
             this.loginBtn.TabIndex = 3;
@@ -87,7 +86,7 @@
             this.userPwdLabel.AutoSize = true;
             this.userPwdLabel.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.userPwdLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.userPwdLabel.Location = new System.Drawing.Point(439, 429);
+            this.userPwdLabel.Location = new System.Drawing.Point(431, 485);
             this.userPwdLabel.Name = "userPwdLabel";
             this.userPwdLabel.Size = new System.Drawing.Size(88, 25);
             this.userPwdLabel.TabIndex = 3;
@@ -99,11 +98,10 @@
             this.userPwTxt.BackColor = System.Drawing.SystemColors.Control;
             this.userPwTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userPwTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userPwTxt.Location = new System.Drawing.Point(444, 457);
-            this.userPwTxt.Multiline = true;
+            this.userPwTxt.Location = new System.Drawing.Point(436, 513);
             this.userPwTxt.Name = "userPwTxt";
             this.userPwTxt.PasswordChar = '*';
-            this.userPwTxt.Size = new System.Drawing.Size(191, 42);
+            this.userPwTxt.Size = new System.Drawing.Size(230, 22);
             this.userPwTxt.TabIndex = 2;
             this.userPwTxt.TextChanged += new System.EventHandler(this.userPwTxt_TextChanged);
             // 
@@ -115,7 +113,7 @@
             this.accountBtn.FlatAppearance.BorderSize = 0;
             this.accountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.accountBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.accountBtn.Location = new System.Drawing.Point(566, 570);
+            this.accountBtn.Location = new System.Drawing.Point(558, 611);
             this.accountBtn.Name = "accountBtn";
             this.accountBtn.Size = new System.Drawing.Size(108, 40);
             this.accountBtn.TabIndex = 4;
@@ -130,7 +128,7 @@
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(143, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(785, 302);
+            this.pictureBox1.Size = new System.Drawing.Size(785, 330);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -139,7 +137,7 @@
             this.userIdSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userIdSave.AutoSize = true;
             this.userIdSave.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userIdSave.Location = new System.Drawing.Point(442, 521);
+            this.userIdSave.Location = new System.Drawing.Point(436, 571);
             this.userIdSave.Name = "userIdSave";
             this.userIdSave.Size = new System.Drawing.Size(93, 24);
             this.userIdSave.TabIndex = 7;
@@ -150,7 +148,7 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.Location = new System.Drawing.Point(444, 402);
+            this.panel1.Location = new System.Drawing.Point(436, 443);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 1);
             this.panel1.TabIndex = 8;
@@ -159,7 +157,7 @@
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel2.Location = new System.Drawing.Point(444, 496);
+            this.panel2.Location = new System.Drawing.Point(436, 537);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(230, 1);
             this.panel2.TabIndex = 9;
@@ -181,7 +179,6 @@
             this.Controls.Add(this.userIdLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "userLoginForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SpaceHub";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.userLoginForm_Load);
