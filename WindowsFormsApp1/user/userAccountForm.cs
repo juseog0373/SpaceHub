@@ -13,7 +13,7 @@ using static dbConnectSpace.dbConnection;
 
 namespace WindowsFormsApp1
 {
-    public partial class userAccountForm : Form
+    public partial class userAccountForm : MetroFramework.Forms.MetroForm
     {
         public userAccountForm()
         {
@@ -117,7 +117,5 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.Message);
             }
         }
-
-     
     }
 }

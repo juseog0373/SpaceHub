@@ -13,7 +13,7 @@ using static dbConnectSpace.dbConnection; //dbConnection 임포트
 
 namespace WindowsFormsApp1
 {
-    public partial class selectMyRsrvForm : Form
+    public partial class selectMyRsrvForm : MetroFramework.Forms.MetroForm
     {
         public selectMyRsrvForm()
         {
@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
 
         MySqlCommand cmd = null;
         MySqlConnection conn = null;
-        
+
         private void selectMyRsrvForm_Load(object sender, EventArgs e)
         {
             // 예약조회 폼 로드시 예약정보 조회 후 출력
@@ -40,12 +40,13 @@ namespace WindowsFormsApp1
                 " r.rsrvGoal '예약목적'," +
                 " r.rsrvPrsnl '예약인원'," +
                 " r.rsrvHoursUse '이용시간'," +
-                " CASE WHEN rsrvYN = 'Y' THEN '승인 완료'"+
-                " WHEN rsrvYN = 'N' THEN '승인 대기'"+
+                " CASE WHEN r.rsrvYN = 'Y' THEN '승인 완료'" +
+                " WHEN r.rsrvYN = 'N' THEN '승인 대기'" +
+                " WHEN r.rsrvYN = 'R' THEN '승인 거절'" +
                 " END AS '예약 상태'" +
                 " FROM reservationTbl r, userTbl u" +
                 " WHERE r.userId = u.userId" +
-                " AND u.userId = {0}"+
+                " AND u.userId = {0}" +
                 " ORDER BY rsrvSeq DESC", User.UserId);
 
                 cmd = new MySqlCommand(sql, conn);
