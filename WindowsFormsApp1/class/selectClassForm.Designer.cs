@@ -50,7 +50,9 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.reservationBtn = new System.Windows.Forms.Button();
             this.selectClassDataGrid = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.selectClassDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // logoutBtn
@@ -58,7 +60,7 @@
             this.logoutBtn.AllowDrop = true;
             this.logoutBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.logoutBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.logoutBtn.Location = new System.Drawing.Point(1732, 35);
+            this.logoutBtn.Location = new System.Drawing.Point(1241, 82);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(75, 23);
             this.logoutBtn.TabIndex = 18;
@@ -68,9 +70,10 @@
             // 
             // userNameLabel
             // 
+            this.userNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userNameLabel.Location = new System.Drawing.Point(1582, 36);
+            this.userNameLabel.Location = new System.Drawing.Point(1091, 83);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Size = new System.Drawing.Size(128, 20);
             this.userNameLabel.TabIndex = 23;
@@ -91,9 +94,9 @@
             this.myPageBtn.FlatAppearance.BorderSize = 0;
             this.myPageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.myPageBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.myPageBtn.Location = new System.Drawing.Point(28, 22);
+            this.myPageBtn.Location = new System.Drawing.Point(860, 74);
             this.myPageBtn.Name = "myPageBtn";
-            this.myPageBtn.Size = new System.Drawing.Size(128, 23);
+            this.myPageBtn.Size = new System.Drawing.Size(136, 40);
             this.myPageBtn.TabIndex = 49;
             this.myPageBtn.Text = "예약 조회";
             this.myPageBtn.UseVisualStyleBackColor = false;
@@ -149,7 +152,7 @@
             "43",
             "44",
             "45"});
-            this.rsrvPrsnlDropDown.Location = new System.Drawing.Point(1467, 559);
+            this.rsrvPrsnlDropDown.Location = new System.Drawing.Point(1105, 595);
             this.rsrvPrsnlDropDown.Name = "rsrvPrsnlDropDown";
             this.rsrvPrsnlDropDown.Size = new System.Drawing.Size(200, 20);
             this.rsrvPrsnlDropDown.TabIndex = 64;
@@ -158,7 +161,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Location = new System.Drawing.Point(1391, 430);
+            this.label7.Location = new System.Drawing.Point(1029, 466);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(276, 2);
             this.label7.TabIndex = 63;
@@ -166,7 +169,7 @@
             // rsrvGoalTxt
             // 
             this.rsrvGoalTxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.rsrvGoalTxt.Location = new System.Drawing.Point(1467, 610);
+            this.rsrvGoalTxt.Location = new System.Drawing.Point(1105, 646);
             this.rsrvGoalTxt.Name = "rsrvGoalTxt";
             this.rsrvGoalTxt.Size = new System.Drawing.Size(200, 21);
             this.rsrvGoalTxt.TabIndex = 62;
@@ -176,7 +179,7 @@
             this.rsrvGoalLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rsrvGoalLabel.AutoSize = true;
             this.rsrvGoalLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.rsrvGoalLabel.Location = new System.Drawing.Point(1387, 610);
+            this.rsrvGoalLabel.Location = new System.Drawing.Point(1025, 646);
             this.rsrvGoalLabel.Name = "rsrvGoalLabel";
             this.rsrvGoalLabel.Size = new System.Drawing.Size(74, 21);
             this.rsrvGoalLabel.TabIndex = 61;
@@ -187,7 +190,7 @@
             this.rsrvPrsnlLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rsrvPrsnlLabel.AutoSize = true;
             this.rsrvPrsnlLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.rsrvPrsnlLabel.Location = new System.Drawing.Point(1387, 558);
+            this.rsrvPrsnlLabel.Location = new System.Drawing.Point(1025, 594);
             this.rsrvPrsnlLabel.Name = "rsrvPrsnlLabel";
             this.rsrvPrsnlLabel.Size = new System.Drawing.Size(74, 21);
             this.rsrvPrsnlLabel.TabIndex = 60;
@@ -211,7 +214,7 @@
             "19:00",
             "20:00",
             "21:00"});
-            this.endHoursDropDown.Location = new System.Drawing.Point(1586, 507);
+            this.endHoursDropDown.Location = new System.Drawing.Point(1224, 543);
             this.endHoursDropDown.Name = "endHoursDropDown";
             this.endHoursDropDown.Size = new System.Drawing.Size(81, 20);
             this.endHoursDropDown.TabIndex = 58;
@@ -221,7 +224,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(1560, 507);
+            this.label3.Location = new System.Drawing.Point(1198, 543);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 21);
             this.label3.TabIndex = 57;
@@ -232,7 +235,7 @@
             this.rsrvHoursUseLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rsrvHoursUseLabel.AutoSize = true;
             this.rsrvHoursUseLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.rsrvHoursUseLabel.Location = new System.Drawing.Point(1387, 506);
+            this.rsrvHoursUseLabel.Location = new System.Drawing.Point(1025, 542);
             this.rsrvHoursUseLabel.Name = "rsrvHoursUseLabel";
             this.rsrvHoursUseLabel.Size = new System.Drawing.Size(74, 21);
             this.rsrvHoursUseLabel.TabIndex = 56;
@@ -256,7 +259,7 @@
             "19:00",
             "20:00",
             "21:00"});
-            this.startHoursDropDown.Location = new System.Drawing.Point(1467, 507);
+            this.startHoursDropDown.Location = new System.Drawing.Point(1105, 543);
             this.startHoursDropDown.Name = "startHoursDropDown";
             this.startHoursDropDown.Size = new System.Drawing.Size(81, 20);
             this.startHoursDropDown.TabIndex = 59;
@@ -270,7 +273,7 @@
             this.selectClassBtn.FlatAppearance.BorderSize = 0;
             this.selectClassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.selectClassBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.selectClassBtn.Location = new System.Drawing.Point(1391, 197);
+            this.selectClassBtn.Location = new System.Drawing.Point(1029, 233);
             this.selectClassBtn.Name = "selectClassBtn";
             this.selectClassBtn.Size = new System.Drawing.Size(276, 161);
             this.selectClassBtn.TabIndex = 55;
@@ -283,7 +286,7 @@
             this.classNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.classNameLabel.AutoSize = true;
             this.classNameLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.classNameLabel.Location = new System.Drawing.Point(1387, 133);
+            this.classNameLabel.Location = new System.Drawing.Point(1025, 169);
             this.classNameLabel.Name = "classNameLabel";
             this.classNameLabel.Size = new System.Drawing.Size(118, 21);
             this.classNameLabel.TabIndex = 54;
@@ -301,7 +304,7 @@
             "전산관 2층",
             "임곡관 2층",
             "임곡관 1층"});
-            this.classNameDropDown.Location = new System.Drawing.Point(1511, 134);
+            this.classNameDropDown.Location = new System.Drawing.Point(1149, 170);
             this.classNameDropDown.Name = "classNameDropDown";
             this.classNameDropDown.Size = new System.Drawing.Size(156, 20);
             this.classNameDropDown.TabIndex = 53;
@@ -309,7 +312,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTimePicker.Location = new System.Drawing.Point(1391, 96);
+            this.dateTimePicker.Location = new System.Drawing.Point(1029, 132);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(276, 21);
             this.dateTimePicker.TabIndex = 52;
@@ -322,7 +325,7 @@
             this.reservationBtn.FlatAppearance.BorderSize = 0;
             this.reservationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reservationBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.reservationBtn.Location = new System.Drawing.Point(1391, 679);
+            this.reservationBtn.Location = new System.Drawing.Point(1029, 715);
             this.reservationBtn.Name = "reservationBtn";
             this.reservationBtn.Size = new System.Drawing.Size(276, 222);
             this.reservationBtn.TabIndex = 51;
@@ -348,21 +351,32 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.selectClassDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.selectClassDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.selectClassDataGrid.Location = new System.Drawing.Point(197, 96);
+            this.selectClassDataGrid.Location = new System.Drawing.Point(23, 129);
             this.selectClassDataGrid.Name = "selectClassDataGrid";
             this.selectClassDataGrid.ReadOnly = true;
             this.selectClassDataGrid.RowTemplate.Height = 23;
             this.selectClassDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.selectClassDataGrid.Size = new System.Drawing.Size(1161, 808);
+            this.selectClassDataGrid.Size = new System.Drawing.Size(973, 808);
             this.selectClassDataGrid.TabIndex = 50;
             this.selectClassDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectDataGridViewCell_Click);
             this.selectClassDataGrid.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.selectClassDataGrid_ColumnHeaderMouseClick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(23, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(165, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 65;
+            this.pictureBox1.TabStop = false;
             // 
             // selectClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1857, 939);
+            this.ClientSize = new System.Drawing.Size(1481, 939);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rsrvPrsnlDropDown);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.rsrvGoalTxt);
@@ -383,11 +397,11 @@
             this.Controls.Add(this.logoutBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "selectClassForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SpaceHub";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.selectClassForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.selectClassDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,5 +427,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button reservationBtn;
         private System.Windows.Forms.DataGridView selectClassDataGrid;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

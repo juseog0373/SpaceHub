@@ -14,7 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsApp1
 {
-    public partial class regClassForm : Form
+    public partial class regClassForm : MetroFramework.Forms.MetroForm
     {
         private adminForm adminForm;  // adminForm을 참조하기 위한 변수
 
@@ -33,9 +33,9 @@ namespace WindowsFormsApp1
 
             string classCode = classCodeTxt.Text;
             string className = classNameTxt.Text;
-            string classFloor = classFloorTxt.Text;
+            string classFloor = classFloorDropDown.Text;
             string classLoca = classLocaTxt.Text;
-            string classMax = classMaxTxt.Text;
+            string classMax = classMaxDropDown.Text;
             string classInfo = classInfoTxt.Text;
 
             string RegSql = string.Format("INSERT INTO classTbl (classCode, className, classFloor, classLoca,classMax,classInfo) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');"
@@ -56,11 +56,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("입력하신 정보를 확인해주세요.");
             }
-        }
-
-        private void regClassForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

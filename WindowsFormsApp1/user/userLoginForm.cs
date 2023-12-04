@@ -15,7 +15,7 @@ using UserDTO;
 
 namespace WindowsFormsApp1
 {
-    public partial class userLoginForm : Form
+    public partial class userLoginForm : MetroFramework.Forms.MetroForm
     {
         public userLoginForm()
         {
