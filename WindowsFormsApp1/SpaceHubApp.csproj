@@ -51,6 +51,15 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -101,12 +110,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\regClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\regClassForm.Designer.cs">
+      <DependentUpon>regClassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="dbConnection.cs" />
     <Compile Include="class\selectClassForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="class\selectClassForm.Designer.cs">
       <DependentUpon>selectClassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin\adminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\adminForm.Designer.cs">
+      <DependentUpon>adminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="class\selectMyRsrvForm.cs">
       <SubType>Form</SubType>
@@ -116,6 +137,12 @@
     </Compile>
     <Compile Include="SpaceHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="admin\updateClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\updateClassForm.Designer.cs">
+      <DependentUpon>updateClassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="user\userAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +156,15 @@
     <Compile Include="user\userLoginForm.designer.cs">
       <DependentUpon>userLoginForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="admin\adminForm.resx">
+      <DependentUpon>adminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\regClassForm.resx">
+      <DependentUpon>regClassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\updateClassForm.resx">
+      <DependentUpon>updateClassForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="class\selectClassForm.resx">
       <DependentUpon>selectClassForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -172,5 +208,6 @@
   <ItemGroup>
     <Content Include="Resources\SpaceHub-Logo.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
