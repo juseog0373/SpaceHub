@@ -59,13 +59,8 @@ namespace WindowsFormsApp1
                         rsrvDate = reader.GetString(0);
                         rsrvPrsnl = reader.GetString(1);
 
-                        MessageBox.Show(rsrvDate);
-                        MessageBox.Show(rsrvPrsnl);
-
                         if (searchDate.Equals(rsrvDate))
                         {
-                            MessageBox.Show("if OK");
-
                             sql = string.Format("SELECT c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원'," +
                             " c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0)+{1} '예약 가능 인원'," +
                             " c.classInfo '강의실 정보'" +
@@ -77,8 +72,6 @@ namespace WindowsFormsApp1
                         }
                         else
                         {
-                            MessageBox.Show("else OK");
-
                             sql = string.Format("SELECT c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원'," +
                             " c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) '예약 가능 인원'," +
                             " c.classInfo '강의실 정보'" +
