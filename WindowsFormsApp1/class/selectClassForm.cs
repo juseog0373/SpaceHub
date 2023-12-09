@@ -13,6 +13,8 @@ using static dbConnectSpace.dbConnection; //dbConnection 임포트
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using UserDTO;
 using System.Diagnostics.Eventing.Reader;
+using Org.BouncyCastle.Asn1.X509;
+using System.Security.Cryptography;
 
 namespace WindowsFormsApp1
 {
@@ -43,64 +45,19 @@ namespace WindowsFormsApp1
 
                 if (classSearch.Equals("전체"))
                 {
-                    string rsrvDate = "";
-                    string rsrvPrsnl = "";
-
-                    string rsrvSql = $"SELECT DATE_FORMAT(rsrvDate, '%Y-%m-%d'), rsrvPrsnl" +
-                        " FROM reservationTbl" +
-                        " WHERE rsrvYN = 'R'";
-
-                    MySqlCommand cmd1 = new MySqlCommand(rsrvSql, conn);
-                    MySqlDataReader reader = cmd1.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        // 각 컬럼의 인덱스를 가져와서 데이터를 읽어옴
-                        rsrvDate = reader.GetString(0);
-                        rsrvPrsnl = reader.GetString(1);
-
-                        MessageBox.Show(rsrvDate);
-                        MessageBox.Show(rsrvPrsnl);
-
-                        if (searchDate.Equals(rsrvDate))
-                        {
-                            MessageBox.Show("if OK");
-
-                            sql = string.Format("SELECT c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원'," +
-                            " c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0)+{1} '예약 가능 인원'," +
-                            " c.classInfo '강의실 정보'" +
-                            " FROM classTbl c" +
-                            " LEFT JOIN  reservationtbl r ON c.classCode = r.classCode" +
-                            " GROUP BY c.classCode" +
-                            " HAVING c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) > 0 " +
-                            " ORDER BY c.classFloor DESC", searchDate, rsrvPrsnl);
-                        }
-                        else
-                        {
-                            MessageBox.Show("else OK");
-
-                            sql = string.Format("SELECT c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원'," +
-                            " c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) '예약 가능 인원'," +
-                            " c.classInfo '강의실 정보'" +
-                            " FROM classTbl c" +
-                            " LEFT JOIN  reservationtbl r ON c.classCode = r.classCode" +
-                            " GROUP BY c.classCode" +
-                            " HAVING c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) > 0 " +
-                            " ORDER BY c.classFloor DESC", searchDate);
-                        }
-                    }
-                    else
-                    {
-                        sql = string.Format("SELECT c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원'," +
-                            " c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) '예약 가능 인원'," +
-                            " c.classInfo '강의실 정보'" +
-                            " FROM classTbl c" +
-                            " LEFT JOIN  reservationtbl r ON c.classCode = r.classCode" +
-                            " GROUP BY c.classCode" +
-                            " HAVING c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) > 0 " +
-                            " ORDER BY c.classFloor DESC", searchDate);
-                    }
-                    reader.Close();
+                    sql = string.Format("SELECT " +
+                          "c.classCode AS '강의실 코드', " +
+                          "c.className AS '강의실 이름', " +
+                          "c.classFloor AS '강의실 층수', " +
+                          "c.classLoca AS '강의실 위치', " +
+                          "c.classMax AS '강의실 수용인원', " +
+                          "IFNULL(c.classMax - SUM(CASE WHEN r.rsrvYN = 'N' OR r.rsrvYN = 'Y' THEN r.rsrvPrsnl ELSE 0 END), c.classMax) AS '예약 가능 인원', " +
+                          "c.classInfo AS '강의실 정보' " +
+                          "FROM classTbl c " +
+                          "LEFT JOIN reservationtbl r ON c.classCode = r.classCode AND r.rsrvDate = '{0}' " +
+                          "GROUP BY c.classCode " +
+                          "HAVING IFNULL(c.classMax - SUM(CASE WHEN r.rsrvYN = 'N' OR r.rsrvYN = 'Y' THEN r.rsrvPrsnl ELSE 0 END), c.classMax) > 0 " +
+                          "ORDER BY c.classFloor DESC", searchDate);
                 }
                 else
                 {
@@ -109,16 +66,20 @@ namespace WindowsFormsApp1
                     string classLoca = classSearchs[0].Trim();
                     string classFloor = classSearchs[1].Substring(0, 1);
 
-                    sql = string.Format("SELECT c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원'," +
-                        "c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) '예약 가능 인원'," +
-                        " c.classInfo '강의실 정보'" +
-                        " FROM classTbl c" +
-                        " LEFT JOIN  reservationtbl r ON c.classCode = r.classCode" +
-                        " WHERE c.classLoca = '{1}'" +
-                        " AND c.classFloor = '{2}'" +
-                        " GROUP BY c.classCode" +
-                        " HAVING c.classMax - IFNULL(SUM(CASE WHEN DATE_FORMAT(r.rsrvDate, '%Y-%m-%d') = '{0}' THEN r.rsrvPrsnl ELSE 0 END), 0) > 0 " +
-                        " ORDER BY c.classFloor DESC", searchDate, classLoca, classFloor);
+                    sql = string.Format("SELECT " +
+                        "c.classCode AS '강의실 코드', " +
+                        "c.className AS '강의실 이름', " +
+                        "c.classFloor AS '강의실 층수', " +
+                        "c.classLoca AS '강의실 위치', " +
+                        "c.classMax AS '강의실 수용인원', " +
+                        "IFNULL(c.classMax - SUM(CASE WHEN r.rsrvYN = 'N' OR r.rsrvYN = 'Y' THEN r.rsrvPrsnl ELSE 0 END), c.classMax) AS '예약 가능 인원', " +
+                        "c.classInfo AS '강의실 정보' " +
+                        "FROM classTbl c " +
+                        "LEFT JOIN reservationtbl r ON c.classCode = r.classCode AND r.rsrvDate = '{0}' " +
+                        "WHERE c.classLoca = '{1}' AND c.classFloor = {2} " +
+                        "GROUP BY c.classCode " +
+                        "HAVING IFNULL(c.classMax - SUM(CASE WHEN r.rsrvYN = 'N' OR r.rsrvYN = 'Y' THEN r.rsrvPrsnl ELSE 0 END), c.classMax) > 0 " +
+                        "ORDER BY c.classFloor DESC", searchDate, classLoca, classFloor);
                 }
 
                 cmd = new MySqlCommand(sql, conn);

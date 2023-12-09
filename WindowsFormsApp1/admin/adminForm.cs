@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserDTO;
 using static dbConnectSpace.dbConnection;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -206,20 +207,40 @@ namespace WindowsFormsApp1
                     }
                 }
 
-                // 선택된 예약번호들을 문자열로 변환
-                string selectedReservationSeqs = string.Join(", ", selectedReservationSeqList);
-
                 // 확인 메시지 띄우기
-                DialogResult result = MessageBox.Show($"예약번호: {selectedReservationSeqs} \n예약을 승인하시겠습니까?", "예약 승인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show($"예약을 승인하시겠습니까?", "예약 승인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    // 예약 승인 처리하는 쿼리
                     foreach (int reservationSeq in selectedReservationSeqList)
                     {
-                        sql = $"UPDATE reservationTbl SET rsrvYN = 'Y' WHERE rsrvSeq = {reservationSeq}";
+                        // 예약 승인 처리
+                        string updateRsrvStatusSql = string.Format(
+                            "UPDATE reservationtbl SET rsrvYN = 'Y' WHERE rsrvSeq = '{0}'", reservationSeq);
 
-                        cmd = new MySqlCommand(sql, conn);
+                        cmd = new MySqlCommand(updateRsrvStatusSql, conn);
+                        cmd.ExecuteNonQuery();
+
+                        // 해당 예약의 classCode 가져오기
+                        string getClassCodeSql = string.Format(
+                            "SELECT classCode FROM reservationtbl WHERE rsrvSeq = '{0}'", reservationSeq);
+
+                        cmd = new MySqlCommand(getClassCodeSql, conn);
+                        string classCode = cmd.ExecuteScalar().ToString();
+
+                        // 클래스의 예약 가능 인원 갱신 쿼리
+                        string updateClassAvailSql = string.Format(
+                            "UPDATE classTbl " +
+                            "SET classAvail = classMax - ( " +
+                            "SELECT IFNULL(SUM(rsrvPrsnl), 0) " +
+                            "FROM reservationtbl " +
+                            "WHERE classTbl.classCode = reservationtbl.classCode " +
+                            "AND rsrvSeq = '{0}' " +
+                            "AND rsrvYN = 'Y' " +
+                            ") " +
+                            "WHERE classTbl.classCode = '{1}'", reservationSeq, classCode);
+
+                        cmd = new MySqlCommand(updateClassAvailSql, conn);
                         cmd.ExecuteNonQuery();
                     }
 
@@ -227,6 +248,7 @@ namespace WindowsFormsApp1
                     // 예약 승인 후 다시 조회
                     selectRsrvToolStripMenuItem_Click(sender, e);
                 }
+
             }
             catch (Exception ex)
             {
@@ -238,6 +260,7 @@ namespace WindowsFormsApp1
             }
         }
 
+
         private void noBtn_Click(object sender, EventArgs e)
         {
             try
@@ -246,10 +269,7 @@ namespace WindowsFormsApp1
                 conn.Open();
 
                 // 선택된 예약번호들을 저장할 리스트
-                List<string> userSelectedSeqList = new List<string>(); 
-                List<string> userSelectedDateList = new List<string>();
-                List<string> userSelectedCodeList = new List<string>();
-                List<int> userSelectedPrsnlList = new List<int>();
+                List<string> userSelectedSeqList = new List<string>();
 
                 foreach (DataGridViewRow row in adminDataGrid.Rows)
                 {
@@ -257,15 +277,8 @@ namespace WindowsFormsApp1
 
                     if (chk.Value != null && (bool)chk.Value)
                     {
-                        string rsrvSeq = row.Cells["예약번호"].Value.ToString(); 
-                        string rsrvDate = row.Cells["예약 날짜"].Value.ToString().Substring(0,10);
-                        string classCode = row.Cells["강의실 코드"].Value.ToString();
-                        int rsrvPrsnl = Convert.ToInt32(row.Cells["예약 인원"].Value);
-
+                        string rsrvSeq = row.Cells["예약번호"].Value.ToString();
                         userSelectedSeqList.Add(rsrvSeq);
-                        userSelectedDateList.Add(rsrvDate);
-                        userSelectedCodeList.Add(classCode);
-                        userSelectedPrsnlList.Add(rsrvPrsnl);
                     }
                 }
 
@@ -275,15 +288,18 @@ namespace WindowsFormsApp1
                 if (result == DialogResult.Yes)
                 {
                     // 예약 거절 처리하는 쿼리
-                    for (int i=0; i< userSelectedSeqList.Count; i++)
+                    foreach (string rsrvSeq in userSelectedSeqList)
                     {
-                        sql = $"UPDATE reservationtbl SET rsrvYN = 'R' WHERE rsrvSeq = {userSelectedSeqList[i]}";
+                        sql = string.Format(
+                            "UPDATE reservationtbl " +
+                            "SET rsrvYN = 'R' " +
+                            "WHERE rsrvSeq = '{0}'", rsrvSeq);
 
                         cmd = new MySqlCommand(sql, conn);
                         cmd.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show(userSelectedSeqList.Count + "건의 예약을 승인 거절하였습니다.");
+                    MessageBox.Show(userSelectedSeqList.Count + "건의 예약을 거절하였습니다.");
 
                     // 예약 거절 후 다시 조회
                     selectRsrvToolStripMenuItem_Click(sender, e);
@@ -299,6 +315,7 @@ namespace WindowsFormsApp1
             }
         }
 
+
         private void adminForm_Load(object sender, EventArgs e)
         {
             // 디폴트 값 설정
@@ -308,6 +325,8 @@ namespace WindowsFormsApp1
             // 전체 화면으로 설정
             this.WindowState = FormWindowState.Maximized;
             adminDataGrid.AllowUserToAddRows = false;
+
+            userNameLabel.Text = User.UserName + "님 환영합니다";
         }
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
@@ -492,6 +511,17 @@ namespace WindowsFormsApp1
             {
                 column.MinimumWidth = 50; // 원하는 최소 너비로 설정
             }
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            User.UserId = "";
+
+            MessageBox.Show("로그아웃 되었습니다.");
+            this.Close();
+
+            userLoginForm loginForm = new userLoginForm();
+            loginForm.Show();
         }
     }
 }
