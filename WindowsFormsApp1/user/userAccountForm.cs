@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
 
         private bool ValidatePassword(string userPw)
         {
-            string regPw = "^(?=.*[a-z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{8,}$";
+            string regPw = "^(?=.*[a-z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{8,}$"; 
             return Regex.IsMatch(userPw, regPw);
         }
 
@@ -54,21 +54,21 @@ namespace WindowsFormsApp1
                 // 아이디 유효성 검사
                 if (!ValidateId(userId))
                 {
-                    MessageBox.Show("올바른 아이디 형식이 아닙니다.");
+                    MessageBox.Show("학번은 숫자로만 입력해야 합니다.");
                     return;
                 }
 
                 // 비밀번호 유효성 검사
                 if (!ValidatePassword(userPw))
                 {
-                    MessageBox.Show("올바른 비밀번호 형식이 아닙니다.");
+                    MessageBox.Show("비밀번호는 최소 8자 이상, 영문자, 숫자, 특수문자를 포함해야 합니다.");
                     return;
                 }
 
                 // 이름 유효성 검사
                 if (!ValidateName(userName))
                 {
-                    MessageBox.Show("올바른 이름 형식이 아닙니다.");
+                    MessageBox.Show("이름은 한글로만 입력해야 합니다.");
                     return;
                 }
 
