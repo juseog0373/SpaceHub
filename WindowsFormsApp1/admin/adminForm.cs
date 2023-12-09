@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserDTO;
 using static dbConnectSpace.dbConnection;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -308,6 +309,8 @@ namespace WindowsFormsApp1
             // 전체 화면으로 설정
             this.WindowState = FormWindowState.Maximized;
             adminDataGrid.AllowUserToAddRows = false;
+
+            userNameLabel.Text = User.UserName + "님 환영합니다";
         }
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
@@ -492,6 +495,17 @@ namespace WindowsFormsApp1
             {
                 column.MinimumWidth = 50; // 원하는 최소 너비로 설정
             }
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            User.UserId = "";
+
+            MessageBox.Show("로그아웃 되었습니다.");
+            this.Close();
+
+            userLoginForm loginForm = new userLoginForm();
+            loginForm.Show();
         }
     }
 }
