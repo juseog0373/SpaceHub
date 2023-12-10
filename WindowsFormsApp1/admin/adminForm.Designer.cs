@@ -52,19 +52,26 @@
             // 
             // adminDataGrid
             // 
+            this.adminDataGrid.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.adminDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.adminDataGrid.Location = new System.Drawing.Point(20, 132);
+
+            this.adminDataGrid.Location = new System.Drawing.Point(36, 201);
+            this.adminDataGrid.Margin = new System.Windows.Forms.Padding(5);
             this.adminDataGrid.Name = "adminDataGrid";
             this.adminDataGrid.RowHeadersWidth = 72;
             this.adminDataGrid.RowTemplate.Height = 23;
-            this.adminDataGrid.Size = new System.Drawing.Size(916, 527);
+            this.adminDataGrid.Size = new System.Drawing.Size(1194, 1307);
+
             this.adminDataGrid.TabIndex = 4;
             // 
             // yesBtn
             // 
             this.yesBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.yesBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.yesBtn.Location = new System.Drawing.Point(964, 347);
+
+            this.yesBtn.Location = new System.Drawing.Point(1353, 930);
+            this.yesBtn.Margin = new System.Windows.Forms.Padding(5);
+
             this.yesBtn.Name = "yesBtn";
             this.yesBtn.Size = new System.Drawing.Size(298, 153);
             this.yesBtn.TabIndex = 5;
@@ -81,7 +88,10 @@
             this.classToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1243, 54);
+
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(1931, 58);
+
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -149,7 +159,10 @@
             // 
             this.noBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.noBtn.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.noBtn.Location = new System.Drawing.Point(964, 506);
+
+            this.noBtn.Location = new System.Drawing.Point(1353, 1238);
+            this.noBtn.Margin = new System.Windows.Forms.Padding(5);
+
             this.noBtn.Name = "noBtn";
             this.noBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.noBtn.Size = new System.Drawing.Size(298, 153);
@@ -163,7 +176,10 @@
             this.rsrvLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rsrvLabel.AutoSize = true;
             this.rsrvLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.rsrvLabel.Location = new System.Drawing.Point(964, 240);
+
+            this.rsrvLabel.Location = new System.Drawing.Point(1417, 280);
+            this.rsrvLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+
             this.rsrvLabel.Name = "rsrvLabel";
             this.rsrvLabel.Size = new System.Drawing.Size(118, 21);
             this.rsrvLabel.TabIndex = 56;
@@ -178,7 +194,10 @@
             "승인 대기",
             "승인 거절",
             "승인 완료"});
-            this.rsrvCodeDropdown.Location = new System.Drawing.Point(1106, 241);
+
+            this.rsrvCodeDropdown.Location = new System.Drawing.Point(1648, 289);
+            this.rsrvCodeDropdown.Margin = new System.Windows.Forms.Padding(5);
+
             this.rsrvCodeDropdown.Name = "rsrvCodeDropdown";
             this.rsrvCodeDropdown.Size = new System.Drawing.Size(156, 20);
             this.rsrvCodeDropdown.TabIndex = 55;
@@ -199,18 +218,24 @@
             this.userNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.userNameLabel.Location = new System.Drawing.Point(1053, 135);
+
+            this.userNameLabel.Location = new System.Drawing.Point(1516, 201);
+            this.userNameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(128, 20);
+            this.userNameLabel.Size = new System.Drawing.Size(247, 37);
+
             this.userNameLabel.TabIndex = 68;
-            this.userNameLabel.Text = "test님 환영합니다";
+            this.userNameLabel.Text = "test1님 환영합니다";
             // 
             // logoutBtn
             // 
             this.logoutBtn.AllowDrop = true;
             this.logoutBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.logoutBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.logoutBtn.Location = new System.Drawing.Point(1187, 132);
+
+            this.logoutBtn.Location = new System.Drawing.Point(1773, 201);
+            this.logoutBtn.Margin = new System.Windows.Forms.Padding(5);
+
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(75, 23);
             this.logoutBtn.TabIndex = 67;
@@ -222,7 +247,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 778);
+
+            this.ClientSize = new System.Drawing.Size(1993, 1580);
+
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.pictureBox1);
