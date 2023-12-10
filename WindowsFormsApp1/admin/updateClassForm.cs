@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
                 conn.Open();
 
                 // 예시: 강의실 이름, 수용 인원, 층 수, 강의실 정보를 업데이트하는 쿼리
-                sql = string.Format("UPDATE classTbl SET classCode = @classCode, className = @className, classMax = @classMax, classFloor = @classFloor, classInfo = @classInfo WHERE classSeq = @classSeq");
+                sql = string.Format("UPDATE classTbl SET classCode = @classCode, className = @className, classMax = @classMax, classAvail=@classMax, classFloor = @classFloor, classInfo = @classInfo WHERE classSeq = @classSeq");
 
                 // SQL 쿼리 실행
                 MySqlCommand cmd = new MySqlCommand(sql, conn);

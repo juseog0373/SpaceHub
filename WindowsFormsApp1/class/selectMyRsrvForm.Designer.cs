@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(668, 27);
+            this.label1.Location = new System.Drawing.Point(745, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 30);
             this.label1.TabIndex = 4;
@@ -53,7 +53,7 @@
             this.myRsrvDataGrid.Name = "myRsrvDataGrid";
             this.myRsrvDataGrid.ReadOnly = true;
             this.myRsrvDataGrid.RowTemplate.Height = 23;
-            this.myRsrvDataGrid.Size = new System.Drawing.Size(742, 456);
+            this.myRsrvDataGrid.Size = new System.Drawing.Size(819, 456);
             this.myRsrvDataGrid.TabIndex = 3;
             // 
             // pictureBox1
@@ -70,7 +70,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 579);
+            this.ClientSize = new System.Drawing.Size(870, 579);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.myRsrvDataGrid);

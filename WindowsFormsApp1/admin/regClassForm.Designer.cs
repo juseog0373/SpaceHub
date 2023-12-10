@@ -207,9 +207,9 @@
             this.regBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.regBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.regBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.regBtn.Location = new System.Drawing.Point(297, 473);
+            this.regBtn.Location = new System.Drawing.Point(297, 462);
             this.regBtn.Name = "regBtn";
-            this.regBtn.Size = new System.Drawing.Size(230, 90);
+            this.regBtn.Size = new System.Drawing.Size(230, 101);
             this.regBtn.TabIndex = 25;
             this.regBtn.Text = "등록";
             this.regBtn.UseVisualStyleBackColor = false;
