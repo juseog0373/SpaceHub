@@ -433,7 +433,7 @@ namespace WindowsFormsApp1
 
             try
             {
-                sql = string.Format("SELECT c.classSeq '강의실 일련번호', c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원', c.classInfo '강의실 정보'" +
+                sql = string.Format("SELECT c.classSeq '강의실 일련번호', c.classCode '강의실 코드', c.className '강의실 이름', c.classFloor '강의실 층수', c.classLoca '강의실 위치', c.classMax '강의실 수용인원',  c.classAvail '예약 가능 인원', c.classInfo '강의실 정보'" +
                         " FROM classTbl c");
 
                 // SQL 쿼리 실행

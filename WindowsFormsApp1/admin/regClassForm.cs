@@ -38,8 +38,8 @@ namespace WindowsFormsApp1
             string classMax = classMaxDropDown.Text;
             string classInfo = classInfoTxt.Text;
 
-            string RegSql = string.Format("INSERT INTO classTbl (classCode, className, classFloor, classLoca,classMax,classInfo) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');"
-                , classCode, className, classFloor, classLoca, classMax, classInfo);
+            string RegSql = string.Format("INSERT INTO classTbl (classCode, className, classFloor, classLoca,classMax,classAvail, classInfo) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}','{6}');"
+                , classCode, className, classFloor, classLoca, classMax, classMax, classInfo);
 
             MySqlCommand command = new MySqlCommand(RegSql, conn);
 
